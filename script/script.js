@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Add animation to certificate cards
   const certificateCards = document.querySelectorAll(
     "#certificates .project-card"
   );
@@ -20,14 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Initialize Bootstrap tabs
-  const tabEl = document.querySelector('button[data-bs-toggle="tab"]');
-  tabEl.addEventListener("shown.bs.tab", (event) => {
-    // Trigger AOS animation when tab is shown
-    AOS.refresh();
+  const tabEls = document.querySelectorAll('button[data-bs-toggle="tab"]');
+  tabEls.forEach((tabEl) => {
+    tabEl.addEventListener("shown.bs.tab", (event) => {
+      AOS.refreshHard();
+    });
   });
 
-  // Add hover effect for skill items
   const skillItems = document.querySelectorAll(".skill-item");
   skillItems.forEach((item) => {
     item.addEventListener("mouseenter", function () {
@@ -38,15 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
       this.querySelector("i").classList.remove("fa-beat");
     });
   });
-  // Initialize AOS animation library
+
   AOS.init({
     duration: 800,
     easing: "ease",
-    once: true,
+    once: false,
     offset: 100,
   });
 
-  // Gallery elements
   const galleryContainer = document.querySelector(".gallery-container");
   const galleryItems = document.querySelectorAll(".gallery-item");
   const prevBtn = document.querySelector(".gallery-nav.prev");
@@ -56,11 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
   const itemCount = galleryItems.length;
 
-  // Update gallery position
   function updateGallery() {
     galleryContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    // Update indicators
     indicators.forEach((indicator, index) => {
       if (index === currentIndex) {
         indicator.classList.add("active");
@@ -70,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Event listeners for navigation buttons
   prevBtn.addEventListener("click", function () {
     currentIndex = (currentIndex - 1 + itemCount) % itemCount;
     updateGallery();
@@ -81,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateGallery();
   });
 
-  // Event listeners for indicators
   indicators.forEach((indicator, index) => {
     indicator.addEventListener("click", function () {
       currentIndex = index;
@@ -89,10 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Initialize gallery
   updateGallery();
 
-  // Auto-rotate gallery
   setInterval(function () {
     currentIndex = (currentIndex + 1) % itemCount;
     updateGallery();

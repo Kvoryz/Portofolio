@@ -4,7 +4,7 @@ body {
   font-family: "JetBrains Mono", monospace;
 }
 [id] {
-  scroll-margin-top: 50px; /* Atur sesuai tinggi navbar */
+  scroll-margin-top: 50px;
 }
 
 .container {
@@ -20,7 +20,6 @@ header {
   background-color: rgba(18, 18, 18, 0.9);
 }
 
-/* Tab styling */
 .nav-tabs .nav-link {
   color: #aaaaaa;
   font-weight: 500;
@@ -53,7 +52,6 @@ header {
   padding: 20px 0;
 }
 
-/* Skill item styling */
 .skill-item {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
@@ -64,7 +62,6 @@ header {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Make cards same height in a row */
 .project-card {
   height: 100%;
 }
@@ -78,7 +75,6 @@ header {
   flex-grow: 1;
 }
 
-/* Animation for tab transitions */
 .tab-pane.fade {
   transition: opacity 0.3s ease-in-out;
 }
@@ -452,12 +448,10 @@ section,
   }
 }
 
-/* Navbar icons styling */
 .nav-icon {
   margin-right: 5px;
 }
 
-/* Download CV button styling */
 .btn-download {
   background-color: #28a745;
   color: white;
@@ -480,7 +474,6 @@ section,
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Profile image in About section */
 .about-profile-img {
   width: 100%;
   height: 100%;
@@ -489,10 +482,9 @@ section,
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Container for the 9:16 aspect ratio image */
 .img-container-9-16 {
   position: relative;
-  padding-bottom: 177.78%; /* 16:9 -> 9:16 = 16/9 * 100% */
+  padding-bottom: 177.78%;
   height: 0;
   overflow: hidden;
 }
