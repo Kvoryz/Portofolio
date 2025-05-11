@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clover</title>
+    <link rel="icon" href="image/clover.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: "JetBrains Mono", monospace;
+      }
+      [id] {
+        scroll-margin-top: 50px; /* Atur sesuai tinggi navbar */
+      }
+
+      .container {
+        background-color: #121212;
+      }
+
+      header {
+        border-bottom-color: #333 !important;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background-color: rgba(18, 18, 18, 0.9);
+      }
+
+      /* Tab styling */
+      .nav-tabs .nav-link {
+        color: #aaaaaa;
+        font-weight: 500;
+        padding: 10px 20px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-tabs .nav-link:hover {
+        color: #28a745;
+      }
+
+      .nav-tabs .nav-link.active {
+        color: #28a745;
+        background-color: transparent;
+        position: relative;
+      }
+
+      .nav-tabs .nav-link.active:after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #28a745;
+        border-radius: 1.5px;
+      }
+
+      .tab-content {
+        padding: 20px 0;
+      }
+
+      /* Skill item styling */
+      .skill-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+      }
+
+      .skill-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Make cards same height in a row */
+      .project-card {
+        height: 100%;
+      }
+
+      .project-card .card-body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card .project-description {
+        flex-grow: 1;
+      }
+
+      /* Animation for tab transitions */
+      .tab-pane.fade {
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .tab-pane.fade.show {
+        opacity: 1;
+      }
+      .text-dark {
+        color: #e0e0e0 !important;
+      }
+
+      .text-muted {
+        color: #aaaaaa !important;
+      }
+
+      .bg-light {
+        background-color: #1e1e1e !important;
+      }
+
+      .divider {
+        background-color: #28a745 !important;
+      }
+
+      .social-icon {
+        color: #e0e0e0 !important;
+      }
+
+      .social-icon:hover {
+        color: #28a745 !important;
+      }
+
+      .hero-section {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+      }
+
+      .hero-profile-image {
+        margin-bottom: 30px;
+      }
+
+      .hero-content {
+        white-space: nowrap;
+        margin-bottom: 20px;
+      }
+
+      .timeline {
+        position: relative;
+        padding-left: 50px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 40px;
+      }
+
+      .timeline-item:before {
+        content: "";
+        position: absolute;
+        left: -35px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background-color: #333;
+      }
+
+      .timeline-item:after {
+        content: "";
+        position: absolute;
+        left: -40px;
+        top: 0;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        background-color: #28a745;
+      }
+
+      .timeline-year {
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #28a745;
+      }
+
+      .photo-gallery {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gallery-container {
+        display: flex;
+        transition: transform 0.4s ease;
+      }
+
+      .gallery-item {
+        min-width: 100%;
+        height: 500px;
+        position: relative;
+      }
+
+      @media (max-width: 768px) {
+        .gallery-item {
+          height: 300px;
+        }
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45px;
+        height: 45px;
+        background: rgba(40, 40, 40, 0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #e0e0e0;
+        z-index: 10;
+        border: none;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-nav:hover {
+        background: rgba(40, 167, 69, 0.8);
+        color: white;
+      }
+
+      .gallery-nav.prev {
+        left: 10px;
+      }
+
+      .gallery-nav.next {
+        right: 10px;
+      }
+
+      .gallery-indicators {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+      }
+
+      .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #444;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .indicator.active {
+        background: #28a745;
+      }
+
+      .photo-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 15px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+
+      .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        height: 100%;
+        background-color: #1e1e1e;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-image {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .project-title {
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .project-description {
+        font-size: 0.9rem;
+        color: #aaaaaa;
+      }
+
+      .tech-badge {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        display: inline-block;
+      }
+
+      .modal-body img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .modal-title {
+        color: #28a745;
+      }
+
+      .shadow {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5) !important;
+      }
+
+      .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5) !important;
+      }
+
+      .rounded {
+        border-radius: 0.5rem !important;
+      }
+
+      a {
+        color: #28a745;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #218838;
+      }
+
+      .display-4,
+      .display-5,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: #e0e0e0;
+      }
+
+      .lead {
+        color: #cccccc;
+      }
+
+      section,
+      .container {
+        border-radius: 8px;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 4px;
+        height: 1.2em;
+        background-color: #28a745;
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: blink 1s step-end infinite;
+      }
+
+      .tagline-container {
+        height: 24px;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          min-height: auto;
+          padding: 3rem 1rem;
+        }
+
+        header nav {
+          font-size: 0.9rem;
+        }
+
+        .timeline {
+          padding-left: 30px;
+        }
+
+        .timeline-item:before {
+          left: -20px;
+        }
+
+        .timeline-item:after {
+          left: -25px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-profile-image img {
+          width: 180px;
+          height: 180px;
+        }
+
+        .social-icon {
+          font-size: 1.2rem !important;
+        }
+
+        .display-5 {
+          font-size: 1.8rem;
+        }
+
+        .tagline-container {
+          height: 20px;
+        }
+      }
+
+      .wave {
+        animation-name: wave-animation;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        transform-origin: 70% 70%;
+        display: inline-block;
+      }
+
+      @keyframes wave-animation {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(14deg);
+        }
+        20% {
+          transform: rotate(-8deg);
+        }
+        30% {
+          transform: rotate(14deg);
+        }
+        40% {
+          transform: rotate(-4deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        60% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      /* Navbar icons styling */
+      .nav-icon {
+        margin-right: 5px;
+      }
+
+      /* Download CV button styling */
+      .btn-download {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .btn-download:hover {
+        background-color: #218838;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Profile image in About section */
+      .about-profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Container for the 9:16 aspect ratio image */
+      .img-container-9-16 {
+        position: relative;
+        padding-bottom: 177.78%; /* 16:9 -> 9:16 = 16/9 * 100% */
+        height: 0;
+        overflow: hidden;
+      }
+
+      .img-container-9-16 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="home" class="container">
+      <header
+        class="d-flex justify-content-between align-items-center py-3 px-3"
+      >
+        <!-- Logo -->
+        <div class="d-flex align-items-center">
+          <img
+            src="image/clover.png"
+            alt="icon"
+            width="50"
+            height="50"
+            class="me-2"
+          />
+          <div class="fs-4 fw-bold text-light">Clover</div>
+        </div>
+
+        <!-- Burger Toggle - tampil hanya di mobile -->
+        <button
+          class="d-lg-none btn text-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mobileNav"
+          aria-controls="mobileNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars fs-4"></i>
+        </button>
+
+        <!-- Menu Navigasi Utama (tampil di desktop) -->
+        <nav class="d-none d-lg-flex">
+          <a href="#home" class="text-decoration-none text-light me-4">
+            <i class="fas fa-home nav-icon"></i>Home
+          </a>
+          <a href="#about" class="text-decoration-none text-light me-4">
+            <i class="fas fa-user nav-icon"></i>About
+          </a>
+          <a href="#expert" class="text-decoration-none text-light me-4">
+            <i class="fas fa-code nav-icon"></i>Expertise
+          </a>
+          <a href="#skill" class="text-decoration-none text-light me-4">
+            <i class="fas fa-filter nav-icon"></i>Skills
+          </a>
+          <a href="preset.html" class="text-decoration-none text-light">
+            <i class="fas fa-laptop-code nav-icon"></i>Project
+          </a>
+        </nav>
+      </header>
+
+      <!-- Menu Mobile (collapse) -->
+      <div class="collapse d-lg-none bg-dark px-3" id="mobileNav">
+        <a href="#home" class="d-block text-decoration-none text-light py-2">
+          <i class="fas fa-home nav-icon"></i> Home
+        </a>
+        <a href="#about" class="d-block text-decoration-none text-light py-2">
+          <i class="fas fa-user nav-icon"></i> About
+        </a>
+        <a href="#expert" class="d-block text-decoration-none text-light py-2">
+          <i class="fas fa-code nav-icon"></i> Expertise
+        </a>
+        <a href="#skill" class="d-block text-decoration-none text-light py-2">
+          <i class="fas fa-filter nav-icon"></i> Skills
+        </a>
+        <a
+          href="preset.html"
+          class="d-block text-decoration-none text-light py-2"
+        >
+          <i class="fas fa-laptop-code nav-icon"></i> Project
+        </a>
+      </div>
+
+      <!-- Hero Section -->
+      <section class="hero-section" id="home">
+        <div class="row justify-content-center align-items-center">
+          <div
+            class="col-md-4 col-sm-12 text-center hero-profile-image"
+            data-aos="fade-right"
+          >
+            <img
+              src="image/pfp2.jpg"
+              alt="Foto Profil"
+              class="rounded-circle shadow"
+              style="width: 250px; height: 250px; object-fit: cover"
+            />
+          </div>
+          <div
+            class="col-md-8 col-sm-12 hero-content ps-md-4"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
+            <h1 class="display-5 fw-bold text-light mb-3">
+              Hi There! <span class="wave">👋🏻</span>
+            </h1>
+            <h4 class="display-5 fw-bold text-light mb-3 text-muted">
+              I'm Raffi Andhika
+            </h4>
+            <div class="tagline-container">
+              <span id="typed-text" class="text-muted"></span
+              ><span class="cursor"></span>
+            </div>
+            <div class="d-flex gap-3 gap-md-4 mt-4">
+              <a
+                href="https://wa.me/nomorwhatsapp"
+                target="_blank"
+                class="text-light fs-4 social-icon"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a
+                href="https://github.com/username"
+                target="_blank"
+                class="text-light fs-4 social-icon"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://instagram.com/username"
+                target="_blank"
+                class="text-light fs-4 social-icon"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://twitter.com/username"
+                target="_blank"
+                class="text-light fs-4 social-icon"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://discord.com"
+                target="_blank"
+                class="text-light fs-4 social-icon"
+              >
+                <i class="fab fa-discord"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- About Me Section -->
+    <div
+      class="container"
+      style="margin-top: 100px; margin-bottom: 100px"
+      id="about"
+    >
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-8 text-center"
+          data-aos="fade-up"
+          data-aos-once="false"
+        >
+          <h2 class="display-5 fw-bold text-light">About Me</h2>
+          <div
+            class="divider mx-auto bg-success mb-3"
+            style="height: 3px; width: 60px"
+          ></div>
+        </div>
+      </div>
+
+      <div
+        class="row justify-content-center mt-5"
+        data-aos="fade-up"
+        data-aos-delay="100"
+        data-aos-once="false"
+      >
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="img-container mb-4 mb-md-0">
+                <img
+                  src="image/pfp2.jpg"
+                  alt="Profile Photo"
+                  class="about-profile-img"
+                />
+              </div>
+            </div>
+            <div class="col-md-7 d-flex flex-column justify-content-between">
+              <div>
+                <h4 class="fw-bold mb-3">Raffi Andhika</h4>
+                <p class="text-muted mb-3">Informatics Engineering Student</p>
+                <p style="text-align: justify">
+                  I'm passionately pursuing my education in Informatics
+                  Engineering with a focus on creating elegant solutions. My
+                  goal is to develop software that makes a difference while
+                  continuing to expand my knowledge and skills in this
+                  ever-evolving field.
+                </p>
+                <div class="mb-3">
+                  <span class="text-muted me-3"
+                    ><i class="fas fa-envelope me-2"></i
+                    >riazrepo@gmail.com</span
+                  >
+                  <span class="text-muted"
+                    ><i class="fas fa-phone me-2"></i>+6282399408885</span
+                  >
+                </div>
+              </div>
+              <a href="#" class="btn-download align-self-start">
+                <i class="fas fa-download"></i> Download CV
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div
+          class="col-md-3 mb-4"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center h-100 text-center"
+          >
+            <i class="fas fa-laptop-code fs-3 mb-3 text-success"></i>
+            <h4 class="fw-bold">2+ Years Experience</h4>
+          </div>
+        </div>
+        <div
+          class="col-md-3 mb-4"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center h-100 text-center"
+          >
+            <i class="fas fa-boxes fs-3 mb-3 text-success"></i>
+            <h4 class="fw-bold">3+ Projects Created</h4>
+          </div>
+        </div>
+        <div
+          class="col-md-3 mb-4"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center h-100 text-center"
+          >
+            <i class="fas fa-database fs-3 mb-3 text-success"></i>
+            <h4 class="fw-bold">2+ Certificates</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tabbed Content Section -->
+    <div class="container my-5 py-5" id="expert">
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-8 text-center"
+          data-aos="fade-up"
+          data-aos-once="false"
+        >
+          <h2 class="display-5 fw-bold text-light">My Expertise</h2>
+          <div
+            class="divider mx-auto bg-success mb-4"
+            style="height: 3px; width: 60px"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-8">
+          <ul
+            class="nav nav-tabs justify-content-center border-0"
+            id="myTab"
+            role="tablist"
+          >
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active bg-transparent text-light border-0 position-relative tab-btn"
+                id="projects-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#projects"
+                type="button"
+                role="tab"
+                aria-controls="projects"
+                aria-selected="true"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-once="false"
+              >
+                <i class="fas fa-laptop-code me-2"></i>Projects
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link bg-transparent text-light border-0 position-relative tab-btn"
+                id="certificates-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#certificates"
+                type="button"
+                role="tab"
+                aria-controls="certificates"
+                aria-selected="false"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-once="false"
+              >
+                <i class="fas fa-boxes me-2"></i>Certificates
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tabs Content -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="tab-content mt-4" id="myTabContent">
+            <!-- Projects Tab -->
+            <div
+              class="tab-pane fade show active"
+              id="projects"
+              role="tabpanel"
+              aria-labelledby="projects-tab"
+            >
+              <div class="row">
+                <!-- Project 1 -->
+                <div
+                  class="col-md-4 mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  data-aos-once="false"
+                >
+                  <div class="card project-card border-0 shadow">
+                    <img
+                      src="image/iskw1.jpg"
+                      class="card-img-top project-image"
+                      alt="Project 1"
+                    />
+                    <div class="card-body bg-dark text-light">
+                      <h5 class="project-title">E-Commerce Website</h5>
+                      <p class="project-description">
+                        A fully responsive e-commerce platform with product
+                        catalog, shopping cart, and payment integration.
+                      </p>
+                      <div class="mt-3">
+                        <span class="tech-badge">HTML</span>
+                        <span class="tech-badge">CSS</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">PHP</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                  class="col-md-4 mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-once="false"
+                >
+                  <div class="card project-card border-0 shadow">
+                    <img
+                      src="image/iskw2.jpg"
+                      class="card-img-top project-image"
+                      alt="Project 2"
+                    />
+                    <div class="card-body bg-dark text-light">
+                      <h5 class="project-title">Task Management App</h5>
+                      <p class="project-description">
+                        A web application for managing tasks, setting deadlines,
+                        and tracking progress.
+                      </p>
+                      <div class="mt-3">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">MongoDB</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                  class="col-md-4 mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                  data-aos-once="false"
+                >
+                  <div class="card project-card border-0 shadow">
+                    <img
+                      src="image/iskw3.jpg"
+                      class="card-img-top project-image"
+                      alt="Project 3"
+                    />
+                    <div class="card-body bg-dark text-light">
+                      <h5 class="project-title">Weather Forecast App</h5>
+                      <p class="project-description">
+                        A mobile app that provides real-time weather forecasts
+                        based on user location.
+                      </p>
+                      <div class="mt-3">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">API Integration</span>
+                        <span class="tech-badge">SQLite</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certificates Tab -->
+            <div
+              class="tab-pane fade"
+              id="certificates"
+              role="tabpanel"
+              aria-labelledby="certificates-tab"
+            >
+              <div class="row">
+                <!-- Certificate 1 -->
+                <div
+                  class="col-md-4 mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  data-aos-once="false"
+                >
+                  <div class="card project-card border-0 shadow">
+                    <img
+                      src="image/iskw4.jpg"
+                      class="card-img-top project-image"
+                      alt="Certificate 1"
+                    />
+                    <div class="card-body bg-dark text-light">
+                      <h5 class="project-title">Full Stack Web Development</h5>
+                      <p class="project-description">
+                        Comprehensive course covering front-end and back-end
+                        development technologies.
+                      </p>
+                      <p class="text-muted">Udemy - 2023</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div
+                  class="col-md-4 mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-once="false"
+                >
+                  <div class="card project-card border-0 shadow">
+                    <img
+                      src="image/iskw1.jpg"
+                      class="card-img-top project-image"
+                      alt="Certificate 2"
+                    />
+                    <div class="card-body bg-dark text-light">
+                      <h5 class="project-title">
+                        JavaScript Algorithms & Data Structures
+                      </h5>
+                      <p class="project-description">
+                        Advanced JavaScript programming concepts and practical
+                        implementations.
+                      </p>
+                      <p class="text-muted">freeCodeCamp - 2022</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div
+                  class="col-md-4 mb-4"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                  data-aos-once="false"
+                >
+                  <div class="card project-card border-0 shadow">
+                    <img
+                      src="image/iskw2.jpg"
+                      class="card-img-top project-image"
+                      alt="Certificate 3"
+                    />
+                    <div class="card-body bg-dark text-light">
+                      <h5 class="project-title">UI/UX Design Fundamentals</h5>
+                      <p class="project-description">
+                        Mastering user interface design principles and user
+                        experience best practices.
+                      </p>
+                      <p class="text-muted">Coursera - 2023</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container my-5 py-5" id="skill">
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-8 text-center"
+          data-aos="fade-up"
+          data-aos-once="false"
+        >
+          <h2 class="display-5 fw-bold text-light">Technical Skills</h2>
+          <div
+            class="divider mx-auto bg-success mb-5"
+            style="height: 3px; width: 60px"
+          ></div>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <!-- Skill Box Template -->
+        <div
+          class="col"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
+          >
+            <i class="fab fa-html5 text-danger fa-2x mb-2"></i>
+            <h6 class="mb-2">HTML</h6>
+            <div class="w-100" width>
+              <div class="progress" style="height: 6px">
+                <div
+                  class="progress-bar bg-danger"
+                  role="progressbar"
+                  style="width: 70%"
+                  aria-valuenow="70"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <small class="text-secondary">70%</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat for each skill -->
+        <div
+          class="col"
+          data-aos="fade-up"
+          data-aos-delay="150"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
+          >
+            <i class="fab fa-css3-alt text-primary fa-2x mb-2"></i>
+            <h6 class="mb-2">CSS</h6>
+            <div class="w-100">
+              <div class="progress" style="height: 6px">
+                <div
+                  class="progress-bar bg-primary"
+                  style="width: 65%"
+                  role="progressbar"
+                ></div>
+              </div>
+              <small class="text-secondary">65%</small>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
+          >
+            <i class="fab fa-js-square text-warning fa-2x mb-2"></i>
+            <h6 class="mb-2">JavaScript</h6>
+            <div class="w-100">
+              <div class="progress" style="height: 6px">
+                <div
+                  class="progress-bar bg-warning"
+                  style="width: 60%"
+                  role="progressbar"
+                ></div>
+              </div>
+              <small class="text-secondary">60%</small>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col"
+          data-aos="fade-up"
+          data-aos-delay="250"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
+          >
+            <i class="fab fa-php text-info fa-2x mb-2"></i>
+            <h6 class="mb-2">PHP</h6>
+            <div class="w-100">
+              <div class="progress" style="height: 6px">
+                <div
+                  class="progress-bar bg-info"
+                  style="width: 55%"
+                  role="progressbar"
+                ></div>
+              </div>
+              <small class="text-secondary">55%</small>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
+          >
+            <i class="fas fa-database text-primary fa-2x mb-2"></i>
+            <h6 class="mb-2">MySQL</h6>
+            <div class="w-100">
+              <div class="progress" style="height: 6px">
+                <div
+                  class="progress-bar bg-primary"
+                  style="width: 65%"
+                  role="progressbar"
+                ></div>
+              </div>
+              <small class="text-secondary">65%</small>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col"
+          data-aos="fade-up"
+          data-aos-delay="350"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
+          >
+            <i class="fab fa-java text-warning fa-2x mb-2"></i>
+            <h6 class="mb-2">Java</h6>
+            <div class="w-100">
+              <div class="progress" style="height: 6px">
+                <div
+                  class="progress-bar bg-warning"
+                  style="width: 50%"
+                  role="progressbar"
+                ></div>
+              </div>
+              <small class="text-secondary">50%</small>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col"
+          data-aos="fade-up"
+          data-aos-delay="400"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
+          >
+            <i class="fas fa-file-code text-success fa-2x mb-2"></i>
+            <h6 class="mb-2">C++</h6>
+            <div class="w-100">
+              <div class="progress" style="height: 6px">
+                <div
+                  class="progress-bar bg-success"
+                  style="width: 45%"
+                  role="progressbar"
+                ></div>
+              </div>
+              <small class="text-secondary">45%</small>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col"
+          data-aos="fade-up"
+          data-aos-delay="450"
+          data-aos-once="false"
+        >
+          <div
+            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
+          >
+            <i class="fab fa-python text-info fa-2x mb-2"></i>
+            <h6 class="mb-2">Python</h6>
+            <div class="w-100">
+              <div class="progress" style="height: 6px">
+                <div
+                  class="progress-bar bg-info"
+                  style="width: 40%"
+                  role="progressbar"
+                ></div>
+              </div>
+              <small class="text-secondary">40%</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Academic Record Section -->
+    <div class="container my-5 py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2
+            class="text-center display-5 fw-bold text-light"
+            data-aos="fade-up"
+            data-aos-once="false"
+          >
+            Academic Record
+          </h2>
+          <div
+            class="divider mx-auto bg-success mb-5"
+            style="height: 3px; width: 60px"
+            data-aos="fade-up"
+            data-aos-once="false"
+          ></div>
+
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up" data-aos-once="false">
+              <div class="timeline-year">2024 - Present</div>
+              <h4 class="mt-2 fw-bold">University Dipa Negara</h4>
+              <p class="mb-1">Informatics Engineering</p>
+              <p class="text-muted">
+                Currently pursuing my degree in Informatics Engineering with
+                focus on web development and backend development.
+              </p>
+            </div>
+
+            <div
+              class="timeline-item"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-once="false"
+            >
+              <div class="timeline-year">2020 - 2023</div>
+              <h4 class="mt-2 fw-bold">SMK Darussalam Makassar</h4>
+              <p class="mb-1">Software Engineering</p>
+              <p class="text-muted">
+                Learned fundamental programming concepts, database management,
+                and web development.
+              </p>
+            </div>
+
+            <div
+              class="timeline-item"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-once="false"
+            >
+              <div class="timeline-year">2017 - 2019</div>
+              <h4 class="mt-2 fw-bold">SMP IT Darussalam Makassar</h4>
+              <p class="text-muted">
+                Discovered my interest in technology and computers.
+              </p>
+            </div>
+
+            <div
+              class="timeline-item"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-once="false"
+            >
+              <div class="timeline-year">2010 - 2016</div>
+              <h4 class="mt-2 fw-bold">SD IT Al-Hijrah</h4>
+              <p class="text-muted">
+                Developed strong foundation in mathematics and science.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Hobby -->
+    <div class="container" style="margin-top: 100px; margin-bottom: 100px">
+      <div class="row justify-content-center mb-5">
+        <div
+          class="col-lg-8 text-center"
+          data-aos="fade-up"
+          data-aos-once="false"
+        >
+          <h2 class="display-5 fw-bold text-light">My Hobby</h2>
+          <div
+            class="divider mx-auto bg-success mb-4"
+            style="height: 3px; width: 60px"
+          ></div>
+          <p class="lead mb-5" style="text-align: justify-text">
+            Photography allows me to capture moments and see the world from
+            different perspectives. I'm particularly interested to landscape,
+            street, and architectural photography.
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-10"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-once="false"
+        >
+          <div class="photo-gallery">
+            <button class="gallery-nav prev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-nav next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="gallery-container">
+              <!-- Photo 1 -->
+              <div class="gallery-item">
+                <img src="image/iskw1.jpg" alt="Landscape photography" />
+              </div>
+
+              <!-- Photo 2 -->
+              <div class="gallery-item">
+                <img src="image/iskw2.jpg" alt="Urban photography" />
+              </div>
+
+              <!-- Photo 3 -->
+              <div class="gallery-item">
+                <img src="image/iskw3.jpg" alt="Street scene" />
+              </div>
+
+              <!-- Photo 4 -->
+              <div class="gallery-item">
+                <img src="image/iskw4.jpg" alt="Nature close-up" />
+              </div>
+            </div>
+
+            <div class="gallery-indicators">
+              <div class="indicator active" data-index="0"></div>
+              <div class="indicator" data-index="1"></div>
+              <div class="indicator" data-index="2"></div>
+              <div class="indicator" data-index="3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="projectModal1"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="projectModalLabel1">
+              E-Commerce Website
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="image/iskw1.jpg"
+              alt="Project 1"
+              class="img-fluid rounded mb-4"
+              style="width: 100%; height: 400px; object-fit: cover"
+            />
+            <h5 class="text-success mb-3">Project Description</h5>
+            <p>
+              A fully responsive e-commerce platform with product catalog,
+              shopping cart, and payment integration. This project was built to
+              provide small businesses with an affordable online presence.
+            </p>
+            <p>The platform includes features such as:</p>
+            <ul>
+              <li>
+                Responsive product catalog with filtering and search
+                capabilities
+              </li>
+              <li>User account management system</li>
+              <li>Shopping cart with persistent storage</li>
+              <li>Secure checkout process with multiple payment options</li>
+              <li>Admin dashboard for inventory and order management</li>
+            </ul>
+            <div class="mt-4">
+              <h5 class="text-success mb-3">Technologies Used</h5>
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">Bootstrap</span>
+            </div>
+          </div>
+          <div class="modal-footer border-top border-secondary">
+            <button
+              type="button"
+              class="btn btn-outline-light"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <a href="#" class="btn btn-success">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="projectModal2"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="projectModalLabel2">
+              Task Management App
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="image/iskw2.jpg"
+              alt="Project 2"
+              class="img-fluid rounded mb-4"
+              style="width: 100%; height: 400px; object-fit: cover"
+            />
+            <h5 class="text-success mb-3">Project Description</h5>
+            <p>
+              A web application for managing tasks, setting deadlines, and
+              tracking progress. This app helps users organize their work
+              efficiently and boost productivity.
+            </p>
+            <p>Key features include:</p>
+            <ul>
+              <li>Task creation with priority levels and deadlines</li>
+              <li>Drag-and-drop interface for task management</li>
+              <li>Progress tracking with visual indicators</li>
+              <li>Notification system for upcoming deadlines</li>
+              <li>Team collaboration tools</li>
+            </ul>
+            <div class="mt-4">
+              <h5 class="text-success mb-3">Technologies Used</h5>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">MongoDB</span>
+              <span class="tech-badge">Express</span>
+              <span class="tech-badge">Redux</span>
+            </div>
+          </div>
+          <div class="modal-footer border-top border-secondary">
+            <button
+              type="button"
+              class="btn btn-outline-light"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <a href="#" class="btn btn-success">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="projectModal3"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel3"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="projectModalLabel3">
+              Weather Forecast App
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="image/iskw3.jpg"
+              alt="Project 3"
+              class="img-fluid rounded mb-4"
+              style="width: 100%; height: 400px; object-fit: cover"
+            />
+            <h5 class="text-success mb-3">Project Description</h5>
+            <p>
+              A mobile app that provides real-time weather forecasts based on
+              user location. This app delivers accurate weather information with
+              a user-friendly interface.
+            </p>
+            <p>Features of the app include:</p>
+            <ul>
+              <li>Location-based weather forecasting</li>
+              <li>7-day forecast with detailed information</li>
+              <li>Weather alerts and notifications</li>
+              <li>Interactive weather maps</li>
+              <li>Offline mode for previously loaded forecasts</li>
+            </ul>
+            <div class="mt-4">
+              <h5 class="text-success mb-3">Technologies Used</h5>
+              <span class="tech-badge">Java</span>
+              <span class="tech-badge">API Integration</span>
+              <span class="tech-badge">SQLite</span>
+              <span class="tech-badge">Android SDK</span>
+              <span class="tech-badge">Google Maps API</span>
+            </div>
+          </div>
+          <div class="modal-footer border-top border-secondary">
+            <button
+              type="button"
+              class="btn btn-outline-light"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <a href="#" class="btn btn-success">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const projectCards = document.querySelectorAll(".project-card");
+        projectCards.forEach((card, index) => {
+          card.addEventListener("click", function () {
+            const modalId = `projectModal${index + 1}`;
+            const modal = new bootstrap.Modal(document.getElementById(modalId));
+            modal.show();
+          });
+        });
+
+        // Add animation to certificate cards
+        const certificateCards = document.querySelectorAll(
+          "#certificates .project-card"
+        );
+        certificateCards.forEach((card, index) => {
+          card.addEventListener("click", function () {
+            const modalId = `certModal${index + 1}`;
+            const modal = new bootstrap.Modal(document.getElementById(modalId));
+            modal.show();
+          });
+        });
+
+        // Initialize Bootstrap tabs
+        const tabEl = document.querySelector('button[data-bs-toggle="tab"]');
+        tabEl.addEventListener("shown.bs.tab", (event) => {
+          // Trigger AOS animation when tab is shown
+          AOS.refresh();
+        });
+
+        // Add hover effect for skill items
+        const skillItems = document.querySelectorAll(".skill-item");
+        skillItems.forEach((item) => {
+          item.addEventListener("mouseenter", function () {
+            this.querySelector("i").classList.add("fa-beat");
+          });
+
+          item.addEventListener("mouseleave", function () {
+            this.querySelector("i").classList.remove("fa-beat");
+          });
+        });
+        // Initialize AOS animation library
+        AOS.init({
+          duration: 800,
+          easing: "ease",
+          once: true,
+          offset: 100,
+        });
+
+        // Gallery elements
+        const galleryContainer = document.querySelector(".gallery-container");
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        const prevBtn = document.querySelector(".gallery-nav.prev");
+        const nextBtn = document.querySelector(".gallery-nav.next");
+        const indicators = document.querySelectorAll(".indicator");
+
+        let currentIndex = 0;
+        const itemCount = galleryItems.length;
+
+        // Update gallery position
+        function updateGallery() {
+          galleryContainer.style.transform = `translateX(-${
+            currentIndex * 100
+          }%)`;
+
+          // Update indicators
+          indicators.forEach((indicator, index) => {
+            if (index === currentIndex) {
+              indicator.classList.add("active");
+            } else {
+              indicator.classList.remove("active");
+            }
+          });
+        }
+
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener("click", function () {
+          currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+          updateGallery();
+        });
+
+        nextBtn.addEventListener("click", function () {
+          currentIndex = (currentIndex + 1) % itemCount;
+          updateGallery();
+        });
+
+        // Event listeners for indicators
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener("click", function () {
+            currentIndex = index;
+            updateGallery();
+          });
+        });
+
+        // Initialize gallery
+        updateGallery();
+
+        // Auto-rotate gallery
+        setInterval(function () {
+          currentIndex = (currentIndex + 1) % itemCount;
+          updateGallery();
+        }, 6000);
+
+        const typedText = document.getElementById("typed-text");
+        const phrases = [
+          "A Informatics Engineering Student.",
+          "A Photography Enthusiast.",
+          "A Web Developer.",
+          "A Backend Developer.",
+        ];
+        let phraseIndex = 0;
+        let isTyping = true;
+        let i = 0;
+
+        function typeEffect() {
+          const currentPhrase = phrases[phraseIndex];
+
+          if (isTyping && i < currentPhrase.length) {
+            typedText.innerHTML += currentPhrase.charAt(i);
+            i++;
+            setTimeout(typeEffect, 100);
+          } else if (isTyping && i >= currentPhrase.length) {
+            isTyping = false;
+            setTimeout(typeEffect, 500);
+          } else if (!isTyping && i > 0) {
+            i--;
+            typedText.innerHTML = currentPhrase.substring(0, i);
+            setTimeout(typeEffect, 60);
+          } else if (!isTyping && i === 0) {
+            isTyping = true;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(typeEffect, 200);
+          }
+        }
+
+        typeEffect();
+
+        const mobileMenuButton = document.querySelector(".mobile-menu-button");
+        const mobileMenu = document.querySelector(".mobile-menu");
+
+        if (mobileMenuButton) {
+          mobileMenuButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("show");
+          });
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
