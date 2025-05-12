@@ -44,46 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
     offset: 100,
   });
 
-  const galleryContainer = document.querySelector(".gallery-container");
-  const galleryItems = document.querySelectorAll(".gallery-item");
-  const prevBtn = document.querySelector(".gallery-nav.prev");
-  const nextBtn = document.querySelector(".gallery-nav.next");
-  const indicators = document.querySelectorAll(".indicator");
-
-  let currentIndex = 0;
-  const itemCount = galleryItems.length;
-
-  function updateGallery() {
-    galleryContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-    indicators.forEach((indicator, index) => {
-      if (index === currentIndex) {
-        indicator.classList.add("active");
-      } else {
-        indicator.classList.remove("active");
-      }
-    });
-  }
-
-  prevBtn.addEventListener("click", function () {
-    currentIndex = (currentIndex - 1 + itemCount) % itemCount;
-    updateGallery();
-  });
-
-  nextBtn.addEventListener("click", function () {
-    currentIndex = (currentIndex + 1) % itemCount;
-    updateGallery();
-  });
-
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener("click", function () {
-      currentIndex = index;
-      updateGallery();
-    });
-  });
-
-  updateGallery();
-
   setInterval(function () {
     currentIndex = (currentIndex + 1) % itemCount;
     updateGallery();
