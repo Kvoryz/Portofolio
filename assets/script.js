@@ -37,6 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  const isMobile = window.innerWidth < 768;
+
+  document.querySelectorAll("#myTabContent [data-aos]").forEach((el, index) => {
+    let mobileAos = "fade-right";
+
+    if (isMobile) {
+      el.setAttribute("data-aos", mobileAos);
+    } else {
+      el.setAttribute("data-aos", "fade-up");
+    }
+  });
+
   AOS.init({
     duration: 800,
     easing: "ease",
