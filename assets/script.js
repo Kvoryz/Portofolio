@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   header.style.left = "0";
   header.style.right = "0";
   header.style.zIndex = "1000";
-  header.style.background = "inherit";
+  header.style.background = "rgba(18, 18, 18, 0.8)";
   header.style.backdropFilter = "blur(10px)";
   header.style.webkitBackdropFilter = "blur(10px)";
 
