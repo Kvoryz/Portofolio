@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector("header");
+  header.style.position = "fixed";
+  header.style.top = "0";
+  header.style.left = "0";
+  header.style.right = "0";
+  header.style.zIndex = "1000";
+  header.style.background = "inherit";
+  header.style.backdropFilter = "blur(10px)";
+  header.style.webkitBackdropFilter = "blur(10px)";
+
+  document.getElementById("home").style.marginTop = "80px";
+
+  function setActiveNav(targetId) {
+    document.querySelectorAll(".nav-link-minimal").forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === targetId) {
+        link.classList.add("active");
+      }
+    });
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -7,6 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
+        setActiveNav(targetId);
+
         const offset = 80;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
@@ -15,8 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
           top: offsetPosition,
           behavior: "smooth",
         });
-
-        updateActiveNav(this);
 
         const mobileNav = document.getElementById("mobileNav");
         if (mobileNav.classList.contains("show")) {
@@ -27,45 +48,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  function updateActiveNav(clickedLink) {
-    document.querySelectorAll(".nav-link-minimal").forEach((link) => {
-      link.classList.remove("active");
-    });
-
-    clickedLink.classList.add("active");
-  }
-
-  const navLinks = document.querySelectorAll(
-    ".nav-link-minimal, .mobile-nav-link"
-  );
-  navLinks.forEach((link) => {
-    link.addEventListener("mouseenter", function () {
-      this.style.transition = "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-    });
-
-    link.addEventListener("mouseleave", function () {
-      this.style.transition = "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
-    });
-  });
-
   window.addEventListener("scroll", function () {
-    const scrollPosition = window.scrollY;
+    const scrollPos = window.scrollY + 100;
 
-    document.querySelectorAll("section, div[id]").forEach((section) => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionBottom = sectionTop + section.offsetHeight;
-      const sectionId = section.getAttribute("id");
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-        document.querySelectorAll(".nav-link-minimal").forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${sectionId}`) {
-            link.classList.add("active");
-          }
-        });
-      }
-    });
+    if (scrollPos < document.getElementById("about").offsetTop) {
+      setActiveNav("#home");
+    } else if (scrollPos < document.getElementById("expert").offsetTop) {
+      setActiveNav("#about");
+    } else if (scrollPos < document.getElementById("skill").offsetTop) {
+      setActiveNav("#expert");
+    } else if (scrollPos < document.getElementById("contact").offsetTop) {
+      setActiveNav("#skill");
+    } else {
+      setActiveNav("#contact");
+    }
   });
+
+  setActiveNav("#home");
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -126,11 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
     offset: 100,
   });
 
-  setInterval(function () {
-    currentIndex = (currentIndex + 1) % itemCount;
-    updateGallery();
-  }, 6000);
-
   const typedText = document.getElementById("typed-text");
   const phrases = [
     "A Informatics Engineering Student.",
@@ -164,13 +158,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   typeEffect();
-
-  const mobileMenuButton = document.querySelector(".mobile-menu-button");
-  const mobileMenu = document.querySelector(".mobile-menu");
-
-  if (mobileMenuButton) {
-    mobileMenuButton.addEventListener("click", function () {
-      mobileMenu.classList.toggle("show");
-    });
-  }
 });
