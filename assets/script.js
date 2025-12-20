@@ -12,7 +12,16 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("home").style.marginTop = "80px";
 
   function setActiveNav(targetId) {
+    // Update desktop navigation
     document.querySelectorAll(".nav-link-minimal").forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === targetId) {
+        link.classList.add("active");
+      }
+    });
+
+    // Update mobile navigation
+    document.querySelectorAll(".mobile-nav-link").forEach((link) => {
       link.classList.remove("active");
       if (link.getAttribute("href") === targetId) {
         link.classList.add("active");

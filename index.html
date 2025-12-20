@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -123,71 +123,48 @@
       </div>
 
       <!-- Hero Section -->
-      <section class="hero-section" id="home">
-        <div class="row justify-content-center align-items-center">
-          <div
-            class="col-md-4 col-sm-12 text-center hero-profile-image"
-            data-aos="fade-right"
-          >
-            <img
-              src="image/maybini1.jpg"
-              alt="Foto Profil"
-              class="rounded-circle shadow"
-              style="width: 250px; height: 250px; object-fit: cover"
-            />
+      <section class="hero-section">
+        <div class="hero-wrapper" data-aos="fade-up">
+          <p class="hero-greeting">Hi There! <span class="wave">👋🏻</span></p>
+          <h1 class="hero-name">
+            I'm <span class="highlight">Raffi Andhika</span>
+          </h1>
+          <div class="tagline-container">
+            <span id="typed-text" class="text-muted"></span
+            ><span class="cursor"></span>
           </div>
-          <div
-            class="col-md-8 col-sm-12 hero-content ps-md-5"
-            data-aos="fade-left"
-            data-aos-delay="300"
-          >
-            <h1 class="display-5 fw-bold text-light mb-3">
-              Hi There! <span class="wave">👋🏻</span>
-            </h1>
-            <h1 class="fw-bold text-light mb-3 text-muted">
-              I'm Raffi Andhika
-            </h1>
-            <div class="tagline-container">
-              <span id="typed-text" class="text-muted"></span
-              ><span class="cursor"></span>
-            </div>
-            <div class="d-flex gap-3 gap-md-4 mt-4">
-              <a
-                href="https://wa.me/nomorwhatsapp"
-                target="_blank"
-                class="text-light fs-4 social-icon"
-              >
-                <i class="fab fa-whatsapp"></i>
-              </a>
-              <a
-                href="https://github.com/username"
-                target="_blank"
-                class="text-light fs-4 social-icon"
-              >
-                <i class="fab fa-github"></i>
-              </a>
-              <a
-                href="https://instagram.com/username"
-                target="_blank"
-                class="text-light fs-4 social-icon"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://twitter.com/username"
-                target="_blank"
-                class="text-light fs-4 social-icon"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a
-                href="https://discord.com"
-                target="_blank"
-                class="text-light fs-4 social-icon"
-              >
-                <i class="fab fa-discord"></i>
-              </a>
-            </div>
+          <div class="hero-social">
+            <a
+              href="https://wa.me/nomorwhatsapp"
+              target="_blank"
+              class="social-btn"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a
+              href="https://github.com/username"
+              target="_blank"
+              class="social-btn"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://instagram.com/username"
+              target="_blank"
+              class="social-btn"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://twitter.com/username"
+              target="_blank"
+              class="social-btn"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://discord.com" target="_blank" class="social-btn">
+              <i class="fab fa-discord"></i>
+            </a>
           </div>
         </div>
       </section>
@@ -219,10 +196,10 @@
         data-aos-delay="100"
         data-aos-once="false"
       >
-        <div class="col-lg-8">
-          <div class="row">
-            <div class="col-md-5">
-              <div class="img-container mb-4 mb-md-0">
+        <div class="col-lg-10">
+          <div class="row align-items-stretch g-4">
+            <div class="col-lg-5">
+              <div class="about-img-wrapper">
                 <img
                   src="image/maybini2.jpg"
                   alt="Profile Photo"
@@ -230,28 +207,28 @@
                 />
               </div>
             </div>
-            <div class="col-md-7 d-flex flex-column justify-content-between">
-              <div>
-                <h4 class="fw-bold mb-3">Raffi Andhika</h4>
-                <p class="text-muted mb-3">Informatics Engineering Student</p>
-                <p style="text-align: justify">
-                  Hi! I'm a passionate Informatics Engineering student with a
-                  strong interest in software development, web technologies, and
-                  data-driven solutions. I enjoy turning complex problems into
-                  simple, clean, and efficient code.
-                </p>
-                <div class="mb-3 d-flex flex-column flex-md-row">
-                  <span class="text-muted me-md-3 mb-2 mb-md-0">
-                    <i class="fas fa-envelope me-2"></i> riazrepo@gmail.com
-                  </span>
-                  <span class="text-muted">
-                    <i class="fas fa-phone me-2"></i> +6282399408885
-                  </span>
+            <div class="col-lg-7 d-flex align-items-center">
+              <div class="json-code-block w-100">
+                <div class="code-header">
+                  <span class="code-dot red"></span>
+                  <span class="code-dot yellow"></span>
+                  <span class="code-dot green"></span>
+                  <span class="code-filename">about_me.json</span>
                 </div>
+                <pre class="code-content"><code>{
+  <span class="json-key">"name"</span>: <span class="json-string">"Raffi Andhika"</span>,
+  <span class="json-key">"role"</span>: <span class="json-string">"Informatics Engineering Student"</span>,
+  <span class="json-key">"location"</span>: <span class="json-string">"Makassar, Indonesia"</span>,
+  <span class="json-key">"email"</span>: <span class="json-string">"riazrepo@gmail.com"</span>,
+  <span class="json-key">"phone"</span>: <span class="json-string">"+6282399408885"</span>,
+  <span class="json-key">"interests"</span>: [
+    <span class="json-string">"Web Development"</span>,
+    <span class="json-string">"Backend Development"</span>,
+    <span class="json-string">"Photography"</span>
+  ],
+  <span class="json-key">"passion"</span>: <span class="json-string">"Turning complex problems into clean code"</span>
+}</code></pre>
               </div>
-              <a href="#" class="btn-download align-self-start">
-                <i class="fas fa-download"></i> Download CV
-              </a>
             </div>
           </div>
         </div>
