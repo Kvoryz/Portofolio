@@ -11,17 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("home").style.marginTop = "80px";
 
-  function setActiveNav(targetId) {
-    // Update desktop navigation
-    document.querySelectorAll(".nav-link-minimal").forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === targetId) {
-        link.classList.add("active");
-      }
-    });
+  let isScrolling = false;
 
-    // Update mobile navigation
-    document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+  function setActiveNav(targetId) {
+    document.querySelectorAll(".nav-link-minimal").forEach((link) => {
       link.classList.remove("active");
       if (link.getAttribute("href") === targetId) {
         link.classList.add("active");
@@ -37,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
+        // Disable scroll spy temporarily
+        isScrolling = true;
         setActiveNav(targetId);
 
         const offset = 80;
@@ -48,26 +43,28 @@ document.addEventListener("DOMContentLoaded", function () {
           behavior: "smooth",
         });
 
-        const mobileNav = document.getElementById("mobileNav");
-        if (mobileNav.classList.contains("show")) {
-          const bsCollapse = new bootstrap.Collapse(mobileNav);
-          bsCollapse.hide();
-        }
+        // Re-enable scroll spy after animation completes
+        setTimeout(() => {
+          isScrolling = false;
+        }, 1000);
       }
     });
   });
 
   window.addEventListener("scroll", function () {
+    // Don't update active nav during navigation click scroll
+    if (isScrolling) return;
+
     const scrollPos = window.scrollY + 100;
 
     if (scrollPos < document.getElementById("about").offsetTop) {
       setActiveNav("#home");
     } else if (scrollPos < document.getElementById("expert").offsetTop) {
       setActiveNav("#about");
-    } else if (scrollPos < document.getElementById("skill").offsetTop) {
+    } else if (scrollPos < document.getElementById("tools").offsetTop) {
       setActiveNav("#expert");
     } else if (scrollPos < document.getElementById("contact").offsetTop) {
-      setActiveNav("#skill");
+      setActiveNav("#tools");
     } else {
       setActiveNav("#contact");
     }
@@ -77,25 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const projectCards = document.querySelectorAll(".project-card");
-  projectCards.forEach((card, index) => {
-    card.addEventListener("click", function () {
-      const modalId = `projectModal${index + 1}`;
-      const modal = new bootstrap.Modal(document.getElementById(modalId));
-      modal.show();
-    });
-  });
-
-  const certificateCards = document.querySelectorAll(
-    "#certificates .project-card"
-  );
-  certificateCards.forEach((card, index) => {
-    card.addEventListener("click", function () {
-      const modalId = `certModal${index + 1}`;
-      const modal = new bootstrap.Modal(document.getElementById(modalId));
-      modal.show();
-    });
-  });
+  // Tab change handler for AOS refresh
 
   const tabEls = document.querySelectorAll('button[data-bs-toggle="tab"]');
   tabEls.forEach((tabEl) => {

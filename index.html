@@ -24,198 +24,177 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <div id="home" class="container">
-      <header
-        class="d-flex justify-content-between align-items-center py-3 px-3"
-      >
-        <!-- Logo -->
-        <div class="d-flex align-items-center">
-          <img
-            src="image/clover.png"
-            alt="icon"
-            width="50"
-            height="50"
-            class="me-2"
-          />
-          <div class="fs-4 fw-bold text-light">Clover</div>
-        </div>
-
-        <!-- Burger Toggle -->
-        <button
-          class="d-lg-none btn text-light"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mobileNav"
-          aria-controls="mobileNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars fs-4"></i>
-        </button>
-
-        <!-- Desktop Navigation -->
-        <nav class="d-none d-lg-flex desktop-nav">
-          <div class="nav-item-minimal">
-            <a href="#home" class="nav-link-minimal">
-              <i class="fas fa-home nav-icon"></i>
-              <span class="nav-text">Home</span>
-            </a>
-          </div>
-          <div class="nav-item-minimal">
-            <a href="#about" class="nav-link-minimal">
-              <i class="fas fa-user nav-icon"></i>
-              <span class="nav-text">About</span>
-            </a>
-          </div>
-          <div class="nav-item-minimal">
-            <a href="#expert" class="nav-link-minimal">
-              <i class="fas fa-laptop-code nav-icon"></i>
-              <span class="nav-text">Expertise</span>
-            </a>
-          </div>
-          <div class="nav-item-minimal">
-            <a href="#skill" class="nav-link-minimal">
-              <i class="fas fa-filter nav-icon"></i>
-              <span class="nav-text">Skills</span>
-            </a>
-          </div>
-          <div class="nav-item-minimal">
-            <a href="#contact" class="nav-link-minimal">
-              <i class="fas fa-headphones nav-icon"></i>
-              <span class="nav-text">Contact</span>
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      <!-- Mobile Navigation -->
-      <div class="collapse d-lg-none bg-dark px-4" id="mobileNav">
-        <div class="mobile-nav-item">
-          <a href="#home" class="mobile-nav-link">
-            <i class="fas fa-home mobile-nav-icon"></i>
-            <span>Home</span>
-          </a>
-        </div>
-        <div class="mobile-nav-item">
-          <a href="#about" class="mobile-nav-link">
-            <i class="fas fa-user mobile-nav-icon"></i>
-            <span>About</span>
-          </a>
-        </div>
-        <div class="mobile-nav-item">
-          <a href="#expert" class="mobile-nav-link">
-            <i class="fas fa-laptop-code mobile-nav-icon"></i>
-            <span>Expertise</span>
-          </a>
-        </div>
-        <div class="mobile-nav-item">
-          <a href="#skill" class="mobile-nav-link">
-            <i class="fas fa-filter mobile-nav-icon"></i>
-            <span>Skills</span>
-          </a>
-        </div>
-        <div class="mobile-nav-item">
-          <a href="#contact" class="mobile-nav-link">
-            <i class="fas fa-headphones mobile-nav-icon"></i>
-            <span>Contact</span>
-          </a>
+    <!-- Mobile Warning Overlay -->
+    <div class="mobile-warning">
+      <div class="mobile-warning-content">
+        <i
+          class="fas fa-desktop mb-4"
+          style="font-size: 4rem; color: #20c997"
+        ></i>
+        <h2>Desktop Only</h2>
+        <p class="text-muted">
+          Website ini hanya tersedia untuk versi desktop. Silakan buka di laptop
+          atau komputer untuk pengalaman terbaik.
+        </p>
+        <div class="mt-4">
+          <i class="fas fa-laptop" style="font-size: 2rem; color: #6c757d"></i>
         </div>
       </div>
-
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <div class="hero-wrapper" data-aos="fade-up">
-          <p class="hero-greeting">Hi There! <span class="wave">👋🏻</span></p>
-          <h1 class="hero-name">
-            I'm <span class="highlight">Raffi Andhika</span>
-          </h1>
-          <div class="tagline-container">
-            <span id="typed-text" class="text-muted"></span
-            ><span class="cursor"></span>
-          </div>
-          <div class="hero-social">
-            <a
-              href="https://wa.me/nomorwhatsapp"
-              target="_blank"
-              class="social-btn"
-            >
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a
-              href="https://github.com/username"
-              target="_blank"
-              class="social-btn"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              href="https://instagram.com/username"
-              target="_blank"
-              class="social-btn"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a
-              href="https://twitter.com/username"
-              target="_blank"
-              class="social-btn"
-            >
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://discord.com" target="_blank" class="social-btn">
-              <i class="fab fa-discord"></i>
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
 
-    <!-- About Me Section -->
-    <div
-      class="container"
-      style="margin-top: 100px; margin-bottom: 100px"
-      id="about"
-    >
-      <div class="row justify-content-center">
-        <div
-          class="col-lg-8 text-center"
-          data-aos="fade-up"
-          data-aos-once="false"
+    <!-- Main Content (hidden on mobile) -->
+    <div class="main-content">
+      <div id="home" class="container">
+        <header
+          class="d-flex justify-content-between align-items-center py-3 px-3"
         >
-          <h2 class="display-5 fw-bold text-light">About Me</h2>
-          <div
-            class="divider mx-auto bg-success mb-3"
-            style="height: 3px; width: 60px"
-          ></div>
+          <!-- Logo -->
+          <div class="d-flex align-items-center">
+            <img
+              src="image/clover.png"
+              alt="icon"
+              width="50"
+              height="50"
+              class="me-2"
+            />
+            <div class="fs-4 fw-bold text-light">Clover</div>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="desktop-nav">
+            <a href="#home" class="nav-link-minimal">
+              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              <span class="nav-text">Home</span>
+            </a>
+            <a href="#about" class="nav-link-minimal">
+              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span class="nav-text">About</span>
+            </a>
+            <a href="#expert" class="nav-link-minimal">
+              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <span class="nav-text">Portfolio</span>
+            </a>
+            <a href="#tools" class="nav-link-minimal">
+              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+              <span class="nav-text">Tools</span>
+            </a>
+            <a href="#contact" class="nav-link-minimal">
+              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span class="nav-text">Contact</span>
+            </a>
+          </nav>
+        </header>
         </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+          <div class="hero-wrapper" data-aos="fade-up">
+            <p class="hero-greeting">Hi There! <span class="wave">👋🏻</span></p>
+            <h1 class="hero-name">
+              I'm <span class="highlight">Raffi Andhika</span>
+            </h1>
+            <div class="tagline-container">
+              <span id="typed-text" class="text-muted"></span
+              ><span class="cursor"></span>
+            </div>
+            <div class="hero-social">
+              <a
+                href="https://wa.me/nomorwhatsapp"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a
+                href="https://github.com/username"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://instagram.com/username"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://twitter.com/username"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://discord.com" target="_blank" class="social-btn">
+                <i class="fab fa-discord"></i>
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
 
+      <!-- About Me Section -->
       <div
-        class="row justify-content-center mt-5"
-        data-aos="fade-up"
-        data-aos-delay="100"
-        data-aos-once="false"
+        class="container"
+        style="margin-top: 100px; margin-bottom: 100px"
+        id="about"
       >
-        <div class="col-lg-10">
-          <div class="row align-items-stretch g-4">
-            <div class="col-lg-5">
-              <div class="about-img-wrapper">
-                <img
-                  src="image/maybini2.jpg"
-                  alt="Profile Photo"
-                  class="about-profile-img"
-                />
-              </div>
-            </div>
-            <div class="col-lg-7 d-flex align-items-center">
-              <div class="json-code-block w-100">
-                <div class="code-header">
-                  <span class="code-dot red"></span>
-                  <span class="code-dot yellow"></span>
-                  <span class="code-dot green"></span>
-                  <span class="code-filename">about_me.json</span>
+        <div class="row justify-content-center">
+          <div
+            class="col-lg-8 text-center"
+            data-aos="fade-up"
+            data-aos-once="false"
+          >
+            <h2 class="display-5 fw-bold text-light">About Me</h2>
+            <div
+              class="divider mx-auto bg-success mb-3"
+              style="height: 3px; width: 60px"
+            ></div>
+          </div>
+        </div>
+
+        <div
+          class="row justify-content-center mt-5"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-once="false"
+        >
+          <div class="col-lg-10">
+            <div class="row align-items-stretch g-4">
+              <div class="col-lg-5">
+                <div class="about-img-wrapper">
+                  <img
+                    src="image/gweh.jpg"
+                    alt="Profile Photo"
+                    class="about-profile-img"
+                  />
                 </div>
-                <pre class="code-content"><code>{
+              </div>
+              <div class="col-lg-7 d-flex align-items-center">
+                <div class="json-code-block w-100">
+                  <div class="code-header">
+                    <span class="code-dot red"></span>
+                    <span class="code-dot yellow"></span>
+                    <span class="code-dot green"></span>
+                    <span class="code-filename">about_me.json</span>
+                  </div>
+                  <pre class="code-content"><code>{
   <span class="json-key">"name"</span>: <span class="json-string">"Raffi Andhika"</span>,
   <span class="json-key">"role"</span>: <span class="json-string">"Informatics Engineering Student"</span>,
   <span class="json-key">"location"</span>: <span class="json-string">"Makassar, Indonesia"</span>,
@@ -228,930 +207,1107 @@
   ],
   <span class="json-key">"passion"</span>: <span class="json-string">"Errors are calls for you to progress"</span>
 }</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GitHub Contributions Section -->
+        <div class="container my-5 py-4">
+          <div class="row justify-content-center">
+            <div
+              class="col-lg-10 text-center"
+              data-aos="fade-up"
+              data-aos-once="false"
+            >
+              <h3 class="fw-bold text-light mb-4">
+                <i class="fab fa-github me-2"></i>GitHub Contributions
+              </h3>
+              <div class="github-graph-container">
+                <img
+                  src="https://ghchart.rshah.org/40c463/Kvoryy"
+                  alt="GitHub Contributions Graph"
+                  class="github-graph"
+                />
+              </div>
+              <a
+                href="https://github.com/Kvoryy"
+                target="_blank"
+                class="github-link"
+              >
+                <i class="fab fa-github me-2"></i>View My GitHub Profile
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="container my-5 py-4">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div class="row g-4">
+                <div
+                  class="col-lg-4 col-md-4"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  data-aos-once="false"
+                >
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="stat-info">
+                      <h2 class="stat-number">1+</h2>
+                      <p class="stat-label">Years Experience</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-4 col-md-4"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-once="false"
+                >
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-info">
+                      <h2 class="stat-number">10+</h2>
+                      <p class="stat-label">Projects Created</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-4 col-md-4"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                  data-aos-once="false"
+                >
+                  <div class="stat-card">
+                    <div class="stat-icon">
+                      <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-info">
+                      <h2 class="stat-number">5+</h2>
+                      <p class="stat-label">Certificates</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- GitHub Contributions Section -->
-      <div class="container my-5 py-4">
+      <!-- Portfolio Showcase Section -->
+      <div class="container my-5 py-5" id="expert">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="display-5 fw-bold text-light">Portfolio Showcase</h2>
+            <div
+              class="divider mx-auto bg-success mb-4"
+              style="height: 3px; width: 60px"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="row justify-content-center mb-4">
+          <div class="col-lg-8">
+            <ul
+              class="nav nav-tabs justify-content-center border-0"
+              id="myTab"
+              role="tablist"
+            >
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active bg-transparent text-light border-0 position-relative tab-btn"
+                  id="projects-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#projects"
+                  type="button"
+                  role="tab"
+                  aria-controls="projects"
+                  aria-selected="true"
+                >
+                  <i class="fas fa-laptop-code me-2"></i>Projects
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link bg-transparent text-light border-0 position-relative tab-btn"
+                  id="certificates-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#certificates"
+                  type="button"
+                  role="tab"
+                  aria-controls="certificates"
+                  aria-selected="false"
+                >
+                  <i class="fas fa-award me-2"></i>Certificates
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="tab-content mt-1" id="myTabContent">
+              <!-- Projects Tab -->
+              <div
+                class="tab-pane fade show active"
+                id="projects"
+                role="tabpanel"
+                aria-labelledby="projects-tab"
+              >
+                <div class="row">
+                  <!-- Project 1 -->
+                  <div class="col-md-4 mb-4">
+                    <div
+                      class="card project-card border-0 shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#projectModal1"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="image/project_example.webp"
+                        class="card-img-top project-image"
+                        alt="Project 1"
+                      />
+                      <div class="card-body bg-dark text-light">
+                        <h5 class="project-title">Example Website</h5>
+                        <div class="mt-2">
+                          <span class="tech-badge">HTML</span>
+                          <span class="tech-badge">CSS</span>
+                          <span class="tech-badge">JavaScript</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Project 2 -->
+                  <div class="col-md-4 mb-4">
+                    <div
+                      class="card project-card border-0 shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#projectModal2"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="image/project_example.webp"
+                        class="card-img-top project-image"
+                        alt="Project 2"
+                      />
+                      <div class="card-body bg-dark text-light">
+                        <h5 class="project-title">Example Website</h5>
+                        <div class="mt-2">
+                          <span class="tech-badge">PHP</span>
+                          <span class="tech-badge">MySQL</span>
+                          <span class="tech-badge">Bootstrap</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Project 3 -->
+                  <div class="col-md-4 mb-4">
+                    <div
+                      class="card project-card border-0 shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#projectModal3"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="image/project_example.webp"
+                        class="card-img-top project-image"
+                        alt="Project 3"
+                      />
+                      <div class="card-body bg-dark text-light">
+                        <h5 class="project-title">Example Website</h5>
+                        <div class="mt-2">
+                          <span class="tech-badge">Java</span>
+                          <span class="tech-badge">Swing</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Certificates Tab -->
+              <div
+                class="tab-pane fade"
+                id="certificates"
+                role="tabpanel"
+                aria-labelledby="certificates-tab"
+              >
+                <div class="row">
+                  <!-- Certificate 1 -->
+                  <div class="col-md-4 mb-4">
+                    <div
+                      class="card project-card border-0 shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#certModal1"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="image/certificate_example.png"
+                        class="card-img-top project-image"
+                        alt="Certificate 1"
+                      />
+                      <div class="card-body bg-dark text-light">
+                        <h5 class="project-title">Example Certificate</h5>
+                        <p class="text-muted mb-0">Udemy - 2023</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Certificate 2 -->
+                  <div class="col-md-4 mb-4">
+                    <div
+                      class="card project-card border-0 shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#certModal2"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="image/certificate_example.png"
+                        class="card-img-top project-image"
+                        alt="Certificate 2"
+                      />
+                      <div class="card-body bg-dark text-light">
+                        <h5 class="project-title">Example Certificate</h5>
+                        <p class="text-muted mb-0">freeCodeCamp - 2022</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Certificate 3 -->
+                  <div class="col-md-4 mb-4">
+                    <div
+                      class="card project-card border-0 shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#certModal3"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="image/certificate_example.png"
+                        class="card-img-top project-image"
+                        alt="Certificate 3"
+                      />
+                      <div class="card-body bg-dark text-light">
+                        <h5 class="project-title">Example Certificate</h5>
+                        <p class="text-muted mb-0">Coursera - 2023</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Technologies Section -->
+      <div class="container my-5 py-5" id="tools">
         <div class="row justify-content-center">
           <div
-            class="col-lg-10 text-center"
+            class="col-lg-8 text-center"
             data-aos="fade-up"
             data-aos-once="false"
           >
-            <h3 class="fw-bold text-light mb-4">
-              <i class="fab fa-github me-2"></i>GitHub Contributions
-            </h3>
-            <div class="github-graph-container">
-              <img
-                src="https://ghchart.rshah.org/40c463/Kvoryy"
-                alt="GitHub Contributions Graph"
-                class="github-graph"
-              />
-            </div>
-            <a
-              href="https://github.com/Kvoryy"
-              target="_blank"
-              class="github-link"
-            >
-              <i class="fab fa-github me-2"></i>View My GitHub Profile
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Academic Record Section -->
-      <div class="container my-5 py-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2
-              class="text-center display-5 fw-bold text-light"
-              data-aos="fade-up"
-              data-aos-once="false"
-            >
-              Academic Record
-            </h2>
+            <h2 class="display-5 fw-bold text-light">Tools & Technologies</h2>
             <div
               class="divider mx-auto bg-success mb-5"
               style="height: 3px; width: 60px"
-              data-aos="fade-up"
-              data-aos-once="false"
             ></div>
+          </div>
+        </div>
 
-            <div class="timeline">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="row g-3">
+              <!-- Languages -->
               <div
-                class="timeline-item"
+                class="col-md-3 col-6"
                 data-aos="fade-up"
                 data-aos-once="false"
               >
-                <div class="timeline-year">2024 - Present</div>
-                <h4 class="mt-2 fw-bold">University Dipa Negara</h4>
-                <p class="mb-1">Informatics Engineering</p>
-                <p class="text-muted">
-                  Currently pursuing my degree in Informatics Engineering with
-                  focus on web development and backend development.
-                </p>
+                <div class="skill-card">
+                  <i class="fab fa-html5 skill-icon" style="color: #e34f26"></i>
+                  <span class="skill-name">HTML</span>
+                </div>
               </div>
-
               <div
-                class="timeline-item"
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="50"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i
+                    class="fab fa-css3-alt skill-icon"
+                    style="color: #1572b6"
+                  ></i>
+                  <span class="skill-name">CSS</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
                 data-aos="fade-up"
                 data-aos-delay="100"
                 data-aos-once="false"
               >
-                <div class="timeline-year">2020 - 2023</div>
-                <h4 class="mt-2 fw-bold">SMK Darussalam Makassar</h4>
-                <p class="mb-1">Software Engineering</p>
-                <p class="text-muted">
-                  Learned fundamental programming concepts, database management,
-                  and web development.
-                </p>
+                <div class="skill-card">
+                  <i
+                    class="fab fa-js-square skill-icon"
+                    style="color: #f7df1e"
+                  ></i>
+                  <span class="skill-name">JavaScript</span>
+                </div>
               </div>
-
               <div
-                class="timeline-item"
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="150"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i class="fab fa-php skill-icon" style="color: #777bb4"></i>
+                  <span class="skill-name">PHP</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
                 data-aos="fade-up"
                 data-aos-delay="200"
                 data-aos-once="false"
               >
-                <div class="timeline-year">2017 - 2019</div>
-                <h4 class="mt-2 fw-bold">SMP IT Darussalam Makassar</h4>
-                <p class="text-muted">
-                  Discovered my interest in technology and computers.
-                </p>
+                <div class="skill-card">
+                  <i
+                    class="fas fa-database skill-icon"
+                    style="color: #4479a1"
+                  ></i>
+                  <span class="skill-name">MySQL</span>
+                </div>
               </div>
-
               <div
-                class="timeline-item"
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="250"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i class="fab fa-java skill-icon" style="color: #ed8b00"></i>
+                  <span class="skill-name">Java</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
                 data-aos="fade-up"
                 data-aos-delay="300"
                 data-aos-once="false"
               >
-                <div class="timeline-year">2010 - 2016</div>
-                <h4 class="mt-2 fw-bold">SD IT Al-Hijrah</h4>
-                <p class="text-muted">
-                  Developed strong foundation in mathematics and science.
-                </p>
+                <div class="skill-card">
+                  <i
+                    class="fab fa-python skill-icon"
+                    style="color: #3776ab"
+                  ></i>
+                  <span class="skill-name">Python</span>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div
-          class="col-md-3 mb-4"
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-aos-once="false"
-        >
-          <div
-            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center h-100 text-center"
-          >
-            <i class="fas fa-laptop-code fs-3 mb-3 text-success"></i>
-            <h4 class="fw-bold">- Experience</h4>
-          </div>
-        </div>
-        <div
-          class="col-md-3 mb-4"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-aos-once="false"
-        >
-          <div
-            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center h-100 text-center"
-          >
-            <i class="fas fa-boxes fs-3 mb-3 text-success"></i>
-            <h4 class="fw-bold">- Projects Created</h4>
-          </div>
-        </div>
-        <div
-          class="col-md-3 mb-4"
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-once="false"
-        >
-          <div
-            class="bg-dark p-4 rounded shadow-sm d-flex flex-column align-items-center h-100 text-center"
-          >
-            <i class="fas fa-file fs-3 mb-3 text-success"></i>
-            <h4 class="fw-bold">- Certificates</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tabbed Content Section -->
-    <div class="container my-5 py-5" id="expert">
-      <div class="row justify-content-center">
-        <div
-          class="col-lg-8 text-center"
-          data-aos="fade-up"
-          data-aos-once="false"
-        >
-          <h2 class="display-5 fw-bold text-light">My Expertise</h2>
-          <div
-            class="divider mx-auto bg-success mb-4"
-            style="height: 3px; width: 60px"
-          ></div>
-        </div>
-      </div>
-
-      <!-- Tabs Navigation -->
-      <div class="row justify-content-center mb-4">
-        <div class="col-lg-8">
-          <ul
-            class="nav nav-tabs justify-content-center border-0"
-            id="myTab"
-            role="tablist"
-          >
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active bg-transparent text-light border-0 position-relative tab-btn"
-                id="projects-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#projects"
-                type="button"
-                role="tab"
-                aria-controls="projects"
-                aria-selected="true"
+              <div
+                class="col-md-3 col-6"
                 data-aos="fade-up"
-                data-aos-delay="200"
+                data-aos-delay="350"
                 data-aos-once="false"
               >
-                <i class="fas fa-laptop-code me-2"></i>Projects
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link bg-transparent text-light border-0 position-relative tab-btn"
-                id="certificates-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#certificates"
-                type="button"
-                role="tab"
-                aria-controls="certificates"
-                aria-selected="false"
+                <div class="skill-card">
+                  <i
+                    class="fab fa-bootstrap skill-icon"
+                    style="color: #7952b3"
+                  ></i>
+                  <span class="skill-name">Bootstrap</span>
+                </div>
+              </div>
+              <!-- Tools -->
+              <div
+                class="col-md-3 col-6"
                 data-aos="fade-up"
-                data-aos-delay="200"
+                data-aos-delay="400"
                 data-aos-once="false"
               >
-                <i class="fas fa-boxes me-2"></i>Certificates
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Tabs Content -->
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="tab-content mt-1" id="myTabContent">
-            <!-- Projects Tab -->
-            <div
-              class="tab-pane fade show active"
-              id="projects"
-              role="tabpanel"
-              aria-labelledby="projects-tab"
-            >
-              <div class="row">
-                <!-- Project 1 -->
-                <div
-                  class="col-md-4 mb-4"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  data-aos-once="false"
-                >
-                  <div class="card project-card border-0 shadow">
-                    <img
-                      src="image/project_example.webp"
-                      class="card-img-top project-image"
-                      alt="Project 1"
-                    />
-                    <div class="card-body bg-dark text-light">
-                      <h5 class="project-title">Example Website</h5>
-                      <p class="project-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sequi minima incidunt consequuntur dolore quasi qui
-                        neque, perferendis, quaerat nihil consectetur aliquam
-                        numquam eius magni ratione optio nobis aut eveniet
-                        voluptatibus! Laboriosam, voluptates?
-                      </p>
-                      <div class="mt-3">
-                        <span class="tech-badge">HTML</span>
-                        <span class="tech-badge">CSS</span>
-                        <span class="tech-badge">JavaScript</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div
-                  class="col-md-4 mb-4"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  data-aos-once="false"
-                >
-                  <div class="card project-card border-0 shadow">
-                    <img
-                      src="image/project_example.webp"
-                      class="card-img-top project-image"
-                      alt="Project 2"
-                    />
-                    <div class="card-body bg-dark text-light">
-                      <h5 class="project-title">Example Website</h5>
-                      <p class="project-description">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Quam veritatis aperiam unde minus, voluptas error
-                        deleniti. Natus ad magni veniam sint aspernatur animi
-                        eligendi, corrupti voluptatum quas, dolorum sunt
-                        dignissimos, nulla velit.
-                      </p>
-                      <div class="mt-3">
-                        <span class="tech-badge">HTML</span>
-                        <span class="tech-badge">CSS</span>
-                        <span class="tech-badge">JavaScript</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div
-                  class="col-md-4 mb-4"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                  data-aos-once="false"
-                >
-                  <div class="card project-card border-0 shadow">
-                    <img
-                      src="image/project_example.webp"
-                      class="card-img-top project-image"
-                      alt="Project 3"
-                    />
-                    <div class="card-body bg-dark text-light">
-                      <h5 class="project-title">Example Website</h5>
-                      <p class="project-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laboriosam, amet. Autem aliquid quis, voluptates
-                        molestias, eius exercitationem perspiciatis explicabo
-                        error, iure nobis fuga repellat quasi ad facilis fugiat
-                        iusto reiciendis ab at.
-                      </p>
-                      <div class="mt-3">
-                        <span class="tech-badge">HTML</span>
-                        <span class="tech-badge">CSS</span>
-                        <span class="tech-badge">JavaScript</span>
-                      </div>
-                    </div>
-                  </div>
+                <div class="skill-card">
+                  <i class="fas fa-code skill-icon" style="color: #007acc"></i>
+                  <span class="skill-name">VS Code</span>
                 </div>
               </div>
-            </div>
-
-            <!-- Certificates Tab -->
-            <div
-              class="tab-pane fade"
-              id="certificates"
-              role="tabpanel"
-              aria-labelledby="certificates-tab"
-            >
-              <div class="row">
-                <!-- Certificate 1 -->
-                <div
-                  class="col-md-4 mb-4"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  data-aos-once="false"
-                >
-                  <div class="card project-card border-0 shadow">
-                    <img
-                      src="image/certificate_example.png"
-                      class="card-img-top project-image"
-                      alt="Certificate 1"
-                    />
-                    <div class="card-body bg-dark text-light">
-                      <h5 class="project-title">Example Certificate</h5>
-                      <p class="project-description">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Aspernatur quidem rem exercitationem obcaecati
-                        totam laudantium fugiat aliquam eveniet dolorem quo
-                        tenetur, eius nam incidunt adipisci consequuntur
-                        sapiente quae sequi harum rerum quos?
-                      </p>
-                      <p class="text-muted">Udemy - 2023</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Certificate 2 -->
-                <div
-                  class="col-md-4 mb-4"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  data-aos-once="false"
-                >
-                  <div class="card project-card border-0 shadow">
-                    <img
-                      src="image/certificate_example.png"
-                      class="card-img-top project-image"
-                      alt="Certificate 2"
-                    />
-                    <div class="card-body bg-dark text-light">
-                      <h5 class="project-title">Example Certificate</h5>
-                      <p class="project-description">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Molestias asperiores voluptatibus doloremque
-                        maxime molestiae officia. Enim, eaque accusamus ipsam
-                        tempora architecto accusantium doloribus corporis!
-                        Doloribus consequatur possimus odit illum quae ducimus
-                        corrupti.
-                      </p>
-                      <p class="text-muted">freeCodeCamp - 2022</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Certificate 3 -->
-                <div
-                  class="col-md-4 mb-4"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                  data-aos-once="false"
-                >
-                  <div class="card project-card border-0 shadow">
-                    <img
-                      src="image/certificate_example.png"
-                      class="card-img-top project-image"
-                      alt="Certificate 3"
-                    />
-                    <div class="card-body bg-dark text-light">
-                      <h5 class="project-title">Example Certificate</h5>
-                      <p class="project-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Sequi commodi nisi debitis illo sunt veniam vel
-                        nostrum dolores sed doloremque fugit doloribus
-                        cupiditate autem illum neque voluptatibus, obcaecati eum
-                        adipisci. Explicabo, facilis?
-                      </p>
-                      <p class="text-muted">Coursera - 2023</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Technical Skills -->
-    <div class="container my-5 py-5" id="skill">
-      <div class="row justify-content-center">
-        <div
-          class="col-lg-8 text-center"
-          data-aos="fade-up"
-          data-aos-once="false"
-        >
-          <h2 class="display-5 fw-bold text-light">Technical Skills</h2>
-          <div
-            class="divider mx-auto bg-success mb-5"
-            style="height: 3px; width: 60px"
-          ></div>
-        </div>
-      </div>
-
-      <div class="row g-4 justify-content-center">
-        <!-- Column 1 -->
-        <div
-          class="col-md-5"
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-aos-once="false"
-        >
-          <!-- HTML -->
-          <div
-            class="bg-dark p-3 rounded shadow-sm d-flex flex-column align-items-center text-center text-light mb-4"
-          >
-            <i class="fab fa-html5 text-danger mb-2"></i>
-            <h6 class="mb-1">HTML</h6>
-            <div class="w-100">
-              <div class="progress" style="height: 5px">
-                <div
-                  class="progress-bar bg-danger"
-                  role="progressbar"
-                  style="width: 70%"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <small class="text-secondary">70%</small>
-            </div>
-          </div>
-
-          <!-- CSS -->
-          <div
-            class="bg-dark p-3 rounded shadow-sm d-flex flex-column align-items-center text-center text-light mb-4"
-          >
-            <i class="fab fa-css3-alt text-primary mb-2"></i>
-            <h6 class="mb-1">CSS</h6>
-            <div class="w-100">
-              <div class="progress" style="height: 5px">
-                <div
-                  class="progress-bar bg-primary"
-                  style="width: 60%"
-                  role="progressbar"
-                ></div>
-              </div>
-              <small class="text-secondary">60%</small>
-            </div>
-          </div>
-
-          <!-- JavaScript -->
-          <div
-            class="bg-dark p-3 rounded shadow-sm d-flex flex-column align-items-center text-center text-light mb-4"
-          >
-            <i class="fab fa-js-square text-warning mb-2"></i>
-            <h6 class="mb-1">JavaScript</h6>
-            <div class="w-100">
-              <div class="progress" style="height: 5px">
-                <div
-                  class="progress-bar bg-warning"
-                  style="width: 20%"
-                  role="progressbar"
-                ></div>
-              </div>
-              <small class="text-secondary">20%</small>
-            </div>
-          </div>
-
-          <!-- PHP -->
-          <div
-            class="bg-dark p-3 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
-          >
-            <i class="fab fa-php text-info mb-2"></i>
-            <h6 class="mb-1">PHP</h6>
-            <div class="w-100">
-              <div class="progress" style="height: 5px">
-                <div
-                  class="progress-bar bg-info"
-                  style="width: 59%"
-                  role="progressbar"
-                ></div>
-              </div>
-              <small class="text-secondary">59%</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Column 2 -->
-        <div
-          class="col-md-5"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-aos-once="false"
-        >
-          <!-- MySQL -->
-          <div
-            class="bg-dark p-3 rounded shadow-sm d-flex flex-column align-items-center text-center text-light mb-4"
-          >
-            <i class="fas fa-database text-primary mb-2"></i>
-            <h6 class="mb-1">MySQL</h6>
-            <div class="w-100">
-              <div class="progress" style="height: 5px">
-                <div
-                  class="progress-bar bg-primary"
-                  style="width: 80%"
-                  role="progressbar"
-                ></div>
-              </div>
-              <small class="text-secondary">80%</small>
-            </div>
-          </div>
-
-          <!-- Java -->
-          <div
-            class="bg-dark p-3 rounded shadow-sm d-flex flex-column align-items-center text-center text-light mb-4"
-          >
-            <i class="fab fa-java text-warning mb-2"></i>
-            <h6 class="mb-1">Java</h6>
-            <div class="w-100">
-              <div class="progress" style="height: 5px">
-                <div
-                  class="progress-bar bg-warning"
-                  style="width: 30%"
-                  role="progressbar"
-                ></div>
-              </div>
-              <small class="text-secondary">30%</small>
-            </div>
-          </div>
-
-          <!-- C++ -->
-          <div
-            class="bg-dark p-3 rounded shadow-sm d-flex flex-column align-items-center text-center text-light mb-4"
-          >
-            <i class="fas fa-file-code text-success mb-2"></i>
-            <h6 class="mb-1">C++</h6>
-            <div class="w-100">
-              <div class="progress" style="height: 5px">
-                <div
-                  class="progress-bar bg-success"
-                  style="width: 50%"
-                  role="progressbar"
-                ></div>
-              </div>
-              <small class="text-secondary">50%</small>
-            </div>
-          </div>
-
-          <!-- Python -->
-          <div
-            class="bg-dark p-3 rounded shadow-sm d-flex flex-column align-items-center text-center text-light"
-          >
-            <i class="fab fa-python text-info mb-2"></i>
-            <h6 class="mb-1">Python</h6>
-            <div class="w-100">
-              <div class="progress" style="height: 5px">
-                <div
-                  class="progress-bar bg-info"
-                  style="width: 40%"
-                  role="progressbar"
-                ></div>
-              </div>
-              <small class="text-secondary">40%</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact -->
-    <div
-      class="container mt-5 pt-5 pb-5"
-      style="margin-top: 150px !important; padding-top: 100px !important"
-      id="contact"
-    >
-      <div class="row justify-content-center">
-        <div
-          class="col-lg-8 text-center"
-          data-aos="fade-up"
-          data-aos-once="false"
-        >
-          <h2 class="display-5 fw-bold text-light">Contact Me</h2>
-          <div
-            class="divider mx-auto bg-success mb-5"
-            style="height: 3px; width: 60px"
-          ></div>
-          <h4>Have something to discuss? Send me a Messages</h4>
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div
-          class="col-lg-8"
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-aos-once="false"
-        >
-          <form class="p-4 p-md-5">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control bg-dark text-light border-secondary"
-                    id="floatingName"
-                    placeholder="Your Name"
-                    required
-                  />
-                  <label for="floatingName" class="text-muted">Your Name</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control bg-dark text-light border-secondary"
-                    id="floatingEmail"
-                    placeholder="name@example.com"
-                    required
-                  />
-                  <label for="floatingEmail" class="text-muted"
-                    >Email Address</label
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="form-floating mb-3">
-              <textarea
-                class="form-control bg-dark text-light border-secondary"
-                placeholder="Leave a message here"
-                id="floatingMessage"
-                style="height: 150px"
-                required
-              ></textarea>
-              <label for="floatingMessage" class="text-muted"
-                >Your Message</label
+              <div
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-once="false"
               >
+                <div class="skill-card">
+                  <i
+                    class="fas fa-server skill-icon"
+                    style="color: #fb7a24"
+                  ></i>
+                  <span class="skill-name">XAMPP</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="500"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i
+                    class="fab fa-git-alt skill-icon"
+                    style="color: #f05032"
+                  ></i>
+                  <span class="skill-name">Git</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="550"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i
+                    class="fab fa-github skill-icon"
+                    style="color: #ffffff"
+                  ></i>
+                  <span class="skill-name">GitHub</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="600"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i class="fab fa-figma skill-icon" style="color: #f24e1e"></i>
+                  <span class="skill-name">Figma</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="650"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i
+                    class="fas fa-terminal skill-icon"
+                    style="color: #4d4d4d"
+                  ></i>
+                  <span class="skill-name">Terminal</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="700"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i class="fab fa-npm skill-icon" style="color: #cb3837"></i>
+                  <span class="skill-name">NPM</span>
+                </div>
+              </div>
+              <div
+                class="col-md-3 col-6"
+                data-aos="fade-up"
+                data-aos-delay="750"
+                data-aos-once="false"
+              >
+                <div class="skill-card">
+                  <i class="fas fa-cube skill-icon" style="color: #44a833"></i>
+                  <span class="skill-name">Postman</span>
+                </div>
+              </div>
             </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-success px-4 py-2">
-                <i class="fas fa-paper-plane me-2"></i>Send Message
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="modal fade"
-      id="projectModal1"
-      tabindex="-1"
-      aria-labelledby="projectModalLabel1"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content bg-dark text-light">
-          <div class="modal-header border-bottom border-secondary">
-            <h5 class="modal-title" id="projectModalLabel1">Example Website</h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <img
-              src="image/project_example.webp"
-              alt="Project 1"
-              class="img-fluid rounded mb-4"
-              style="width: 100%; height: 400px; object-fit: cover"
-            />
-            <h5 class="text-success mb-3">Project Description</h5>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis quod dicta ab eum ad fuga, facilis optio earum
-              consequatur eius sequi!
-            </p>
-            <p>The platform includes features such as:</p>
-            <ul>
-              <li>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint,
-                voluptatibus.
-              </li>
-              <li>Lorem ipsum dolor sit amet.</li>
-              <li>Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
-              <li>Lorem ipsum dolor sit amet.</li>
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
-            </ul>
-            <div class="mt-4">
-              <h5 class="text-success mb-3">Technologies Used</h5>
-              <span class="tech-badge">HTML</span>
-              <span class="tech-badge">CSS</span>
-              <span class="tech-badge">JavaScript</span>
-            </div>
-          </div>
-          <div class="modal-footer border-top border-secondary">
-            <button
-              type="button"
-              class="btn btn-outline-light"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <a href="#" class="btn btn-success">View Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="modal fade"
-      id="projectModal2"
-      tabindex="-1"
-      aria-labelledby="projectModalLabel2"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content bg-dark text-light">
-          <div class="modal-header border-bottom border-secondary">
-            <h5 class="modal-title" id="projectModalLabel2">Example Website</h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <img
-              src="image/project_example.webp"
-              alt="Project 2"
-              class="img-fluid rounded mb-4"
-              style="width: 100%; height: 400px; object-fit: cover"
-            />
-            <h5 class="text-success mb-3">Project Description</h5>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni
-              incidunt quis, alias praesentium quam eius natus, impedit optio
-              aut soluta fuga!
-            </p>
-            <p>Key features include:</p>
-            <ul>
-              <li>Lorem ipsum dolor sit, amet consectetur adipisicing.</li>
-              <li>Lorem ipsum dolor sit amet consectetur.</li>
-              <li>Lorem ipsum, dolor sit amet consectetur adipisicing.</li>
-              <li>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi.
-              </li>
-              <li>Lorem, ipsum dolor.</li>
-            </ul>
-            <div class="mt-4">
-              <h5 class="text-success mb-3">Technologies Used</h5>
-              <span class="tech-badge">HTML</span>
-              <span class="tech-badge">CSS</span>
-              <span class="tech-badge">JavaScript</span>
-            </div>
-          </div>
-          <div class="modal-footer border-top border-secondary">
-            <button
-              type="button"
-              class="btn btn-outline-light"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <a href="#" class="btn btn-success">View Project</a>
           </div>
         </div>
       </div>
-    </div>
 
-    <div
-      class="modal fade"
-      id="projectModal3"
-      tabindex="-1"
-      aria-labelledby="projectModalLabel3"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content bg-dark text-light">
-          <div class="modal-header border-bottom border-secondary">
-            <h5 class="modal-title" id="projectModalLabel3">Example Website</h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <img
-              src="image/project_example.webp"
-              alt="Project 3"
-              class="img-fluid rounded mb-4"
-              style="width: 100%; height: 400px; object-fit: cover"
-            />
-            <h5 class="text-success mb-3">Project Description</h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-              accusantium, dolorem possimus provident hic temporibus omnis
-              ducimus tenetur necessitatibus atque sapiente.
-            </p>
-            <p>Features of the app include:</p>
-            <ul>
-              <li>Lorem ipsum dolor sit.</li>
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
-              <li>Lorem ipsum dolor sit.</li>
-              <li>Lorem ipsum dolor sit amet.</li>
-              <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-            </ul>
-            <div class="mt-4">
-              <h5 class="text-success mb-3">Technologies Used</h5>
-              <span class="tech-badge">HTML</span>
-              <span class="tech-badge">CSS</span>
-              <span class="tech-badge">JavaScript</span>
-            </div>
-          </div>
-          <div class="modal-footer border-top border-secondary">
-            <button
-              type="button"
-              class="btn btn-outline-light"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <a href="#" class="btn btn-success">View Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="text-light py-4 mt-5">
-      <div class="container">
+      <!-- Contact -->
+      <div
+        class="container mt-5 pt-5 pb-5"
+        style="margin-top: 150px !important; padding-top: 100px !important"
+        id="contact"
+      >
         <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            <img
-              src="image/clover.png"
-              alt="Clover Logo"
-              width="40"
-              height="40"
-              class="mb-3"
-            />
-            <h4 class="mb-3">Raffi Andhika</h4>
-            <div class="d-flex justify-content-center gap-3 mb-4">
-              <a
-                href="https://wa.me/nomorwhatsapp"
-                target="_blank"
-                class="text-light fs-5 social-icon"
-              >
-                <i class="fab fa-whatsapp"></i>
-              </a>
-              <a
-                href="https://github.com/username"
-                target="_blank"
-                class="text-light fs-5 social-icon"
-              >
-                <i class="fab fa-github"></i>
-              </a>
-              <a
-                href="https://instagram.com/username"
-                target="_blank"
-                class="text-light fs-5 social-icon"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://twitter.com/username"
-                target="_blank"
-                class="text-light fs-5 social-icon"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a
-                href="https://discord.com"
-                target="_blank"
-                class="text-light fs-5 social-icon"
-              >
-                <i class="fab fa-discord"></i>
-              </a>
-            </div>
-            <p class="text-muted mb-0">
-              © 2025 Raffi Andhika. All rights reserved.
-            </p>
+          <div
+            class="col-lg-8 text-center"
+            data-aos="fade-up"
+            data-aos-once="false"
+          >
+            <h2 class="display-5 fw-bold text-light">Contact Me</h2>
+            <div
+              class="divider mx-auto bg-success mb-5"
+              style="height: 3px; width: 60px"
+            ></div>
+            <h4>Have something to discuss? Send me a Messages</h4>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div
+            class="col-lg-8"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-once="false"
+          >
+            <form class="p-4 p-md-5">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control bg-dark text-light border-secondary"
+                      id="floatingName"
+                      placeholder="Your Name"
+                      required
+                    />
+                    <label for="floatingName" class="text-muted"
+                      >Your Name</label
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="email"
+                      class="form-control bg-dark text-light border-secondary"
+                      id="floatingEmail"
+                      placeholder="name@example.com"
+                      required
+                    />
+                    <label for="floatingEmail" class="text-muted"
+                      >Email Address</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea
+                  class="form-control bg-dark text-light border-secondary"
+                  placeholder="Leave a message here"
+                  id="floatingMessage"
+                  style="height: 150px"
+                  required
+                ></textarea>
+                <label for="floatingMessage" class="text-muted"
+                  >Your Message</label
+                >
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-success px-4 py-2">
+                  <i class="fas fa-paper-plane me-2"></i>Send Message
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </footer>
+
+      <div
+        class="modal fade"
+        id="projectModal1"
+        tabindex="-1"
+        aria-labelledby="projectModalLabel1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-bottom border-secondary">
+              <h5 class="modal-title" id="projectModalLabel1">
+                Example Website
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row g-4">
+                <div class="col-md-5">
+                  <img
+                    src="image/project_example.webp"
+                    alt="Project 1"
+                    class="img-fluid rounded"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+                <div class="col-md-7">
+                  <h5 class="text-success mb-3">Project Description</h5>
+                  <p class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Reiciendis quod dicta ab eum ad fuga, facilis optio earum.
+                  </p>
+                  <div class="mb-3">
+                    <h6 class="text-light mb-2">Features:</h6>
+                    <ul class="text-muted small">
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipisicing elit</li>
+                      <li>Facilis optio earum consequatur</li>
+                    </ul>
+                  </div>
+                  <div class="mb-4">
+                    <h6 class="text-light mb-2">Technologies:</h6>
+                    <span class="tech-badge">HTML</span>
+                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-success">
+                      <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                    </a>
+                    <a href="#" class="btn btn-outline-light">
+                      <i class="fab fa-github me-2"></i>Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="projectModal2"
+        tabindex="-1"
+        aria-labelledby="projectModalLabel2"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-bottom border-secondary">
+              <h5 class="modal-title" id="projectModalLabel2">
+                Example Website
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row g-4">
+                <div class="col-md-5">
+                  <img
+                    src="image/project_example.webp"
+                    alt="Project 2"
+                    class="img-fluid rounded"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+                <div class="col-md-7">
+                  <h5 class="text-success mb-3">Project Description</h5>
+                  <p class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Magni incidunt quis, alias praesentium quam eius natus.
+                  </p>
+                  <div class="mb-3">
+                    <h6 class="text-light mb-2">Features:</h6>
+                    <ul class="text-muted small">
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipisicing elit</li>
+                      <li>Facilis optio earum consequatur</li>
+                    </ul>
+                  </div>
+                  <div class="mb-4">
+                    <h6 class="text-light mb-2">Technologies:</h6>
+                    <span class="tech-badge">HTML</span>
+                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-success">
+                      <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                    </a>
+                    <a href="#" class="btn btn-outline-light">
+                      <i class="fab fa-github me-2"></i>Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="projectModal3"
+        tabindex="-1"
+        aria-labelledby="projectModalLabel3"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-bottom border-secondary">
+              <h5 class="modal-title" id="projectModalLabel3">
+                Example Website
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row g-4">
+                <div class="col-md-5">
+                  <img
+                    src="image/project_example.webp"
+                    alt="Project 3"
+                    class="img-fluid rounded"
+                    style="width: 100%; height: 100%; object-fit: cover"
+                  />
+                </div>
+                <div class="col-md-7">
+                  <h5 class="text-success mb-3">Project Description</h5>
+                  <p class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorum accusantium, dolorem possimus provident hic.
+                  </p>
+                  <div class="mb-3">
+                    <h6 class="text-light mb-2">Features:</h6>
+                    <ul class="text-muted small">
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipisicing elit</li>
+                      <li>Facilis optio earum consequatur</li>
+                    </ul>
+                  </div>
+                  <div class="mb-4">
+                    <h6 class="text-light mb-2">Technologies:</h6>
+                    <span class="tech-badge">HTML</span>
+                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-success">
+                      <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                    </a>
+                    <a href="#" class="btn btn-outline-light">
+                      <i class="fab fa-github me-2"></i>Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate Modal 1 -->
+      <div
+        class="modal fade"
+        id="certModal1"
+        tabindex="-1"
+        aria-labelledby="certModalLabel1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-bottom border-secondary">
+              <h5 class="modal-title" id="certModalLabel1">
+                Example Certificate
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img
+                    src="image/certificate_example.png"
+                    alt="Certificate 1"
+                    class="img-fluid rounded"
+                    style="width: 100%"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <h5 class="text-success mb-3">Certificate Details</h5>
+                  <div class="mb-3">
+                    <h6 class="text-light">Issuer</h6>
+                    <p class="text-muted">Udemy</p>
+                  </div>
+                  <div class="mb-3">
+                    <h6 class="text-light">Date Issued</h6>
+                    <p class="text-muted">2023</p>
+                  </div>
+                  <div class="mb-3">
+                    <h6 class="text-light">Description</h6>
+                    <p class="text-muted">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Aspernatur quidem rem exercitationem obcaecati totam.
+                    </p>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-success">
+                      <i class="fas fa-external-link-alt me-2"></i>View
+                      Credential
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate Modal 2 -->
+      <div
+        class="modal fade"
+        id="certModal2"
+        tabindex="-1"
+        aria-labelledby="certModalLabel2"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-bottom border-secondary">
+              <h5 class="modal-title" id="certModalLabel2">
+                Example Certificate
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img
+                    src="image/certificate_example.png"
+                    alt="Certificate 2"
+                    class="img-fluid rounded"
+                    style="width: 100%"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <h5 class="text-success mb-3">Certificate Details</h5>
+                  <div class="mb-3">
+                    <h6 class="text-light">Issuer</h6>
+                    <p class="text-muted">freeCodeCamp</p>
+                  </div>
+                  <div class="mb-3">
+                    <h6 class="text-light">Date Issued</h6>
+                    <p class="text-muted">2022</p>
+                  </div>
+                  <div class="mb-3">
+                    <h6 class="text-light">Description</h6>
+                    <p class="text-muted">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Molestias asperiores voluptatibus doloremque maxime.
+                    </p>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-success">
+                      <i class="fas fa-external-link-alt me-2"></i>View
+                      Credential
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate Modal 3 -->
+      <div
+        class="modal fade"
+        id="certModal3"
+        tabindex="-1"
+        aria-labelledby="certModalLabel3"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header border-bottom border-secondary">
+              <h5 class="modal-title" id="certModalLabel3">
+                Example Certificate
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <img
+                    src="image/certificate_example.png"
+                    alt="Certificate 3"
+                    class="img-fluid rounded"
+                    style="width: 100%"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <h5 class="text-success mb-3">Certificate Details</h5>
+                  <div class="mb-3">
+                    <h6 class="text-light">Issuer</h6>
+                    <p class="text-muted">Coursera</p>
+                  </div>
+                  <div class="mb-3">
+                    <h6 class="text-light">Date Issued</h6>
+                    <p class="text-muted">2023</p>
+                  </div>
+                  <div class="mb-3">
+                    <h6 class="text-light">Description</h6>
+                    <p class="text-muted">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Sequi commodi nisi debitis illo sunt veniam.
+                    </p>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a href="#" class="btn btn-success">
+                      <i class="fas fa-external-link-alt me-2"></i>View
+                      Credential
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer border-0">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="text-light py-4 mt-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <img
+                src="image/clover.png"
+                alt="Clover Logo"
+                width="40"
+                height="40"
+                class="mb-3"
+              />
+              <div class="d-flex justify-content-center gap-3 mb-4">
+                <a
+                  href="https://wa.me/nomorwhatsapp"
+                  target="_blank"
+                  class="text-light fs-5 social-icon"
+                >
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+                <a
+                  href="https://github.com/username"
+                  target="_blank"
+                  class="text-light fs-5 social-icon"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="https://instagram.com/username"
+                  target="_blank"
+                  class="text-light fs-5 social-icon"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="https://twitter.com/username"
+                  target="_blank"
+                  class="text-light fs-5 social-icon"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="https://discord.com"
+                  target="_blank"
+                  class="text-light fs-5 social-icon"
+                >
+                  <i class="fab fa-discord"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- End main-content -->
 
     <script src="assets/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
