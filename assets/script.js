@@ -85,6 +85,25 @@ document.addEventListener("DOMContentLoaded", function () {
       aboutVideo.currentTime = 0; // Optional: Reset to beginning
     });
   }
+
+  // Splash Screen Logic
+  const splashScreen = document.getElementById("splash-screen");
+  if (splashScreen) {
+    if (sessionStorage.getItem("splashShown")) {
+      splashScreen.style.display = "none";
+    } else {
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          splashScreen.classList.add("fade-out");
+          sessionStorage.setItem("splashShown", "true");
+          // Remove from DOM after transition to avoid blocking interactions
+          setTimeout(() => {
+            splashScreen.style.display = "none";
+          }, 800);
+        }, 1500); // Minimum time for the animation effect
+      });
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -123,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
   AOS.init({
     duration: 800,
     easing: "ease",
-    once: false,
+    once: true,
     offset: 100,
   });
 
