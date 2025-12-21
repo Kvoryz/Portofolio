@@ -71,6 +71,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   setActiveNav("#home");
+
+  // About Me Video Hover Logic
+  const aboutImgWrapper = document.querySelector(".about-img-wrapper");
+  const aboutVideo = document.querySelector(".about-video");
+
+  if (aboutImgWrapper && aboutVideo) {
+    aboutImgWrapper.addEventListener("mouseenter", () => {
+      aboutVideo.play();
+    });
+    aboutImgWrapper.addEventListener("mouseleave", () => {
+      aboutVideo.pause();
+      aboutVideo.currentTime = 0; // Optional: Reset to beginning
+    });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
