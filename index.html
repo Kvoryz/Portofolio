@@ -24,19 +24,6 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <!-- Splash Screen -->
-    <div id="splash-screen">
-      <div class="splash-content">
-        <div class="splash-logo-wrapper">
-          <img src="image/clover.png" alt="Clover Logo" class="splash-logo" />
-          <div class="splash-glow"></div>
-        </div>
-        <div class="splash-loader">
-          <div class="loader-bar"></div>
-        </div>
-      </div>
-    </div>
-
     <!-- Global Particle Background -->
     <div class="particles-global">
       <div class="particle"></div>
@@ -137,106 +124,150 @@
             </div>
           </a>
         </nav>
-        </div>
+      </div>
 
-        <!-- Hero Section -->
-        <section class="hero-section">
-          <div class="hero-wrapper" data-aos="fade-up" data-aos-once="true">
-            <div class="hero-content-grid">
-              <!-- Left Column: Terminal -->
-              <div class="terminal-column">
-                <div class="terminal-window">
-                  <div class="terminal-header">
-                    <div class="terminal-controls">
-                      <div class="control red"></div>
-                      <div class="control yellow"></div>
-                      <div class="control green"></div>
-                    </div>
-                    <div class="terminal-title">$ node developer.js</div>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-wrapper" data-aos="fade-up" data-aos-once="true">
+          <div class="hero-content-grid">
+            <!-- Left Column: Terminal -->
+            <div class="terminal-column">
+              <div class="terminal-window">
+                <div class="terminal-header">
+                  <div class="terminal-controls">
+                    <div class="control red"></div>
+                    <div class="control yellow"></div>
+                    <div class="control green"></div>
                   </div>
-                  <div class="terminal-body">
-                    <div class="terminal-code-wrapper">
-                      <div id="line-numbers" class="line-numbers">1</div>
-                      <div id="code-typewriter"></div>
-                    </div>
-                  </div>
+                  <div class="terminal-title">$ node developer.js</div>
                 </div>
-
-                <div class="hero-social mt-4">
-                  <a
-                    href="https://github.com/username"
-                    target="_blank"
-                    class="social-btn"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                  <a
-                    href="https://instagram.com/username"
-                    target="_blank"
-                    class="social-btn"
-                  >
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                  <a
-                    href="https://twitter.com/username"
-                    target="_blank"
-                    class="social-btn"
-                  >
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="https://discord.com" target="_blank" class="social-btn">
-                    <i class="fab fa-discord"></i>
-                  </a>
+                <div class="terminal-body">
+                  <div class="terminal-code-wrapper">
+                    <div id="line-numbers" class="line-numbers">1</div>
+                    <div id="code-typewriter"></div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Right Column: 3D Rubik's Cube -->
-              <div class="cube-column">
-                <div class="cube-container">
-                  <div class="rubiks-cube">
-                    <!-- Front Face -->
-                    <div class="cube-face front">
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid center-logo"><i class="fas fa-code"></i></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
+              <div class="hero-social mt-4">
+                <a
+                  href="https://github.com/kvoryz"
+                  target="_blank"
+                  class="social-btn"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="https://instagram.com/_kvory"
+                  target="_blank"
+                  class="social-btn"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@_kvory"
+                  target="_blank"
+                  class="social-btn"
+                >
+                  <i class="fab fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column: 3D Rubik's Cube -->
+            <div class="cube-column">
+              <div class="cube-container">
+                <div class="rubiks-cube">
+                  <!-- Front Face -->
+                  <div class="cube-face front">
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid center-logo">
+                      <i class="fas fa-code"></i>
                     </div>
-                    <!-- Back Face -->
-                    <div class="cube-face back">
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid center-logo"><i class="fas fa-terminal"></i></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                  </div>
+                  <!-- Back Face -->
+                  <div class="cube-face back">
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid center-logo">
+                      <i class="fas fa-terminal"></i>
                     </div>
-                    <!-- Right Face -->
-                    <div class="cube-face right">
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid center-logo"><i class="fas fa-layer-group"></i></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                  </div>
+                  <!-- Right Face -->
+                  <div class="cube-face right">
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid center-logo">
+                      <i class="fas fa-layer-group"></i>
                     </div>
-                    <!-- Left Face -->
-                    <div class="cube-face left">
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid center-logo"><i class="fas fa-rocket"></i></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                  </div>
+                  <!-- Left Face -->
+                  <div class="cube-face left">
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid center-logo">
+                      <i class="fas fa-rocket"></i>
                     </div>
-                    <!-- Top Face -->
-                    <div class="cube-face top">
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid center-logo"><i class="fab fa-github"></i></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                  </div>
+                  <!-- Top Face -->
+                  <div class="cube-face top">
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid center-logo">
+                      <i class="fab fa-github"></i>
                     </div>
-                    <!-- Bottom Face -->
-                    <div class="cube-face bottom">
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid center-logo"><i class="fas fa-database"></i></div><div class="cube-grid"></div>
-                      <div class="cube-grid"></div><div class="cube-grid"></div><div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                  </div>
+                  <!-- Bottom Face -->
+                  <div class="cube-face bottom">
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid center-logo">
+                      <i class="fas fa-database"></i>
                     </div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
+                    <div class="cube-grid"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       <!-- About Me Section -->
       <div
@@ -273,11 +304,11 @@
                     alt="Profile Photo"
                     class="about-profile-img"
                   />
-                  <video 
-                    src="videos/gweh.mp4" 
-                    class="about-video" 
-                    muted 
-                    loop 
+                  <video
+                    src="videos/gweh.mp4"
+                    class="about-video"
+                    muted
+                    loop
                     playsinline
                   ></video>
                 </div>
@@ -293,11 +324,13 @@
                     <div class="terminal-title">~/about $ cat story.sh</div>
                   </div>
                   <div class="terminal-body">
-                    <pre class="about-code"><code><span class="keyword">$</span> <span class="variable">whoami</span>
+                    <pre
+                      class="about-code"
+                    ><code><span class="keyword">$</span> <span class="variable">whoami</span>
 <span class="string">→ Raffi Andhika R (Kvory)</span>
 
 <span class="keyword">$</span> <span class="variable">cat</span> <span class="property">journey.txt</span>
-<span class="string">→ Started coding at 17, fell in love with</span>
+<span class="string">→ Started coding at 16, fell in love with</span>
 <span class="string">  building things from scratch. Now pursuing</span>
 <span class="string">  Informatics Engineering in Universitas</span>
 <span class="string">  Dipa Makassar.</span>
@@ -318,33 +351,74 @@
         </div>
 
         <!-- GitHub Contributions Section -->
-        <div class="container my-5 py-4">
+        <div class="container my-5 py-4" id="github-section">
           <div class="row justify-content-center">
             <div
-              class="col-lg-10 text-center"
+              class="col-lg-10"
               data-aos="fade-up"
               data-aos-once="true"
             >
-              <h3 class="fw-bold text-light mb-4">
-                <i class="fab fa-github me-2"></i>GitHub Contributions
-              </h3>
-              <div class="github-graph-container">
-                <img
-                  src="https://ghchart.rshah.org/20c997/Kvoryz"
-                  alt="GitHub Contributions Graph"
-                  class="github-graph"
-                />
+              <div class="github-card">
+                <!-- Header -->
+                <div class="github-header">
+                  <div class="github-title">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub Contributions</span>
+                  </div>
+                </div>
+
+                <!-- Subtitle -->
+                <div class="github-subtitle">
+                  <span>My GitHub activity over the past year.</span>
+                  <a href="https://github.com/Kvoryz" target="_blank" class="github-username">@Kvoryz</a>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="github-stats">
+                  <div class="github-stat-item">
+                    <span class="stat-label">Total</span>
+                    <span class="stat-value" id="gh-total">--</span>
+                  </div>
+                  <div class="github-stat-item">
+                    <span class="stat-label">This week</span>
+                    <span class="stat-value" id="gh-week">--</span>
+                  </div>
+                  <div class="github-stat-item">
+                    <span class="stat-label">Best</span>
+                    <span class="stat-value" id="gh-best">--</span>
+                  </div>
+                  <div class="github-stat-item">
+                    <span class="stat-label">Average</span>
+                    <span class="stat-value"><span id="gh-avg">--</span><span class="stat-unit"> / day</span></span>
+                  </div>
+                </div>
+
+                <!-- Contribution Graph -->
+                <div class="github-graph-wrapper">
+                  <img
+                    src="https://ghchart.rshah.org/20c997/Kvoryz"
+                    alt="GitHub Contributions Graph"
+                    class="github-graph"
+                  />
+                </div>
+
+                <!-- Legend -->
+                <div class="github-legend">
+                  <span>Less</span>
+                  <div class="legend-squares">
+                    <div class="legend-square" style="background: #161b22;"></div>
+                    <div class="legend-square" style="background: #0e4429;"></div>
+                    <div class="legend-square" style="background: #006d32;"></div>
+                    <div class="legend-square" style="background: #26a641;"></div>
+                    <div class="legend-square" style="background: #39d353;"></div>
+                  </div>
+                  <span>More</span>
+                </div>
               </div>
-              <a
-                href="https://github.com/Kvoryy"
-                target="_blank"
-                class="github-link"
-              >
-                <i class="fab fa-github me-2"></i>View My GitHub Profile
-              </a>
             </div>
           </div>
         </div>
+
 
         <!-- Stats Section -->
         <div class="container my-5 py-4">
@@ -408,7 +482,11 @@
       <!-- Portfolio Showcase Section -->
       <div class="container my-5 py-5" id="expert">
         <div class="row justify-content-center">
-          <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-once="true">
+          <div
+            class="col-lg-8 text-center"
+            data-aos="fade-up"
+            data-aos-once="true"
+          >
             <h2 class="display-5 fw-bold text-light">Portfolio Showcase</h2>
             <div
               class="divider mx-auto bg-success mb-4"
@@ -418,7 +496,12 @@
         </div>
 
         <!-- Finder-Style Portfolio Window -->
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+        <div
+          class="row justify-content-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-once="true"
+        >
           <div class="col-lg-9">
             <div class="finder-window">
               <!-- Finder Header -->
@@ -428,12 +511,10 @@
                   <div class="traffic-light yellow"></div>
                   <div class="traffic-light green"></div>
                 </div>
-                <div class="finder-title">
-                  <i class="fas fa-folder"></i>
-                  <span id="finder-current-folder">Projects</span>
-                </div>
                 <div class="finder-toolbar">
-                  <button class="active" id="view-icon"><i class="fas fa-th"></i></button>
+                  <button class="active" id="view-icon">
+                    <i class="fas fa-th"></i>
+                  </button>
                   <button id="view-list"><i class="fas fa-list"></i></button>
                 </div>
               </div>
@@ -449,13 +530,21 @@
                   <div class="sidebar-item" data-folder="certificates">
                     <i class="fas fa-award"></i> Certificates
                   </div>
-                  
+
                   <div class="sidebar-section">Tags</div>
                   <div class="sidebar-item" data-tag="web">
-                    <i class="fas fa-circle" style="color: #ff5f57; font-size: 0.6rem;"></i> Web
+                    <i
+                      class="fas fa-circle"
+                      style="color: #ff5f57; font-size: 0.6rem"
+                    ></i>
+                    Web
                   </div>
                   <div class="sidebar-item" data-tag="desktop">
-                    <i class="fas fa-circle" style="color: #28c840; font-size: 0.6rem;"></i> Desktop
+                    <i
+                      class="fas fa-circle"
+                      style="color: #28c840; font-size: 0.6rem"
+                    ></i>
+                    Desktop
                   </div>
                 </div>
 
@@ -465,41 +554,73 @@
                   <div class="finder-grid" id="projects-grid">
                     <!-- Project 1 -->
                     <div class="finder-icon" data-project="1" data-tags="web">
-                      <img src="image/project_example.webp" class="finder-icon-img" alt="Project 1" />
+                      <img
+                        src="image/project_example.webp"
+                        class="finder-icon-img"
+                        alt="Project 1"
+                      />
                       <div class="finder-icon-name">Website Example</div>
                       <div class="finder-icon-meta">HTML, CSS, JS</div>
                     </div>
                     <!-- Project 2 -->
                     <div class="finder-icon" data-project="2" data-tags="web">
-                      <img src="image/project_example.webp" class="finder-icon-img" alt="Project 2" />
+                      <img
+                        src="image/project_example.webp"
+                        class="finder-icon-img"
+                        alt="Project 2"
+                      />
                       <div class="finder-icon-name">PHP Project</div>
                       <div class="finder-icon-meta">PHP, MySQL</div>
                     </div>
                     <!-- Project 3 -->
-                    <div class="finder-icon" data-project="3" data-tags="desktop">
-                      <img src="image/project_example.webp" class="finder-icon-img" alt="Project 3" />
+                    <div
+                      class="finder-icon"
+                      data-project="3"
+                      data-tags="desktop"
+                    >
+                      <img
+                        src="image/project_example.webp"
+                        class="finder-icon-img"
+                        alt="Project 3"
+                      />
                       <div class="finder-icon-name">Java App</div>
                       <div class="finder-icon-meta">Java, Swing</div>
                     </div>
                     <!-- Project 4 -->
                     <div class="finder-icon" data-project="4" data-tags="web">
-                      <img src="image/project_example.webp" class="finder-icon-img" alt="Project 4" />
+                      <img
+                        src="image/project_example.webp"
+                        class="finder-icon-img"
+                        alt="Project 4"
+                      />
                       <div class="finder-icon-name">React Web</div>
                       <div class="finder-icon-meta">React, Node.js</div>
                     </div>
                   </div>
 
                   <!-- Certificates Grid (Hidden by default) -->
-                  <div class="finder-grid" id="certificates-grid" style="display: none;">
+                  <div
+                    class="finder-grid"
+                    id="certificates-grid"
+                    style="display: none"
+                  >
                     <!-- Certificate 1 -->
                     <div class="finder-icon" data-cert="1">
-                      <img src="image/certificate_example.png" class="finder-icon-img" alt="Certificate 1" />
+                      <img
+                        src="image/certificate_example.png"
+                        class="finder-icon-img"
+                        alt="Certificate 1"
+                      />
                       <div class="finder-icon-name">Web Dev Cert</div>
                       <div class="finder-icon-meta">Udemy - 2023</div>
                     </div>
                     <!-- Certificate 2 -->
                     <div class="finder-icon" data-cert="2">
-                      <img src="image/certificate_example.png" class="finder-icon-img" alt="Certificate 2" />
+                      <img
+                        src="image/certificate_example.png"
+                        class="finder-icon-img"
+                        alt="Certificate 2"
+                      />
                       <div class="finder-icon-name">JS Algorithms</div>
                       <div class="finder-icon-meta">freeCodeCamp</div>
                     </div>
@@ -523,21 +644,37 @@
             <div class="quicklook-title-bar" id="quicklook-title">Preview</div>
           </div>
           <div class="quicklook-body">
-            <img src="" class="quicklook-image" id="quicklook-image" alt="Preview" />
+            <img
+              src=""
+              class="quicklook-image"
+              id="quicklook-image"
+              alt="Preview"
+            />
             <h3 class="quicklook-name" id="quicklook-name">Project Name</h3>
             <div class="quicklook-meta">
               <div class="quicklook-meta-item">
                 <span class="quicklook-meta-label">Type</span>
-                <span class="quicklook-meta-value" id="quicklook-type">Web</span>
+                <span class="quicklook-meta-value" id="quicklook-type"
+                  >Web</span
+                >
               </div>
               <div class="quicklook-meta-item">
                 <span class="quicklook-meta-label">Tech Stack</span>
-                <span class="quicklook-meta-value" id="quicklook-tech">HTML, CSS, JS</span>
+                <span class="quicklook-meta-value" id="quicklook-tech"
+                  >HTML, CSS, JS</span
+                >
               </div>
             </div>
-            <p class="quicklook-desc" id="quicklook-desc">Project description will appear here.</p>
+            <p class="quicklook-desc" id="quicklook-desc">
+              Project description will appear here.
+            </p>
             <div class="quicklook-actions">
-              <a href="#" target="_blank" class="live-preview-btn" id="quicklook-live">
+              <a
+                href="#"
+                target="_blank"
+                class="live-preview-btn"
+                id="quicklook-live"
+              >
                 <i class="fas fa-external-link-alt"></i> View Live
               </a>
               <button class="details-btn" id="quicklook-details">
@@ -564,211 +701,116 @@
           </div>
         </div>
 
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="row g-3">
-              <!-- Languages -->
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i class="fab fa-html5 skill-icon" style="color: #e34f26"></i>
-                  <span class="skill-name">HTML</span>
+        <!-- macOS Launchpad -->
+        <div
+          class="row justify-content-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-once="true"
+        >
+          <div class="col-lg-9">
+            <div class="launchpad-window">
+              <!-- Header -->
+              <div class="launchpad-header">
+                <div class="traffic-lights">
+                  <div class="traffic-light red"></div>
+                  <div class="traffic-light yellow"></div>
+                  <div class="traffic-light green"></div>
                 </div>
               </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="50"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fab fa-css3-alt skill-icon"
-                    style="color: #1572b6"
-                  ></i>
-                  <span class="skill-name">CSS</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="100"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fab fa-js-square skill-icon"
-                    style="color: #f7df1e"
-                  ></i>
-                  <span class="skill-name">JavaScript</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="150"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i class="fab fa-php skill-icon" style="color: #777bb4"></i>
-                  <span class="skill-name">PHP</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="200"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fas fa-database skill-icon"
-                    style="color: #4479a1"
-                  ></i>
-                  <span class="skill-name">MySQL</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="250"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i class="fab fa-java skill-icon" style="color: #ed8b00"></i>
-                  <span class="skill-name">Java</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="300"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fab fa-python skill-icon"
-                    style="color: #3776ab"
-                  ></i>
-                  <span class="skill-name">Python</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="350"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fab fa-bootstrap skill-icon"
-                    style="color: #7952b3"
-                  ></i>
-                  <span class="skill-name">Bootstrap</span>
-                </div>
-              </div>
-              <!-- Tools -->
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="400"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i class="fas fa-code skill-icon" style="color: #007acc"></i>
-                  <span class="skill-name">VS Code</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="450"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fas fa-server skill-icon"
-                    style="color: #fb7a24"
-                  ></i>
-                  <span class="skill-name">XAMPP</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="500"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fab fa-git-alt skill-icon"
-                    style="color: #f05032"
-                  ></i>
-                  <span class="skill-name">Git</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="550"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fab fa-github skill-icon"
-                    style="color: #ffffff"
-                  ></i>
-                  <span class="skill-name">GitHub</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="600"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i class="fab fa-figma skill-icon" style="color: #f24e1e"></i>
-                  <span class="skill-name">Figma</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="650"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i
-                    class="fas fa-terminal skill-icon"
-                    style="color: #4d4d4d"
-                  ></i>
-                  <span class="skill-name">Terminal</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="700"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i class="fab fa-npm skill-icon" style="color: #cb3837"></i>
-                  <span class="skill-name">NPM</span>
-                </div>
-              </div>
-              <div
-                class="col-md-3 col-6"
-                data-aos="fade-up"
-                data-aos-delay="750"
-                data-aos-once="true"
-              >
-                <div class="skill-card">
-                  <i class="fas fa-cube skill-icon" style="color: #44a833"></i>
-                  <span class="skill-name">Postman</span>
+
+              <!-- Grid -->
+              <div class="launchpad-body">
+                <div class="launchpad-grid" id="launchpad-grid">
+                  <!-- Languages -->
+                  <div class="launchpad-item" data-skill="html">
+                    <div class="launchpad-icon" style="color: #e34f26">
+                      <i class="fab fa-html5"></i>
+                    </div>
+                    <span class="launchpad-name">HTML</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="css">
+                    <div class="launchpad-icon" style="color: #1572b6">
+                      <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <span class="launchpad-name">CSS</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="javascript">
+                    <div class="launchpad-icon" style="color: #f7df1e">
+                      <i class="fab fa-js-square"></i>
+                    </div>
+                    <span class="launchpad-name">JavaScript</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="php">
+                    <div class="launchpad-icon" style="color: #777bb4">
+                      <i class="fab fa-php"></i>
+                    </div>
+                    <span class="launchpad-name">PHP</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="python">
+                    <div class="launchpad-icon" style="color: #3776ab">
+                      <i class="fab fa-python"></i>
+                    </div>
+                    <span class="launchpad-name">Python</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="java">
+                    <div class="launchpad-icon" style="color: #ed8b00">
+                      <i class="fab fa-java"></i>
+                    </div>
+                    <span class="launchpad-name">Java</span>
+                  </div>
+
+                  <!-- Frameworks -->
+                  <div class="launchpad-item" data-skill="bootstrap">
+                    <div class="launchpad-icon" style="color: #7952b3">
+                      <i class="fab fa-bootstrap"></i>
+                    </div>
+                    <span class="launchpad-name">Bootstrap</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="mysql">
+                    <div class="launchpad-icon" style="color: #4479a1">
+                      <i class="fas fa-database"></i>
+                    </div>
+                    <span class="launchpad-name">MySQL</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="git">
+                    <div class="launchpad-icon" style="color: #f05032">
+                      <i class="fab fa-git-alt"></i>
+                    </div>
+                    <span class="launchpad-name">Git</span>
+                  </div>
+
+                  <!-- Tools -->
+                  <div class="launchpad-item" data-skill="vscode">
+                    <div class="launchpad-icon" style="color: #007acc">
+                      <i class="fas fa-code"></i>
+                    </div>
+                    <span class="launchpad-name">VS Code</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="github">
+                    <div class="launchpad-icon" style="color: #ffffff">
+                      <i class="fab fa-github"></i>
+                    </div>
+                    <span class="launchpad-name">GitHub</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="figma">
+                    <div class="launchpad-icon" style="color: #f24e1e">
+                      <i class="fab fa-figma"></i>
+                    </div>
+                    <span class="launchpad-name">Figma</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="terminal">
+                    <div class="launchpad-icon" style="color: #ffffff">
+                      <i class="fas fa-terminal"></i>
+                    </div>
+                    <span class="launchpad-name">Terminal</span>
+                  </div>
+                  <div class="launchpad-item" data-skill="npm">
+                    <div class="launchpad-icon" style="color: #cb3837">
+                      <i class="fab fa-npm"></i>
+                    </div>
+                    <span class="launchpad-name">NPM</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -793,7 +835,6 @@
               class="divider mx-auto bg-success mb-5"
               style="height: 3px; width: 60px"
             ></div>
-            <h4>Have something to discuss? Send me a Messages</h4>
           </div>
         </div>
 
@@ -804,50 +845,71 @@
             data-aos-delay="100"
             data-aos-once="true"
           >
-            <div class="contact-glass-wrapper">
-              <form class="p-4 p-md-5">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="floatingName"
-                        placeholder="Your Name"
-                        required
-                      />
-                      <label for="floatingName">Your Name</label>
-                    </div>
+            <!-- Terminal Window -->
+            <div class="contact-terminal">
+              <div class="terminal-header">
+                <div class="terminal-controls">
+                  <div class="control red"></div>
+                  <div class="control yellow"></div>
+                  <div class="control green"></div>
+                </div>
+                <div class="terminal-title">$ ./send_message.sh</div>
+              </div>
+              <div class="terminal-body">
+                <form class="contact-form" id="contact-form">
+                  <div class="terminal-line">
+                    <span class="prompt">→</span>
+                    <span class="label">name:</span>
+                    <input
+                      type="text"
+                      class="terminal-input"
+                      id="contact-name"
+                      placeholder="Your Name"
+                      required
+                    />
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="floatingEmail"
-                        placeholder="name@example.com"
-                        required
-                      />
-                      <label for="floatingEmail">Email Address</label>
-                    </div>
+                  <div class="terminal-line">
+                    <span class="prompt">→</span>
+                    <span class="label">email:</span>
+                    <input
+                      type="email"
+                      class="terminal-input"
+                      id="contact-email"
+                      placeholder="your@email.com"
+                      required
+                    />
                   </div>
-                </div>
-                <div class="form-floating mb-3">
-                  <textarea
-                    class="form-control"
-                    placeholder="Leave a message here"
-                    id="floatingMessage"
-                    style="height: 150px"
-                    required
-                  ></textarea>
-                  <label for="floatingMessage">Your Message</label>
-                </div>
-                <div class="text-center mt-4">
-                  <button type="submit" class="btn btn-contact-submit px-5 py-3">
-                    <i class="fas fa-paper-plane me-2"></i>Send Message
-                  </button>
-                </div>
-              </form>
+                  <div class="terminal-line">
+                    <span class="prompt">→</span>
+                    <span class="label">subject:</span>
+                    <input
+                      type="text"
+                      class="terminal-input"
+                      id="contact-subject"
+                      placeholder="Subject"
+                      required
+                    />
+                  </div>
+                  <div class="terminal-line terminal-line-message">
+                    <span class="prompt">→</span>
+                    <span class="label">message:</span>
+                    <textarea
+                      class="terminal-textarea"
+                      id="contact-message"
+                      placeholder="Type your message here..."
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="terminal-line terminal-submit">
+                    <span class="prompt">$</span>
+                    <button type="submit" class="terminal-submit-btn">
+                      <span class="command">./submit.sh</span>
+                      <span class="cursor-blink"></span>
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -1299,39 +1361,25 @@
               />
               <div class="d-flex justify-content-center gap-3 mb-4">
                 <a
-                  href="https://wa.me/nomorwhatsapp"
+                  href="https://github.com/kvoryz"
                   target="_blank"
-                  class="text-light fs-5 social-icon"
-                >
-                  <i class="fab fa-whatsapp"></i>
-                </a>
-                <a
-                  href="https://github.com/username"
-                  target="_blank"
-                  class="text-light fs-5 social-icon"
+                  class="social-btn"
                 >
                   <i class="fab fa-github"></i>
                 </a>
                 <a
-                  href="https://instagram.com/username"
+                  href="https://instagram.com/_kvory"
                   target="_blank"
-                  class="text-light fs-5 social-icon"
+                  class="social-btn"
                 >
                   <i class="fab fa-instagram"></i>
                 </a>
                 <a
-                  href="https://twitter.com/username"
+                  href="https://www.tiktok.com/@_kvory"
                   target="_blank"
-                  class="text-light fs-5 social-icon"
+                  class="social-btn"
                 >
-                  <i class="fab fa-twitter"></i>
-                </a>
-                <a
-                  href="https://discord.com"
-                  target="_blank"
-                  class="text-light fs-5 social-icon"
-                >
-                  <i class="fab fa-discord"></i>
+                  <i class="fab fa-tiktok"></i>
                 </a>
               </div>
             </div>

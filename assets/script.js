@@ -73,24 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- Splash Screen ---
-  const splashScreen = document.getElementById("splash-screen");
-  if (splashScreen) {
-    if (sessionStorage.getItem("splashShown")) {
-      splashScreen.style.display = "none";
-    } else {
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          splashScreen.classList.add("fade-out");
-          sessionStorage.setItem("splashShown", "true");
-          setTimeout(() => {
-            splashScreen.style.display = "none";
-          }, 800);
-        }, 1500);
-      });
-    }
-  }
-
   // --- AOS & Tabs ---
   const tabEls = document.querySelectorAll('button[data-bs-toggle="tab"]');
   tabEls.forEach((tabEl) => {
@@ -117,36 +99,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- Terminal Typewriter ---
   const codeElement = document.getElementById("code-typewriter");
-  const codeLines = [
+
+  // Text 1: Developer Object
+  const codeLines1 = [
     { text: "const ", class: "keyword" },
     { text: "developer ", class: "variable" },
     { text: "= ", class: "operator" },
     { text: "{\n", class: "punctuation" },
     { text: "  name: ", class: "property" },
-    { text: '"Raffi Andhika R"', class: "string" },
+    { text: '"Raffi Andhika R",', class: "string" },
     { text: "  alias: ", class: "property" },
-    { text: '"Kvory"', class: "string" },
-    { text: ",\n", class: "punctuation" },
+    { text: '"Kvory",\n', class: "string" },
     { text: "  role: ", class: "property" },
-    { text: '"Full Stack Developer"', class: "string" },
-    { text: ",\n", class: "punctuation" },
+    { text: '"Full Stack Developer",\n', class: "string" },
     { text: "  skills: ", class: "property" },
-    { text: '["JavaScript", "PHP", "Python"]', class: "string" },
-    { text: ",\n", class: "punctuation" },
+    { text: '["JavaScript", "PHP", "Python"],\n', class: "string" },
     { text: "  learning: ", class: "property" },
-    { text: '"Laravel & Java"', class: "string" },
-    { text: ",\n", class: "punctuation" },
+    { text: '"Laravel & Java",\n', class: "string" },
     { text: "  github: ", class: "property" },
-    { text: '"github.com/kvoryz"', class: "string" },
-    { text: ",\n", class: "punctuation" },
+    { text: '"github.com/kvoryz",\n', class: "string" },
     { text: "  coffee: ", class: "property" },
-    { text: '"Infinite ☕"', class: "string" },
-    { text: ",\n", class: "punctuation" },
+    { text: '"Infinite ☕",\n', class: "string" },
     { text: "  available: ", class: "property" },
-    { text: "true", class: "keyword" },
-    { text: "\n", class: "punctuation" },
+    { text: "true\n", class: "keyword" },
     { text: "};", class: "punctuation" },
   ];
+
+  // Text 2: Hire Function
+  // Text 2: Hire Function
+  const codeLines2 = [
+    { text: "function ", class: "keyword" },
+    { text: "hire", class: "variable" },
+    { text: "(developer) ", class: "punctuation" },
+    { text: "{\n", class: "punctuation" },
+    { text: "  if ", class: "keyword" },
+    { text: "(developer.", class: "punctuation" },
+    { text: "available", class: "property" },
+    { text: ") {\n", class: "punctuation" },
+    { text: "    return ", class: "keyword" },
+    { text: '"Let’s build something great."', class: "string" },
+    { text: ";\n", class: "punctuation" },
+    { text: "  } ", class: "punctuation" },
+    { text: "else", class: "keyword" },
+    { text: " {\n", class: "punctuation" },
+    { text: "    return ", class: "keyword" },
+    { text: '"Currently working on another project."', class: "string" },
+    { text: ";\n", class: "punctuation" },
+    { text: "  }\n", class: "punctuation" },
+    { text: "}\n\n", class: "punctuation" },
+    { text: "hire", class: "variable" },
+    { text: "(developer); ", class: "punctuation" },
+    { text: "// Ready when you are", class: "comment" },
+  ];
+
+  // Delete animation type: 0 = Ctrl+A, 1 = one by one
+  const deleteTypes = [0, 1]; // Text 1: Ctrl+A, Text 2: one by one
+
+  const allTexts = [codeLines1, codeLines2];
+  let currentTextIndex = 0;
+  let codeLines = allTexts[currentTextIndex];
 
   let lineIndex = 0;
   let charIndex = 0;
@@ -168,8 +179,55 @@ document.addEventListener("DOMContentLoaded", function () {
     lineNumElement.textContent = lineNumsHTML.trim();
   }
 
+  // Typo simulation variables
+  let isTypingTypo = false;
+  let typoCharsToDelete = 0;
+  let pendingCorrectChar = "";
+  const typoChance = 0.03;
+  const typoChars = "asdfghjklqwertyuiopzxcvbnm";
+
+  function getTypingDelay(char, prevChar) {
+    // Variable speed based on character
+    if (prevChar === "." || prevChar === ",") return 150;
+    if (prevChar === "{" || prevChar === "}") return 180;
+    if (prevChar === "(") return 120;
+    if (char === "\n") return 100;
+    return Math.random() * 40 + 30; // 30-70ms normal
+  }
+
   function typeCode() {
     if (!codeElement) return;
+
+    // Handle typo deletion
+    if (typoCharsToDelete > 0) {
+      const spans = codeElement.querySelectorAll("span:not(.cursor-blink)");
+      for (let i = spans.length - 1; i >= 0; i--) {
+        if (spans[i].textContent.length > 0) {
+          spans[i].textContent = spans[i].textContent.slice(0, -1);
+          if (spans[i].textContent.length === 0) {
+            spans[i].remove();
+          }
+          break;
+        }
+      }
+      typoCharsToDelete--;
+      updateLineNumbers();
+      setTimeout(typeCode, 80);
+      return;
+    }
+
+    // Type the correct character after typo was deleted
+    if (pendingCorrectChar !== "") {
+      const currentSpan = codeElement.querySelector(`.line-${lineIndex}`);
+      if (currentSpan) {
+        currentSpan.textContent += pendingCorrectChar;
+      }
+      pendingCorrectChar = "";
+      charIndex++;
+      updateLineNumbers();
+      setTimeout(typeCode, Math.random() * 40 + 30);
+      return;
+    }
 
     if (lineIndex < codeLines.length) {
       const currentLine = codeLines[lineIndex];
@@ -184,17 +242,39 @@ document.addEventListener("DOMContentLoaded", function () {
         );
       }
       if (charIndex < fullText.length) {
-        currentSpan.textContent += fullText.charAt(charIndex);
+        const char = fullText.charAt(charIndex);
+        const prevChar = charIndex > 0 ? fullText.charAt(charIndex - 1) : "";
+
+        // Random typo (only for letters, not at end of segment)
+        if (
+          Math.random() < typoChance &&
+          /[a-zA-Z]/.test(char) &&
+          !isTypingTypo &&
+          charIndex < fullText.length - 1
+        ) {
+          const wrongChar = typoChars.charAt(
+            Math.floor(Math.random() * typoChars.length)
+          );
+          currentSpan.textContent += wrongChar;
+          isTypingTypo = true;
+          typoCharsToDelete = 1;
+          pendingCorrectChar = char;
+          updateLineNumbers();
+          setTimeout(typeCode, 300);
+          return;
+        }
+
+        isTypingTypo = false;
+        currentSpan.textContent += char;
         charIndex++;
         updateLineNumbers();
-        setTimeout(typeCode, Math.random() * 30 + 20);
+        setTimeout(typeCode, getTypingDelay(char, prevChar));
       } else {
         lineIndex++;
         charIndex = 0;
-        setTimeout(typeCode, 50);
+        setTimeout(typeCode, 80);
       }
     } else {
-      // Start delete animation after typing is complete
       setTimeout(deleteCode, 2000);
     }
   }
@@ -202,12 +282,37 @@ document.addEventListener("DOMContentLoaded", function () {
   function deleteCode() {
     if (!codeElement) return;
     const spans = codeElement.querySelectorAll("span:not(.cursor-blink)");
+    const deleteType = deleteTypes[currentTextIndex];
+
+    if (spans.length > 0) {
+      if (deleteType === 0) {
+        // Ctrl+A style: highlight all then delete
+        spans.forEach((span) => {
+          span.style.background = "rgba(32, 201, 151, 0.3)";
+          span.style.borderRadius = "2px";
+        });
+
+        setTimeout(() => {
+          spans.forEach((span) => span.remove());
+          updateLineNumbers();
+          switchToNextText();
+        }, 800);
+      } else {
+        // One by one delete
+        deleteOneByOne();
+      }
+    } else {
+      switchToNextText();
+    }
+  }
+
+  function deleteOneByOne() {
+    const spans = codeElement.querySelectorAll("span:not(.cursor-blink)");
     const allText = Array.from(spans)
       .map((s) => s.textContent)
       .join("");
 
     if (allText.length > 0) {
-      // Find the last span with content
       for (let i = spans.length - 1; i >= 0; i--) {
         if (spans[i].textContent.length > 0) {
           spans[i].textContent = spans[i].textContent.slice(0, -1);
@@ -217,14 +322,19 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
         }
       }
-      setTimeout(deleteCode, 15);
       updateLineNumbers();
+      setTimeout(deleteOneByOne, 15);
     } else {
-      // All deleted, restart typing
-      lineIndex = 0;
-      charIndex = 0;
-      setTimeout(typeCode, 500);
+      switchToNextText();
     }
+  }
+
+  function switchToNextText() {
+    currentTextIndex = (currentTextIndex + 1) % allTexts.length;
+    codeLines = allTexts[currentTextIndex];
+    lineIndex = 0;
+    charIndex = 0;
+    setTimeout(typeCode, 500);
   }
 
   if (codeElement) {
@@ -323,14 +433,21 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.add("active");
 
       const folder = this.dataset.folder;
-      finderTitle.textContent = this.textContent.trim();
+      // Title removed from UI
 
       if (folder === "projects") {
-        projectsGrid.style.display = "grid";
-        certificatesGrid.style.display = "none";
+        if (projectsGrid) {
+          projectsGrid.style.display = "grid";
+          document
+            .querySelectorAll("#projects-grid .finder-icon")
+            .forEach(function (icon) {
+              icon.style.display = "flex";
+            });
+        }
+        if (certificatesGrid) certificatesGrid.style.display = "none";
       } else if (folder === "certificates") {
-        projectsGrid.style.display = "none";
-        certificatesGrid.style.display = "grid";
+        if (projectsGrid) projectsGrid.style.display = "none";
+        if (certificatesGrid) certificatesGrid.style.display = "grid";
       }
     });
   });
@@ -343,10 +460,17 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.add("active");
 
       const tag = this.dataset.tag;
-      finderTitle.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+      // Title removed from UI
 
-      projectsGrid.style.display = "grid";
-      certificatesGrid.style.display = "none";
+      if (projectsGrid) {
+        projectsGrid.style.display = "grid";
+        document
+          .querySelectorAll("#projects-grid .finder-icon")
+          .forEach(function (icon) {
+            icon.style.display = "flex";
+          });
+      }
+      if (certificatesGrid) certificatesGrid.style.display = "none";
 
       document
         .querySelectorAll("#projects-grid .finder-icon")
@@ -405,3 +529,81 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// --- GitHub Stats Integration ---
+async function fetchGitHubStats() {
+  const username = "Kvoryz";
+  
+  try {
+    // Fetch user data
+    const userResponse = await fetch(`https://api.github.com/users/${username}`);
+    const userData = await userResponse.json();
+    
+    // Fetch events for contribution activity
+    const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=100`);
+    const events = await eventsResponse.json();
+    
+    // Calculate stats from events
+    const now = new Date();
+    const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const oneYearAgo = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
+    
+    // Count push events as contributions
+    let totalContributions = 0;
+    let weeklyContributions = 0;
+    let dailyContributions = {};
+    
+    events.forEach(event => {
+      if (event.type === "PushEvent" || event.type === "CreateEvent" || event.type === "PullRequestEvent") {
+        const eventDate = new Date(event.created_at);
+        const dateKey = eventDate.toISOString().split('T')[0];
+        
+        // Count commits in push events
+        let count = 1;
+        if (event.type === "PushEvent" && event.payload && event.payload.commits) {
+          count = event.payload.commits.length;
+        }
+        
+        totalContributions += count;
+        
+        if (eventDate >= oneWeekAgo) {
+          weeklyContributions += count;
+        }
+        
+        dailyContributions[dateKey] = (dailyContributions[dateKey] || 0) + count;
+      }
+    });
+    
+    // Calculate best day and average
+    const dailyCounts = Object.values(dailyContributions);
+    const bestDay = dailyCounts.length > 0 ? Math.max(...dailyCounts) : 0;
+    const avgPerDay = dailyCounts.length > 0 ? Math.round(totalContributions / Math.max(dailyCounts.length, 1)) : 0;
+    
+    // Update DOM
+    const totalEl = document.getElementById("gh-total");
+    const weekEl = document.getElementById("gh-week");
+    const bestEl = document.getElementById("gh-best");
+    const avgEl = document.getElementById("gh-avg");
+    
+    if (totalEl) totalEl.textContent = totalContributions || userData.public_repos * 10;
+    if (weekEl) weekEl.textContent = weeklyContributions;
+    if (bestEl) bestEl.textContent = bestDay;
+    if (avgEl) avgEl.textContent = avgPerDay;
+    
+  } catch (error) {
+    console.log("GitHub API error:", error);
+    // Fallback to placeholder values
+    const totalEl = document.getElementById("gh-total");
+    const weekEl = document.getElementById("gh-week");
+    const bestEl = document.getElementById("gh-best");
+    const avgEl = document.getElementById("gh-avg");
+    
+    if (totalEl) totalEl.textContent = "100+";
+    if (weekEl) weekEl.textContent = "10";
+    if (bestEl) bestEl.textContent = "15";
+    if (avgEl) avgEl.textContent = "2";
+  }
+}
+
+// Fetch GitHub stats on load
+fetchGitHubStats();
