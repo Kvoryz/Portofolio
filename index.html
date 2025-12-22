@@ -104,60 +104,39 @@
     <!-- Main Content (hidden on mobile) -->
     <div class="main-content">
       <div id="home" class="container">
-        <header
-          class="d-flex justify-content-between align-items-center py-3 px-3"
-        >
-          <!-- Logo -->
-          <div class="d-flex align-items-center">
-            <img
-              src="image/clover.png"
-              alt="icon"
-              width="50"
-              height="50"
-              class="me-2"
-            />
-            <div class="fs-4 fw-bold text-light">Clover</div>
-          </div>
-
-          <!-- Desktop Navigation -->
-          <nav class="desktop-nav">
-            <a href="#home" class="nav-link-minimal">
-              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              <span class="nav-text">Home</span>
-            </a>
-            <a href="#about" class="nav-link-minimal">
-              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              <span class="nav-text">About</span>
-            </a>
-            <a href="#expert" class="nav-link-minimal">
-              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-              <span class="nav-text">Portfolio</span>
-            </a>
-            <a href="#tools" class="nav-link-minimal">
-              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-              </svg>
-              <span class="nav-text">Tools</span>
-            </a>
-            <a href="#contact" class="nav-link-minimal">
-              <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span class="nav-text">Contact</span>
-            </a>
-          </nav>
-        </header>
+        <!-- Rubik-Inspired Navbar -->
+        <nav class="rubik-navbar">
+          <a href="#home" class="rubik-nav-cube active" data-label="Home">
+            <div class="cube-inner">
+              <div class="cube-side front"><i class="fas fa-home"></i></div>
+              <div class="cube-side back"><i class="fas fa-home"></i></div>
+            </div>
+          </a>
+          <a href="#about" class="rubik-nav-cube" data-label="About">
+            <div class="cube-inner">
+              <div class="cube-side front"><i class="fas fa-user"></i></div>
+              <div class="cube-side back"><i class="fas fa-user"></i></div>
+            </div>
+          </a>
+          <a href="#expert" class="rubik-nav-cube" data-label="Portfolio">
+            <div class="cube-inner">
+              <div class="cube-side front"><i class="fas fa-code"></i></div>
+              <div class="cube-side back"><i class="fas fa-code"></i></div>
+            </div>
+          </a>
+          <a href="#tools" class="rubik-nav-cube" data-label="Tools">
+            <div class="cube-inner">
+              <div class="cube-side front"><i class="fas fa-tools"></i></div>
+              <div class="cube-side back"><i class="fas fa-tools"></i></div>
+            </div>
+          </a>
+          <a href="#contact" class="rubik-nav-cube" data-label="Contact">
+            <div class="cube-inner">
+              <div class="cube-side front"><i class="fas fa-envelope"></i></div>
+              <div class="cube-side back"><i class="fas fa-envelope"></i></div>
+            </div>
+          </a>
+        </nav>
         </div>
 
         <!-- Hero Section -->
@@ -300,26 +279,30 @@
                 </div>
               </div>
               <div class="col-lg-7 d-flex align-items-center">
-                <div class="json-code-block w-100">
-                  <div class="code-header">
-                    <span class="code-dot red"></span>
-                    <span class="code-dot yellow"></span>
-                    <span class="code-dot green"></span>
-                    <span class="code-filename">about_me.json</span>
+                <div class="terminal-window about-terminal w-100">
+                  <div class="terminal-header">
+                    <div class="terminal-controls">
+                      <div class="control red"></div>
+                      <div class="control yellow"></div>
+                      <div class="control green"></div>
+                    </div>
+                    <div class="terminal-title">about_me.json</div>
                   </div>
-                  <pre class="code-content"><code>{
-  <span class="json-key">"name"</span>: <span class="json-string">"Raffi Andhika"</span>,
-  <span class="json-key">"role"</span>: <span class="json-string">"Informatics Engineering Student"</span>,
-  <span class="json-key">"location"</span>: <span class="json-string">"Makassar, Indonesia"</span>,
-  <span class="json-key">"email"</span>: <span class="json-string">"riazrepo@gmail.com"</span>,
-  <span class="json-key">"phone"</span>: <span class="json-string">"+6282399408885"</span>,
-  <span class="json-key">"interests"</span>: [
-    <span class="json-string">"Web Development"</span>,
-    <span class="json-string">"Backend Development"</span>,
-    <span class="json-string">"Photography"</span>
-  ],
-  <span class="json-key">"passion"</span>: <span class="json-string">"Errors are calls for you to progress"</span>
-}</code></pre>
+                  <div class="terminal-body">
+                    <pre class="about-code"><code><span class="punctuation">{</span>
+  <span class="property">"name"</span><span class="operator">:</span> <span class="string">"Raffi Andhika R"</span>,
+  <span class="property">"alias"</span><span class="operator">:</span> <span class="string">"Kvory"</span>,
+  <span class="property">"role"</span><span class="operator">:</span> <span class="string">"Informatics Engineering Student"</span>,
+  <span class="property">"location"</span><span class="operator">:</span> <span class="string">"Makassar, Indonesia"</span>,
+  <span class="property">"email"</span><span class="operator">:</span> <span class="string">"riazrepo@gmail.com"</span>,
+  <span class="property">"interests"</span><span class="operator">:</span> <span class="punctuation">[</span>
+    <span class="string">"Web Development"</span>,
+    <span class="string">"Backend Development"</span>,
+    <span class="string">"Photography"</span>
+  <span class="punctuation">]</span>,
+  <span class="property">"motto"</span><span class="operator">:</span> <span class="string">"Errors are calls for you to progress"</span>
+<span class="punctuation">}</span></code></pre>
+                  </div>
                 </div>
               </div>
             </div>

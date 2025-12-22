@@ -1,26 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // --- Header & Navigation ---
-  const header = document.querySelector("header");
-  if (header) {
-    header.style.position = "fixed";
-    header.style.top = "0";
-    header.style.left = "0";
-    header.style.right = "0";
-    header.style.zIndex = "1000";
-    header.style.background = "rgba(18, 18, 18, 0.8)";
-    header.style.backdropFilter = "blur(10px)";
-    header.style.webkitBackdropFilter = "blur(10px)";
-  }
-
-  const homeSec = document.getElementById("home");
-  if (homeSec) {
-    homeSec.style.marginTop = "80px";
-  }
-
+  // --- Navigation ---
   let isScrolling = false;
 
   function setActiveNav(targetId) {
-    document.querySelectorAll(".nav-link-minimal").forEach((link) => {
+    document.querySelectorAll(".rubik-nav-cube").forEach((link) => {
       link.classList.remove("active");
       if (link.getAttribute("href") === targetId) {
         link.classList.add("active");
@@ -36,10 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
       if (targetElement) {
         isScrolling = true;
         setActiveNav(targetId);
-        const offset = 80;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+
+        // Special case for home - scroll to very top
+        if (targetId === "#home") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          const offset = 70;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        }
+
         setTimeout(() => {
           isScrolling = false;
         }, 1000);
@@ -177,13 +167,35 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(typeCode, 50);
       }
     } else {
-      setTimeout(() => {
-        const spans = codeElement.querySelectorAll("span:not(.cursor-blink)");
-        spans.forEach((span) => span.remove());
-        lineIndex = 0;
-        charIndex = 0;
-        typeCode();
-      }, 3000);
+      // Start delete animation after typing is complete
+      setTimeout(deleteCode, 2000);
+    }
+  }
+
+  function deleteCode() {
+    if (!codeElement) return;
+    const spans = codeElement.querySelectorAll("span:not(.cursor-blink)");
+    const allText = Array.from(spans)
+      .map((s) => s.textContent)
+      .join("");
+
+    if (allText.length > 0) {
+      // Find the last span with content
+      for (let i = spans.length - 1; i >= 0; i--) {
+        if (spans[i].textContent.length > 0) {
+          spans[i].textContent = spans[i].textContent.slice(0, -1);
+          if (spans[i].textContent.length === 0) {
+            spans[i].remove();
+          }
+          break;
+        }
+      }
+      setTimeout(deleteCode, 15); // Fast delete speed
+    } else {
+      // All deleted, restart typing
+      lineIndex = 0;
+      charIndex = 0;
+      setTimeout(typeCode, 500);
     }
   }
 

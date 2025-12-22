@@ -1,16 +1,95 @@
-header {
+/* Rubik-Inspired Navbar */
+.rubik-navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 20px;
+  left: 30px;
   z-index: 1000;
-  background: inherit;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  gap: 15px;
+  padding: 15px 25px 35px 25px;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(32, 201, 151, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(32, 201, 151, 0.1);
+}
+
+.rubik-nav-cube {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  perspective: 200px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.rubik-nav-cube .cube-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.rubik-nav-cube:hover .cube-inner {
+  transform: rotateX(180deg);
+}
+
+.rubik-nav-cube .cube-side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(32, 201, 151, 0.1);
+  border: 2px solid rgba(32, 201, 151, 0.3);
+  backface-visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.rubik-nav-cube .cube-side.front {
+  transform: rotateX(0deg) translateZ(25px);
+}
+
+.rubik-nav-cube .cube-side.back {
+  transform: rotateX(180deg) translateZ(25px);
+  background: linear-gradient(135deg, #20c997, #17a085);
+  color: #ffffff;
+  border-color: #20c997;
+}
+
+.rubik-nav-cube.active .cube-side.front {
+  background: linear-gradient(135deg, #20c997, #17a085);
+  color: #ffffff;
+  border-color: #20c997;
+  box-shadow: 0 0 20px rgba(32, 201, 151, 0.5);
+}
+
+.rubik-nav-cube::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.rubik-nav-cube:hover::after {
+  opacity: 1;
 }
 
 #home.container {
-  margin-top: 80px;
+  margin-top: 130px;
 }
 
 body {
@@ -60,7 +139,7 @@ body {
 }
 
 [id] {
-  scroll-margin-top: 50px;
+  scroll-margin-top: 70px;
 }
 
 .container {
@@ -932,9 +1011,9 @@ body {
 .hero-section {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 100px 0;
+  padding: 120px 0 60px 0;
   position: relative;
   overflow: hidden;
 }
@@ -971,240 +1050,240 @@ body {
 
 .particle:nth-child(1) {
   left: 3%;
-  animation-delay: 0s;
+  animation-delay: -2s;
   animation-duration: 18s;
 }
 .particle:nth-child(2) {
   left: 8%;
-  animation-delay: 2s;
+  animation-delay: -8s;
   animation-duration: 22s;
 }
 .particle:nth-child(3) {
   left: 13%;
-  animation-delay: 4s;
+  animation-delay: -14s;
   animation-duration: 20s;
 }
 .particle:nth-child(4) {
   left: 18%;
-  animation-delay: 1s;
+  animation-delay: -5s;
   animation-duration: 24s;
 }
 .particle:nth-child(5) {
   left: 23%;
-  animation-delay: 3s;
+  animation-delay: -11s;
   animation-duration: 19s;
 }
 .particle:nth-child(6) {
   left: 28%;
-  animation-delay: 5s;
+  animation-delay: -17s;
   animation-duration: 21s;
 }
 .particle:nth-child(7) {
   left: 33%;
-  animation-delay: 0.5s;
+  animation-delay: -3s;
   animation-duration: 23s;
 }
 .particle:nth-child(8) {
   left: 38%;
-  animation-delay: 2.5s;
+  animation-delay: -9s;
   animation-duration: 17s;
 }
 .particle:nth-child(9) {
   left: 43%;
-  animation-delay: 4.5s;
+  animation-delay: -15s;
   animation-duration: 25s;
 }
 .particle:nth-child(10) {
   left: 48%;
-  animation-delay: 1.5s;
+  animation-delay: -6s;
   animation-duration: 20s;
 }
 .particle:nth-child(11) {
   left: 53%;
-  animation-delay: 3.5s;
+  animation-delay: -12s;
   animation-duration: 22s;
   width: 4px;
   height: 4px;
 }
 .particle:nth-child(12) {
   left: 58%;
-  animation-delay: 5.5s;
+  animation-delay: -18s;
   animation-duration: 18s;
   width: 8px;
   height: 8px;
 }
 .particle:nth-child(13) {
   left: 63%;
-  animation-delay: 0.8s;
+  animation-delay: -4s;
   animation-duration: 24s;
   width: 3px;
   height: 3px;
 }
 .particle:nth-child(14) {
   left: 68%;
-  animation-delay: 2.8s;
+  animation-delay: -10s;
   animation-duration: 19s;
   width: 5px;
   height: 5px;
 }
 .particle:nth-child(15) {
   left: 73%;
-  animation-delay: 4.8s;
+  animation-delay: -16s;
   animation-duration: 21s;
   width: 7px;
   height: 7px;
 }
 .particle:nth-child(16) {
   left: 78%;
-  animation-delay: 1.2s;
+  animation-delay: -7s;
   animation-duration: 23s;
 }
 .particle:nth-child(17) {
   left: 83%;
-  animation-delay: 3.2s;
+  animation-delay: -13s;
   animation-duration: 17s;
   width: 4px;
   height: 4px;
 }
 .particle:nth-child(18) {
   left: 88%;
-  animation-delay: 5.2s;
+  animation-delay: -19s;
   animation-duration: 25s;
   width: 5px;
   height: 5px;
 }
 .particle:nth-child(19) {
   left: 93%;
-  animation-delay: 0.3s;
+  animation-delay: -1s;
   animation-duration: 20s;
 }
 .particle:nth-child(20) {
   left: 97%;
-  animation-delay: 2.3s;
+  animation-delay: -8s;
   animation-duration: 22s;
   width: 3px;
   height: 3px;
 }
 .particle:nth-child(21) {
   left: 5%;
-  animation-delay: 6s;
+  animation-delay: -14s;
   animation-duration: 26s;
   width: 4px;
   height: 4px;
 }
 .particle:nth-child(22) {
   left: 25%;
-  animation-delay: 7s;
+  animation-delay: -20s;
   animation-duration: 28s;
   width: 5px;
   height: 5px;
 }
 .particle:nth-child(23) {
   left: 45%;
-  animation-delay: 8s;
+  animation-delay: -6s;
   animation-duration: 24s;
 }
 .particle:nth-child(24) {
   left: 65%;
-  animation-delay: 9s;
+  animation-delay: -12s;
   animation-duration: 27s;
   width: 6px;
   height: 6px;
 }
 .particle:nth-child(25) {
   left: 85%;
-  animation-delay: 10s;
+  animation-delay: -18s;
   animation-duration: 25s;
   width: 4px;
   height: 4px;
 }
 .particle:nth-child(26) {
   left: 7%;
-  animation-delay: 11s;
+  animation-delay: -5s;
   animation-duration: 19s;
 }
 .particle:nth-child(27) {
   left: 17%;
-  animation-delay: 12s;
+  animation-delay: -10s;
   animation-duration: 21s;
   width: 5px;
   height: 5px;
 }
 .particle:nth-child(28) {
   left: 27%;
-  animation-delay: 13s;
+  animation-delay: -3s;
   animation-duration: 23s;
 }
 .particle:nth-child(29) {
   left: 37%;
-  animation-delay: 14s;
+  animation-delay: -8s;
   animation-duration: 20s;
   width: 4px;
   height: 4px;
 }
 .particle:nth-child(30) {
   left: 47%;
-  animation-delay: 15s;
+  animation-delay: -12s;
   animation-duration: 22s;
 }
 .particle:nth-child(31) {
   left: 57%;
-  animation-delay: 16s;
+  animation-delay: -2s;
   animation-duration: 18s;
   width: 6px;
   height: 6px;
 }
 .particle:nth-child(32) {
   left: 67%;
-  animation-delay: 17s;
+  animation-delay: -7s;
   animation-duration: 24s;
 }
 .particle:nth-child(33) {
   left: 77%;
-  animation-delay: 18s;
+  animation-delay: -15s;
   animation-duration: 19s;
   width: 3px;
   height: 3px;
 }
 .particle:nth-child(34) {
   left: 87%;
-  animation-delay: 19s;
+  animation-delay: -4s;
   animation-duration: 21s;
 }
 .particle:nth-child(35) {
   left: 12%;
-  animation-delay: 20s;
+  animation-delay: -9s;
   animation-duration: 26s;
   width: 5px;
   height: 5px;
 }
 .particle:nth-child(36) {
   left: 32%;
-  animation-delay: 21s;
+  animation-delay: -14s;
   animation-duration: 23s;
 }
 .particle:nth-child(37) {
   left: 52%;
-  animation-delay: 22s;
+  animation-delay: -6s;
   animation-duration: 20s;
   width: 7px;
   height: 7px;
 }
 .particle:nth-child(38) {
   left: 72%;
-  animation-delay: 23s;
+  animation-delay: -11s;
   animation-duration: 25s;
 }
 .particle:nth-child(39) {
   left: 92%;
-  animation-delay: 24s;
+  animation-delay: -1s;
   animation-duration: 22s;
   width: 4px;
   height: 4px;
 }
 .particle:nth-child(40) {
   left: 50%;
-  animation-delay: 25s;
+  animation-delay: -16s;
   animation-duration: 28s;
   width: 8px;
   height: 8px;
@@ -1680,6 +1759,27 @@ section,
   }
 }
 
+/* About Me Terminal Style */
+.about-terminal {
+  max-width: 100%;
+}
+
+.about-code {
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  background: transparent;
+  border: none;
+  white-space: pre;
+}
+
+.about-code code {
+  font-family: inherit;
+}
+
 /* GitHub Contributions */
 .github-graph-container {
   background: rgba(13, 17, 23, 0.6);
@@ -1864,25 +1964,25 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;
-  max-width: 1300px;
+  gap: 160px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .terminal-column {
-  flex: 1.2;
-  max-width: 800px;
+  flex: 1;
+  max-width: 600px;
 }
 
 .cube-column {
-  flex: 1;
-  min-width: 300px;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 400px;
   perspective: 1000px;
+  margin-top: -20px;
 }
 
 /* 3D Rubik's Cube */
