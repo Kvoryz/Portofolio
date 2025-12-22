@@ -301,4 +301,107 @@ document.addEventListener("DOMContentLoaded", function () {
         easing: "easeInOutQuad",
       });
   }
+
+  // --- Finder Portfolio Interactivity ---
+  const sidebarItems = document.querySelectorAll(".sidebar-item[data-folder]");
+  const tagItems = document.querySelectorAll(".sidebar-item[data-tag]");
+  const projectsGrid = document.getElementById("projects-grid");
+  const certificatesGrid = document.getElementById("certificates-grid");
+  const finderTitle = document.getElementById("finder-current-folder");
+  const finderIcons = document.querySelectorAll(".finder-icon");
+  const quicklook = document.getElementById("quicklook");
+  const quicklookClose = document.getElementById("quicklook-close");
+  const quicklookImage = document.getElementById("quicklook-image");
+  const quicklookName = document.getElementById("quicklook-name");
+  const quicklookTitle = document.getElementById("quicklook-title");
+
+  // Sidebar folder navigation
+  sidebarItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      sidebarItems.forEach((i) => i.classList.remove("active"));
+      tagItems.forEach((i) => i.classList.remove("active"));
+      this.classList.add("active");
+
+      const folder = this.dataset.folder;
+      finderTitle.textContent = this.textContent.trim();
+
+      if (folder === "projects") {
+        projectsGrid.style.display = "grid";
+        certificatesGrid.style.display = "none";
+      } else if (folder === "certificates") {
+        projectsGrid.style.display = "none";
+        certificatesGrid.style.display = "grid";
+      }
+    });
+  });
+
+  // Tag filtering
+  tagItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      sidebarItems.forEach((i) => i.classList.remove("active"));
+      tagItems.forEach((i) => i.classList.remove("active"));
+      this.classList.add("active");
+
+      const tag = this.dataset.tag;
+      finderTitle.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+
+      projectsGrid.style.display = "grid";
+      certificatesGrid.style.display = "none";
+
+      document
+        .querySelectorAll("#projects-grid .finder-icon")
+        .forEach((icon) => {
+          if (icon.dataset.tags && icon.dataset.tags.includes(tag)) {
+            icon.style.display = "flex";
+          } else {
+            icon.style.display = "none";
+          }
+        });
+    });
+  });
+
+  // Icon click - Quick Look
+  finderIcons.forEach((icon) => {
+    icon.addEventListener("click", function () {
+      const img = this.querySelector(".finder-icon-img");
+      const name = this.querySelector(".finder-icon-name").textContent;
+
+      quicklookImage.src = img.src;
+      quicklookName.textContent = name;
+      quicklookTitle.textContent = name;
+
+      quicklook.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  // Close Quick Look
+  if (quicklookClose) {
+    quicklookClose.addEventListener("click", function () {
+      quicklook.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  }
+
+  // Close Quick Look on overlay click
+  if (quicklook) {
+    quicklook.addEventListener("click", function (e) {
+      if (e.target === this) {
+        quicklook.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+  }
+
+  // ESC to close Quick Look
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "Escape" &&
+      quicklook &&
+      quicklook.classList.contains("active")
+    ) {
+      quicklook.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
 });

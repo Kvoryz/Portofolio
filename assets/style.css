@@ -627,6 +627,357 @@ body {
   margin-bottom: 12px;
 }
 
+/* ============================== */
+/* Finder-Style Portfolio Window  */
+/* ============================== */
+.finder-window {
+  background: rgba(30, 30, 46, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.finder-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(50, 50, 70, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.finder-header .traffic-lights {
+  display: flex;
+  gap: 8px;
+}
+
+.finder-header .traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.finder-header .traffic-light.red {
+  background: #ff5f57;
+}
+.finder-header .traffic-light.yellow {
+  background: #febc2e;
+}
+.finder-header .traffic-light.green {
+  background: #28c840;
+}
+
+.finder-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.finder-title i {
+  color: #20c997;
+}
+
+.finder-toolbar {
+  display: flex;
+  gap: 8px;
+}
+
+.finder-toolbar button {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.finder-toolbar button:hover,
+.finder-toolbar button.active {
+  background: rgba(32, 201, 151, 0.2);
+  color: #20c997;
+}
+
+.finder-body {
+  display: flex;
+  min-height: 480px;
+}
+
+.finder-sidebar {
+  width: 180px;
+  background: rgba(40, 40, 60, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 15px 0;
+}
+
+.sidebar-section {
+  padding: 8px 16px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-item.active {
+  background: rgba(32, 201, 151, 0.15);
+  color: #20c997;
+}
+
+.sidebar-item i {
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.finder-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.finder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+.finder-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.finder-icon:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.finder-icon.selected {
+  background: rgba(32, 201, 151, 0.2);
+}
+
+.finder-icon-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.finder-icon:hover .finder-icon-img {
+  transform: scale(1.05);
+}
+
+.finder-icon-name {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+.finder-icon-meta {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 4px;
+}
+
+/* Quick Look Modal */
+.quicklook-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.quicklook-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.quicklook-window {
+  background: rgba(30, 30, 46, 0.98);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 85vh;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+.quicklook-overlay.active .quicklook-window {
+  transform: scale(1);
+}
+
+.quicklook-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  background: rgba(50, 50, 70, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.quicklook-header .traffic-lights {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  left: 16px;
+}
+
+.quicklook-header .traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.quicklook-header .traffic-light:hover {
+  opacity: 0.8;
+}
+
+.quicklook-header .traffic-light.red {
+  background: #ff5f57;
+}
+.quicklook-header .traffic-light.yellow {
+  background: #febc2e;
+}
+.quicklook-header .traffic-light.green {
+  background: #28c840;
+}
+
+.quicklook-header .quicklook-title-bar {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.quicklook-close {
+  display: none; /* Hidden, using traffic light instead */
+}
+
+.quicklook-body {
+  padding: 25px;
+  max-height: calc(85vh - 50px);
+  overflow-y: auto;
+}
+
+.quicklook-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.quicklook-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.quicklook-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.quicklook-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.quicklook-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.quicklook-meta-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quicklook-meta-value {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.quicklook-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Finder Responsive */
+@media (max-width: 768px) {
+  .finder-sidebar {
+    display: none;
+  }
+
+  .finder-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .finder-icon-img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 /* Tab Navigation - Pill Style */
 .tab-btn {
   padding: 12px 28px;
