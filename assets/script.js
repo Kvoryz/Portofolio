@@ -124,27 +124,53 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "{\n", class: "punctuation" },
     { text: "  name: ", class: "property" },
     { text: '"Raffi Andhika R"', class: "string" },
-    { text: ",\n", class: "punctuation" },
     { text: "  alias: ", class: "property" },
     { text: '"Kvory"', class: "string" },
     { text: ",\n", class: "punctuation" },
     { text: "  role: ", class: "property" },
     { text: '"Full Stack Developer"', class: "string" },
     { text: ",\n", class: "punctuation" },
-    { text: "  passion: ", class: "property" },
-    { text: '["Coding", "Sleeping", "Gaming", "Reading"]', class: "string" },
+    { text: "  skills: ", class: "property" },
+    { text: '["JavaScript", "PHP", "Python"]', class: "string" },
     { text: ",\n", class: "punctuation" },
-    { text: "  status: ", class: "property" },
-    { text: '"Wanna Die"', class: "string" },
+    { text: "  learning: ", class: "property" },
+    { text: '"Laravel & Java"', class: "string" },
+    { text: ",\n", class: "punctuation" },
+    { text: "  github: ", class: "property" },
+    { text: '"github.com/kvoryz"', class: "string" },
+    { text: ",\n", class: "punctuation" },
+    { text: "  coffee: ", class: "property" },
+    { text: '"Infinite ☕"', class: "string" },
+    { text: ",\n", class: "punctuation" },
+    { text: "  available: ", class: "property" },
+    { text: "true", class: "keyword" },
     { text: "\n", class: "punctuation" },
     { text: "};", class: "punctuation" },
   ];
 
   let lineIndex = 0;
   let charIndex = 0;
+  let currentLineNum = 1;
+
+  // Update line numbers display
+  function updateLineNumbers() {
+    const lineNumElement = document.getElementById("line-numbers");
+    if (!lineNumElement) return;
+
+    const codeText = codeElement ? codeElement.textContent : "";
+    const lines = codeText.split("\n");
+    const numLines = Math.max(1, lines.length);
+
+    let lineNumsHTML = "";
+    for (let i = 1; i <= numLines; i++) {
+      lineNumsHTML += i + "\n";
+    }
+    lineNumElement.textContent = lineNumsHTML.trim();
+  }
 
   function typeCode() {
     if (!codeElement) return;
+
     if (lineIndex < codeLines.length) {
       const currentLine = codeLines[lineIndex];
       const fullText = currentLine.text;
@@ -160,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (charIndex < fullText.length) {
         currentSpan.textContent += fullText.charAt(charIndex);
         charIndex++;
+        updateLineNumbers();
         setTimeout(typeCode, Math.random() * 30 + 20);
       } else {
         lineIndex++;
@@ -190,7 +217,8 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
         }
       }
-      setTimeout(deleteCode, 15); // Fast delete speed
+      setTimeout(deleteCode, 15);
+      updateLineNumbers();
     } else {
       // All deleted, restart typing
       lineIndex = 0;
@@ -219,48 +247,58 @@ document.addEventListener("DOMContentLoaded", function () {
       easing: "easeInOutSine",
     });
 
+    // Animasi dengan struktur face-based
     cubeTimeline
-      // Initial position to first turn
+      // 1. Rotate cube untuk melihat sisi berbeda
       .add({
         targets: rubiksCube,
-        rotateX: [-20, -20],
-        rotateY: [45, 135],
-        duration: 2500,
+        rotateY: "+=90",
+        duration: 1200,
+        easing: "easeInOutQuad",
       })
-      // Tilt forward
+
+      // 2. Tilt untuk efek dinamis
       .add({
         targets: rubiksCube,
-        rotateX: [-20, 30],
-        rotateY: [135, 135],
-        duration: 1800,
-        easing: "easeOutBack",
+        rotateX: "+=45",
+        rotateY: "+=45",
+        duration: 1000,
+        easing: "easeInOutQuad",
       })
-      // Continue spinning
+
+      // 3. Putar 180 derajat
       .add({
         targets: rubiksCube,
-        rotateY: [135, 225],
-        duration: 2000,
-      })
-      // Tilt back
-      .add({
-        targets: rubiksCube,
-        rotateX: [30, -35],
+        rotateY: "+=180",
         duration: 1500,
         easing: "easeInOutQuad",
       })
-      // Keep spinning
+
+      // 4. Gerakan mengitari sumbu X
       .add({
         targets: rubiksCube,
-        rotateY: [225, 315],
-        duration: 2500,
+        rotateX: "+=180",
+        duration: 1400,
+        easing: "easeInOutQuad",
       })
-      // Return to start position
+
+      // 5. Kombinasi putaran
       .add({
         targets: rubiksCube,
-        rotateX: [-35, -20],
-        rotateY: [315, 405],
-        duration: 2200,
-        easing: "easeOutQuart",
+        rotateX: "-=45",
+        rotateY: "+=90",
+        duration: 1200,
+        easing: "easeInOutQuad",
+      })
+
+      // 6. Kembali ke posisi awal
+      .add({
+        targets: rubiksCube,
+        rotateX: 0,
+        rotateY: 0,
+        rotateZ: 0,
+        duration: 1600,
+        easing: "easeInOutQuad",
       });
   }
 });
