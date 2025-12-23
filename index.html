@@ -353,16 +353,17 @@
         <!-- GitHub Contributions Section -->
         <div class="container my-5 py-4" id="github-section">
           <div class="row justify-content-center">
-            <div
-              class="col-lg-10"
-              data-aos="fade-up"
-              data-aos-once="true"
-            >
+            <div class="col-lg-10" data-aos="fade-up" data-aos-once="true">
               <div class="github-card">
                 <!-- Header -->
                 <div class="github-header">
                   <div class="github-title">
-                    <i class="fab fa-github"></i>
+                    <i
+                      class="fab fa-github"
+                      id="terminal-trigger"
+                      title="Click to open Terminal"
+                      style="cursor: pointer"
+                    ></i>
                     <span>GitHub Contributions</span>
                   </div>
                 </div>
@@ -370,7 +371,12 @@
                 <!-- Subtitle -->
                 <div class="github-subtitle">
                   <span>My GitHub activity over the past year.</span>
-                  <a href="https://github.com/Kvoryz" target="_blank" class="github-username">@Kvoryz</a>
+                  <a
+                    href="https://github.com/Kvoryz"
+                    target="_blank"
+                    class="github-username"
+                    >@Kvoryz</a
+                  >
                 </div>
 
                 <!-- Stats Grid -->
@@ -389,16 +395,20 @@
                   </div>
                   <div class="github-stat-item">
                     <span class="stat-label">Average</span>
-                    <span class="stat-value"><span id="gh-avg">--</span><span class="stat-unit"> / day</span></span>
+                    <span class="stat-value"
+                      ><span id="gh-avg">--</span
+                      ><span class="stat-unit"> / day</span></span
+                    >
                   </div>
                 </div>
 
                 <!-- Contribution Graph -->
-                <div class="github-graph-wrapper">
+                <div class="github-graph-wrapper" id="github-graph-wrapper">
                   <img
                     src="https://ghchart.rshah.org/20c997/Kvoryz"
                     alt="GitHub Contributions Graph"
                     class="github-graph"
+                    id="github-graph"
                   />
                 </div>
 
@@ -406,11 +416,26 @@
                 <div class="github-legend">
                   <span>Less</span>
                   <div class="legend-squares">
-                    <div class="legend-square" style="background: #161b22;"></div>
-                    <div class="legend-square" style="background: #0e4429;"></div>
-                    <div class="legend-square" style="background: #006d32;"></div>
-                    <div class="legend-square" style="background: #26a641;"></div>
-                    <div class="legend-square" style="background: #39d353;"></div>
+                    <div
+                      class="legend-square"
+                      style="background: #161b22"
+                    ></div>
+                    <div
+                      class="legend-square"
+                      style="background: #0e4429"
+                    ></div>
+                    <div
+                      class="legend-square"
+                      style="background: #006d32"
+                    ></div>
+                    <div
+                      class="legend-square"
+                      style="background: #26a641"
+                    ></div>
+                    <div
+                      class="legend-square"
+                      style="background: #39d353"
+                    ></div>
                   </div>
                   <span>More</span>
                 </div>
@@ -419,6 +444,97 @@
           </div>
         </div>
 
+        <!-- Interactive Terminal Section (Hidden by default) -->
+        <div class="container my-4" id="terminal-section" style="display: none">
+          <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up" data-aos-once="true">
+              <div class="interactive-terminal" id="interactive-terminal">
+                <div class="terminal-header">
+                  <div class="terminal-controls">
+                    <div
+                      class="control red"
+                      id="terminal-close"
+                      style="cursor: pointer"
+                      title="Close Terminal"
+                    ></div>
+                    <div class="control yellow"></div>
+                    <div class="control green"></div>
+                  </div>
+                  <div class="terminal-title">kvory@terminal ~</div>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                  <div class="terminal-output" id="terminal-output">
+                    <div class="terminal-line welcome">
+                      <span class="text-danger" id="welcome-text"></span
+                      ><span class="terminal-cursor" id="welcome-cursor"></span>
+                    </div>
+                    <div class="terminal-line">
+                      <span class="text-muted"
+                        >Type <span class="text-primary">$ help</span> to see
+                        available commands.</span
+                      >
+                    </div>
+                  </div>
+                  <!-- Snake Game Inside Terminal -->
+                  <div
+                    class="terminal-game-container"
+                    id="terminal-game-container"
+                  >
+                    <canvas id="snake-canvas"></canvas>
+                    <div
+                      class="terminal-game-overlay"
+                      id="terminal-game-overlay"
+                    >
+                      <div class="snake-start-screen" id="snake-start-screen">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Snake Game</h3>
+                        <p>Use WASD to move</p>
+                        <button id="snake-start-btn">Start Game</button>
+                      </div>
+                      <div
+                        class="snake-game-over"
+                        id="snake-game-over"
+                        style="display: none"
+                      >
+                        <i class="fas fa-skull"></i>
+                        <h3>Game Over!</h3>
+                        <p>Score: <span id="snake-final-score">0</span></p>
+                        <div class="snake-buttons">
+                          <button id="snake-restart-btn">Play Again</button>
+                          <button id="snake-exit-btn">Exit</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="terminal-game-hud">
+                      <span class="snake-score"
+                        >Score: <span id="snake-score">0</span></span
+                      >
+                      <button class="snake-close-btn" id="snake-close-btn">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="terminal-input-line" id="terminal-input-line">
+                    <span class="terminal-prompt">
+                      <span class="text-success">kvory</span
+                      ><span class="text-muted">@</span
+                      ><span class="text-primary">terminal</span
+                      ><span class="text-muted"> ~$</span>
+                    </span>
+                    <input
+                      type="text"
+                      class="terminal-input"
+                      id="terminal-input"
+                      autocomplete="off"
+                      spellcheck="false"
+                      placeholder="$ help"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Stats Section -->
         <div class="container my-5 py-4">
