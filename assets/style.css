@@ -133,11 +133,74 @@ body {
 
 @media (max-width: 991px) {
   .mobile-warning {
-    display: flex;
+    display: none;
   }
 
   .main-content {
+    display: block;
+  }
+
+  /* Mobile Top Navigation - Fixed */
+  .rubik-navbar {
+    position: fixed;
+    top: 10px;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    border-radius: 12px;
+    padding: 10px 15px;
+    gap: 8px;
+    justify-content: center;
+    z-index: 9999;
+    margin: 0;
+    width: fit-content;
+  }
+
+  .rubik-navbar:hover {
+    padding: 10px 15px;
+  }
+
+  .rubik-nav-cube {
+    width: 36px;
+    height: 36px;
+  }
+
+  .rubik-nav-cube .cube-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .rubik-nav-cube:hover .cube-inner {
+    transform: rotateX(180deg);
+  }
+
+  .rubik-nav-cube .cube-side {
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  .rubik-nav-cube .cube-side.front {
+    transform: rotateX(0deg) translateZ(18px);
+  }
+
+  .rubik-nav-cube .cube-side.back {
+    transform: rotateX(180deg) translateZ(18px);
+  }
+
+  .rubik-nav-cube::after {
     display: none;
+  }
+
+  #home.container {
+    margin-top: 70px;
+  }
+
+  body {
+    padding-top: 0;
   }
 }
 
@@ -3236,7 +3299,9 @@ section,
 
 @media (max-width: 991px) {
   .about-img-wrapper {
-    height: 400px;
+    height: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 }
 
@@ -3688,11 +3753,15 @@ section,
 
   .terminal-column {
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    order: 2;
   }
 
   .cube-column {
-    height: 300px;
+    height: 280px;
+    order: 1;
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
 
   .cube-container {
@@ -4773,5 +4842,280 @@ section,
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero-section {
+    padding: 20px 0;
+    min-height: auto;
+  }
+
+  .hero-section .display-3,
+  .hero-section h1 {
+    font-size: 2rem !important;
+  }
+
+  .hero-section .display-5,
+  .hero-section h2 {
+    font-size: 1.25rem !important;
+  }
+
+  .hero-section .lead {
+    font-size: 0.9rem;
+  }
+
+  /* Code Typewriter */
+  .code-typewriter-wrapper {
+    padding: 15px;
+    font-size: 0.75rem;
+  }
+
+  /* About Section */
+  .about-img-wrapper {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto 25px auto;
+    display: block;
+  }
+
+  .about-profile-img,
+  .about-video {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-terminal {
+    font-size: 0.75rem;
+  }
+
+  .about-terminal .terminal-body {
+    padding: 15px;
+  }
+
+  .about-code {
+    font-size: 0.7rem;
+    line-height: 1.6;
+  }
+
+  /* GitHub Card */
+  .github-card {
+    padding: 15px;
+  }
+
+  .github-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .github-title {
+    font-size: 1rem;
+  }
+
+  .github-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .github-stat-item {
+    padding: 10px;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .github-graph-wrapper {
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .github-graph {
+    min-width: 600px;
+    height: auto;
+  }
+
+  /* Showcase / Finder */
+  .finder-window {
+    border-radius: 12px;
+  }
+
+  .finder-body {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .finder-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #30363d;
+    padding: 10px 0;
+  }
+
+  .sidebar-section {
+    display: none;
+  }
+
+  .sidebar-item {
+    display: inline-flex;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  .finder-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  .finder-content {
+    padding: 15px;
+  }
+
+  .finder-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .finder-icon {
+    padding: 10px 5px;
+  }
+
+  .finder-icon-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .finder-icon-name {
+    font-size: 0.65rem;
+  }
+
+  /* Skills Terminal */
+  .skills-terminal {
+    font-size: 0.75rem;
+  }
+
+  .skills-terminal .terminal-body {
+    padding: 15px;
+  }
+
+  .skill-item {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .skill-bar-container {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .skill-name {
+    font-size: 0.7rem;
+  }
+
+  .skill-percent {
+    font-size: 0.65rem;
+  }
+
+  .tree-icon {
+    font-size: 0.65rem;
+  }
+
+  /* Contact Section */
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  /* Interactive Terminal */
+  .interactive-terminal {
+    font-size: 0.75rem;
+  }
+
+  .interactive-terminal .terminal-body {
+    padding: 10px;
+    max-height: 300px;
+  }
+
+  .terminal-input-wrapper {
+    font-size: 0.75rem;
+  }
+
+  /* Section Headings */
+  .display-5 {
+    font-size: 1.5rem !important;
+  }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Cards and overlays */
+  .bento-overlay {
+    padding: 15px;
+  }
+
+  .bento-title {
+    font-size: 1rem;
+  }
+
+  .tech-badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Even smaller screens */
+  .hero-section .display-3,
+  .hero-section h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .code-typewriter-wrapper {
+    font-size: 0.65rem;
+    padding: 10px;
+  }
+
+  .finder-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .github-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-img-wrapper {
+    max-width: 150px;
+  }
+
+  /* Hide finder toolbar on mobile */
+  .finder-toolbar {
+    display: none;
+  }
+
+  /* Simplify skill items */
+  .tree-items {
+    padding-left: 10px;
   }
 }

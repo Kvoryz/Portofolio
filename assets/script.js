@@ -33,13 +33,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setTimeout(() => {
           isScrolling = false;
-        }, 1000);
+        }, 300);
       }
     });
   });
 
+  // Reset isScrolling when user manually scrolls (wheel or touch)
+  window.addEventListener("wheel", function () {
+    isScrolling = false;
+  });
+
+  window.addEventListener("touchmove", function () {
+    isScrolling = false;
+  });
+
   window.addEventListener("scroll", function () {
-    if (isScrolling) return;
+    // On desktop, respect isScrolling to prevent flickering during smooth scroll
+    // On mobile, always update (wheel/touchmove resets isScrolling anyway)
+    const isMobile = window.innerWidth <= 991;
+    if (!isMobile && isScrolling) return;
+
     const scrollPos = window.scrollY + 150;
 
     const about = document.getElementById("about");
