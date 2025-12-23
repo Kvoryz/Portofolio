@@ -75,7 +75,7 @@
       <div class="mobile-warning-content">
         <i
           class="fas fa-desktop mb-4"
-          style="font-size: 4rem; color: #20c997"
+          style="font-size: 4rem; color: #39d353"
         ></i>
         <h2>Desktop Only</h2>
         <p class="text-muted">
@@ -105,13 +105,13 @@
               <div class="cube-side back"><i class="fas fa-user"></i></div>
             </div>
           </a>
-          <a href="#expert" class="rubik-nav-cube" data-label="Portfolio">
+          <a href="#showcase" class="rubik-nav-cube" data-label="Showcase">
             <div class="cube-inner">
               <div class="cube-side front"><i class="fas fa-code"></i></div>
               <div class="cube-side back"><i class="fas fa-code"></i></div>
             </div>
           </a>
-          <a href="#tools" class="rubik-nav-cube" data-label="Tools">
+          <a href="#tools" class="rubik-nav-cube" data-label="Tech">
             <div class="cube-inner">
               <div class="cube-side front"><i class="fas fa-tools"></i></div>
               <div class="cube-side back"><i class="fas fa-tools"></i></div>
@@ -348,12 +348,15 @@
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- GitHub Contributions Section -->
-        <div class="container my-5 py-4" id="github-section">
-          <div class="row justify-content-center">
-            <div class="col-lg-10" data-aos="fade-up" data-aos-once="true">
+          <!-- GitHub Contributions (inside About) -->
+          <div
+            class="row justify-content-center mt-5"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-aos-once="true"
+          >
+            <div class="col-lg-10">
               <div class="github-card">
                 <!-- Header -->
                 <div class="github-header">
@@ -443,9 +446,10 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Interactive Terminal Section (Hidden by default) -->
-        <div class="container my-4" id="terminal-section" style="display: none">
+      <!-- Interactive Terminal Section (Hidden by default) -->
+      <div class="container my-4" id="terminal-section" style="display: none">
           <div class="row justify-content-center">
             <div class="col-lg-10" data-aos="fade-up" data-aos-once="true">
               <div class="interactive-terminal" id="interactive-terminal">
@@ -470,7 +474,7 @@
                     </div>
                     <div class="terminal-line">
                       <span class="text-muted"
-                        >Type <span class="text-primary">$ help</span> to see
+                        >Type <span class="text-muted">$ help</span> to see
                         available commands.</span
                       >
                     </div>
@@ -516,10 +520,10 @@
                   </div>
                   <div class="terminal-input-line" id="terminal-input-line">
                     <span class="terminal-prompt">
-                      <span class="text-success">kvory</span
+                      <span class="text-muted">kvory</span
                       ><span class="text-muted">@</span
-                      ><span class="text-primary">terminal</span
-                      ><span class="text-muted"> ~$</span>
+                      ><span class="text-muted">terminal</span
+                      ><span class="text-muted"> ~</span>
                     </span>
                     <input
                       type="text"
@@ -596,14 +600,14 @@
       </div>
 
       <!-- Portfolio Showcase Section -->
-      <div class="container my-5 py-5" id="expert">
+      <div class="container my-5 py-5" id="showcase">
         <div class="row justify-content-center">
           <div
             class="col-lg-8 text-center"
             data-aos="fade-up"
             data-aos-once="true"
           >
-            <h2 class="display-5 fw-bold text-light">Portfolio Showcase</h2>
+            <h2 class="display-5 fw-bold text-light">Showcase</h2>
             <div
               class="divider mx-auto bg-success mb-4"
               style="height: 3px; width: 60px"
@@ -618,7 +622,7 @@
           data-aos-delay="100"
           data-aos-once="true"
         >
-          <div class="col-lg-9">
+          <div class="col-lg-10">
             <div class="finder-window">
               <!-- Finder Header -->
               <div class="finder-header">
@@ -645,6 +649,9 @@
                   </div>
                   <div class="sidebar-item" data-folder="certificates">
                     <i class="fas fa-award"></i> Certificates
+                  </div>
+                  <div class="sidebar-item" data-folder="games">
+                    <i class="fas fa-gamepad"></i> Games
                   </div>
 
                   <div class="sidebar-section">Tags</div>
@@ -741,6 +748,34 @@
                       <div class="finder-icon-meta">freeCodeCamp</div>
                     </div>
                   </div>
+
+                  <!-- Games Grid (Hidden by default) -->
+                  <div
+                    class="finder-grid"
+                    id="games-grid"
+                    style="display: none"
+                  >
+                    <!-- Game 1 -->
+                    <div class="finder-icon" data-game="1">
+                      <img
+                        src="image/project_example.webp"
+                        class="finder-icon-img"
+                        alt="Game 1"
+                      />
+                      <div class="finder-icon-name">Snake Game</div>
+                      <div class="finder-icon-meta">JavaScript, Canvas</div>
+                    </div>
+                    <!-- Game 2 -->
+                    <div class="finder-icon" data-game="2">
+                      <img
+                        src="image/project_example.webp"
+                        class="finder-icon-img"
+                        alt="Game 2"
+                      />
+                      <div class="finder-icon-name">Puzzle Game</div>
+                      <div class="finder-icon-meta">HTML5, CSS3</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -801,7 +836,7 @@
         </div>
       </div>
 
-      <!-- Tools & Technologies Section -->
+      <!-- Technologies Section -->
       <div class="container my-5 py-5" id="tools">
         <div class="row justify-content-center">
           <div
@@ -809,7 +844,7 @@
             data-aos="fade-up"
             data-aos-once="true"
           >
-            <h2 class="display-5 fw-bold text-light">Tools & Technologies</h2>
+            <h2 class="display-5 fw-bold text-light">Technologies</h2>
             <div
               class="divider mx-auto bg-success mb-5"
               style="height: 3px; width: 60px"
@@ -817,115 +852,223 @@
           </div>
         </div>
 
-        <!-- macOS Launchpad -->
+        <!-- Terminal Command Style Skills -->
         <div
           class="row justify-content-center"
           data-aos="fade-up"
           data-aos-delay="100"
           data-aos-once="true"
         >
-          <div class="col-lg-9">
-            <div class="launchpad-window">
-              <!-- Header -->
-              <div class="launchpad-header">
-                <div class="traffic-lights">
-                  <div class="traffic-light red"></div>
-                  <div class="traffic-light yellow"></div>
-                  <div class="traffic-light green"></div>
+          <div class="col-lg-10">
+            <div class="skills-terminal">
+              <div class="terminal-header">
+                <div class="terminal-controls">
+                  <div class="control red"></div>
+                  <div class="control yellow"></div>
+                  <div class="control green"></div>
                 </div>
+                <div class="terminal-title">$ npm list --skills --depth=2</div>
               </div>
+              <div class="terminal-body skills-terminal-body">
+                <!-- Command Output -->
+                <div class="terminal-output-line">
+                  <span class="prompt-user">kvory</span
+                  ><span class="prompt-at">@</span
+                  ><span class="prompt-host">portfolio</span
+                  ><span class="prompt-path">~</span
+                  ><span class="prompt-symbol">$</span>
+                  <span class="typed-command" id="skills-typed-command"></span
+                  ><span class="typing-cursor" id="skills-cursor">|</span>
+                </div>
 
-              <!-- Grid -->
-              <div class="launchpad-body">
-                <div class="launchpad-grid" id="launchpad-grid">
-                  <!-- Languages -->
-                  <div class="launchpad-item" data-skill="html">
-                    <div class="launchpad-icon" style="color: #e34f26">
-                      <i class="fab fa-html5"></i>
+                <!-- Package Info -->
+                <div
+                  class="package-info"
+                  id="skills-package-info"
+                  style="display: none"
+                >
+                  <span class="package-name">kvory-skills@2.0.0</span>
+                  <span class="package-path">/home/kvory/tech-stack</span>
+                </div>
+
+                <!-- Skills Tree -->
+                <div
+                  class="skills-tree"
+                  id="skills-tree-content"
+                  style="display: none"
+                >
+                  <!-- Languages Category -->
+                  <div class="tree-category">
+                    <div class="tree-branch">
+                      <span class="tree-icon">├──</span>
+                      <span class="category-name">languages/</span>
                     </div>
-                    <span class="launchpad-name">HTML</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="css">
-                    <div class="launchpad-icon" style="color: #1572b6">
-                      <i class="fab fa-css3-alt"></i>
+                    <div class="tree-items">
+                      <div class="skill-item" style="--skill-color: #f7df1e">
+                        <span class="tree-icon">│ ├──</span>
+                        <i class="fab fa-js-square skill-icon"></i>
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 50%"
+                          ></div>
+                          <span class="skill-percent">50%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #777bb4">
+                        <span class="tree-icon">│ ├──</span>
+                        <i class="fab fa-php skill-icon"></i>
+                        <span class="skill-name">PHP</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 80%"
+                          ></div>
+                          <span class="skill-percent">80%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #3776ab">
+                        <span class="tree-icon">│ ├──</span>
+                        <i class="fab fa-python skill-icon"></i>
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 35%"
+                          ></div>
+                          <span class="skill-percent">35%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #ed8b00">
+                        <span class="tree-icon">│ └──</span>
+                        <i class="fab fa-java skill-icon"></i>
+                        <span class="skill-name">Java</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 20%"
+                          ></div>
+                          <span class="skill-percent">20%</span>
+                        </div>
+                      </div>
                     </div>
-                    <span class="launchpad-name">CSS</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="javascript">
-                    <div class="launchpad-icon" style="color: #f7df1e">
-                      <i class="fab fa-js-square"></i>
-                    </div>
-                    <span class="launchpad-name">JavaScript</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="php">
-                    <div class="launchpad-icon" style="color: #777bb4">
-                      <i class="fab fa-php"></i>
-                    </div>
-                    <span class="launchpad-name">PHP</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="python">
-                    <div class="launchpad-icon" style="color: #3776ab">
-                      <i class="fab fa-python"></i>
-                    </div>
-                    <span class="launchpad-name">Python</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="java">
-                    <div class="launchpad-icon" style="color: #ed8b00">
-                      <i class="fab fa-java"></i>
-                    </div>
-                    <span class="launchpad-name">Java</span>
                   </div>
 
-                  <!-- Frameworks -->
-                  <div class="launchpad-item" data-skill="bootstrap">
-                    <div class="launchpad-icon" style="color: #7952b3">
-                      <i class="fab fa-bootstrap"></i>
+                  <!-- Frontend Category -->
+                  <div class="tree-category">
+                    <div class="tree-branch">
+                      <span class="tree-icon">├──</span>
+                      <span class="category-name">frontend/</span>
                     </div>
-                    <span class="launchpad-name">Bootstrap</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="mysql">
-                    <div class="launchpad-icon" style="color: #4479a1">
-                      <i class="fas fa-database"></i>
+                    <div class="tree-items">
+                      <div class="skill-item" style="--skill-color: #e34f26">
+                        <span class="tree-icon">│ ├──</span>
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <span class="skill-name">HTML5</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 90%"
+                          ></div>
+                          <span class="skill-percent">90%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #1572b6">
+                        <span class="tree-icon">│ ├──</span>
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <span class="skill-name">CSS3</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 85%"
+                          ></div>
+                          <span class="skill-percent">85%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #7952b3">
+                        <span class="tree-icon">│ └──</span>
+                        <i class="fab fa-bootstrap skill-icon"></i>
+                        <span class="skill-name">Bootstrap</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 80%"
+                          ></div>
+                          <span class="skill-percent">80%</span>
+                        </div>
+                      </div>
                     </div>
-                    <span class="launchpad-name">MySQL</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="git">
-                    <div class="launchpad-icon" style="color: #f05032">
-                      <i class="fab fa-git-alt"></i>
-                    </div>
-                    <span class="launchpad-name">Git</span>
                   </div>
 
-                  <!-- Tools -->
-                  <div class="launchpad-item" data-skill="vscode">
-                    <div class="launchpad-icon" style="color: #007acc">
-                      <i class="fas fa-code"></i>
+                  <!-- Tools Category -->
+                  <div class="tree-category">
+                    <div class="tree-branch">
+                      <span class="tree-icon">└──</span>
+                      <span class="category-name">tools/</span>
                     </div>
-                    <span class="launchpad-name">VS Code</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="github">
-                    <div class="launchpad-icon" style="color: #ffffff">
-                      <i class="fab fa-github"></i>
+                    <div class="tree-items last-category">
+                      <div class="skill-item" style="--skill-color: #f05032">
+                        <span class="tree-icon"> ├──</span>
+                        <i class="fab fa-git-alt skill-icon"></i>
+                        <span class="skill-name">Git</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 30%"
+                          ></div>
+                          <span class="skill-percent">30%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #ffffff">
+                        <span class="tree-icon"> ├──</span>
+                        <i class="fab fa-github skill-icon"></i>
+                        <span class="skill-name">GitHub</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 50%"
+                          ></div>
+                          <span class="skill-percent">50%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #007acc">
+                        <span class="tree-icon"> ├──</span>
+                        <i class="fas fa-code skill-icon"></i>
+                        <span class="skill-name">VS Code</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 75%"
+                          ></div>
+                          <span class="skill-percent">75%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #4479a1">
+                        <span class="tree-icon"> ├──</span>
+                        <i class="fas fa-database skill-icon"></i>
+                        <span class="skill-name">MySQL</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 70%"
+                          ></div>
+                          <span class="skill-percent">70%</span>
+                        </div>
+                      </div>
+                      <div class="skill-item" style="--skill-color: #f24e1e">
+                        <span class="tree-icon"> └──</span>
+                        <i class="fab fa-figma skill-icon"></i>
+                        <span class="skill-name">Figma</span>
+                        <div class="skill-bar-container">
+                          <div
+                            class="skill-bar"
+                            style="--skill-level: 20%"
+                          ></div>
+                          <span class="skill-percent">20%</span>
+                        </div>
+                      </div>
                     </div>
-                    <span class="launchpad-name">GitHub</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="figma">
-                    <div class="launchpad-icon" style="color: #f24e1e">
-                      <i class="fab fa-figma"></i>
-                    </div>
-                    <span class="launchpad-name">Figma</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="terminal">
-                    <div class="launchpad-icon" style="color: #ffffff">
-                      <i class="fas fa-terminal"></i>
-                    </div>
-                    <span class="launchpad-name">Terminal</span>
-                  </div>
-                  <div class="launchpad-item" data-skill="npm">
-                    <div class="launchpad-icon" style="color: #cb3837">
-                      <i class="fab fa-npm"></i>
-                    </div>
-                    <span class="launchpad-name">NPM</span>
                   </div>
                 </div>
               </div>

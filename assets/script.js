@@ -22,7 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (targetId === "#home") {
           window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
-          const offset = 70;
+          let offset = 70;
+          if (targetId === "#contact") {
+            offset = 20;
+          }
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - offset;
           window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -37,22 +40,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", function () {
     if (isScrolling) return;
-    const scrollPos = window.scrollY + 100;
+    const scrollPos = window.scrollY + 150;
+
     const about = document.getElementById("about");
-    const expert = document.getElementById("expert");
+    const showcase = document.getElementById("showcase");
     const tools = document.getElementById("tools");
     const contact = document.getElementById("contact");
 
-    if (about && scrollPos < about.offsetTop) {
-      setActiveNav("#home");
-    } else if (expert && scrollPos < expert.offsetTop) {
-      setActiveNav("#about");
-    } else if (tools && scrollPos < tools.offsetTop) {
-      setActiveNav("#expert");
-    } else if (contact && scrollPos < contact.offsetTop) {
-      setActiveNav("#tools");
-    } else {
+    // Check from bottom to top for more reliable detection
+    if (contact && scrollPos >= contact.offsetTop - 200) {
       setActiveNav("#contact");
+    } else if (tools && scrollPos >= tools.offsetTop - 100) {
+      setActiveNav("#tools");
+    } else if (showcase && scrollPos >= showcase.offsetTop - 100) {
+      setActiveNav("#showcase");
+    } else if (about && scrollPos >= about.offsetTop - 100) {
+      setActiveNav("#about");
+    } else {
+      setActiveNav("#home");
     }
   });
 
@@ -90,6 +95,61 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("#myTabContent [data-aos]").forEach((el) => {
     el.setAttribute("data-aos", isMobile ? "fade-right" : "fade-up");
   });
+
+  // Skills Terminal Auto-Type Animation
+  const toolsSection = document.getElementById("tools");
+  const skillsTypedCommand = document.getElementById("skills-typed-command");
+  const skillsCursor = document.getElementById("skills-cursor");
+  const skillsPackageInfo = document.getElementById("skills-package-info");
+  const skillsTreeContent = document.getElementById("skills-tree-content");
+
+  let skillsTypingDone = false;
+
+  if (toolsSection && skillsTypedCommand) {
+    const commandText = "npm list --skills --depth=2";
+
+    const toolsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !skillsTypingDone) {
+            skillsTypingDone = true;
+
+            let charIndex = 0;
+            const typeInterval = setInterval(() => {
+              if (charIndex < commandText.length) {
+                skillsTypedCommand.textContent += commandText.charAt(charIndex);
+                charIndex++;
+              } else {
+                clearInterval(typeInterval);
+
+                // Hide cursor after typing
+                setTimeout(() => {
+                  if (skillsCursor) skillsCursor.style.display = "none";
+
+                  // Show package info with fade
+                  if (skillsPackageInfo) {
+                    skillsPackageInfo.style.display = "block";
+                    skillsPackageInfo.style.animation = "fadeIn 0.5s ease";
+                  }
+
+                  // Show skills tree with fade
+                  setTimeout(() => {
+                    if (skillsTreeContent) {
+                      skillsTreeContent.style.display = "block";
+                      skillsTreeContent.style.animation = "fadeIn 0.5s ease";
+                    }
+                  }, 300);
+                }, 200);
+              }
+            }, 80);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    toolsObserver.observe(toolsSection);
+  }
 
   AOS.init({ duration: 800, easing: "ease", once: true, offset: 100 });
 
@@ -396,6 +456,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const tagItems = document.querySelectorAll(".sidebar-item[data-tag]");
   const projectsGrid = document.getElementById("projects-grid");
   const certificatesGrid = document.getElementById("certificates-grid");
+  const gamesGrid = document.getElementById("games-grid");
   const finderTitle = document.getElementById("finder-current-folder");
   const finderIcons = document.querySelectorAll(".finder-icon");
   const quicklook = document.getElementById("quicklook");
@@ -422,9 +483,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
         if (certificatesGrid) certificatesGrid.style.display = "none";
+        if (gamesGrid) gamesGrid.style.display = "none";
       } else if (folder === "certificates") {
         if (projectsGrid) projectsGrid.style.display = "none";
         if (certificatesGrid) certificatesGrid.style.display = "grid";
+        if (gamesGrid) gamesGrid.style.display = "none";
+      } else if (folder === "games") {
+        if (projectsGrid) projectsGrid.style.display = "none";
+        if (certificatesGrid) certificatesGrid.style.display = "none";
+        if (gamesGrid) gamesGrid.style.display = "grid";
       }
     });
   });
@@ -446,6 +513,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
       }
       if (certificatesGrid) certificatesGrid.style.display = "none";
+      if (gamesGrid) gamesGrid.style.display = "none";
 
       document
         .querySelectorAll("#projects-grid .finder-icon")
@@ -618,7 +686,7 @@ fetchGitHubStats();
   const colors = {
     background: "#0d1117",
     grid: "#161b22",
-    snake: "#20c997",
+    snake: "#39d353",
     snakeHead: "#39d353",
     food: "#f85149",
     foodGlow: "rgba(248, 81, 73, 0.3)",
@@ -942,14 +1010,14 @@ fetchGitHubStats();
       return `
 <div class="terminal-line"><span class="text-success">Available commands:</span></div>
 <div class="terminal-line"><span class="text-warning">$ help</span> <span class="text-muted">- Show this help message</span></div>
-<div class="terminal-line"><span class="text-warning">$ game</span> <span class="text-muted">- Launch Snake Game </span></div>
-<div class="terminal-line"><span class="text-warning">$ typing</span> <span class="text-muted">- Play Typing Game ⌨</span></div>
+<div class="terminal-line"><span class="text-warning">$ game</span> <span class="text-muted">- Launch Snake Game</span></div>
+<div class="terminal-line"><span class="text-warning">$ reaction</span> <span class="text-muted">- Reaction Time Test</span></div>
+<div class="terminal-line"><span class="text-warning">$ ttt</span> <span class="text-muted">- Tic Tac Toe</span></div>
+<div class="terminal-line"><span class="text-warning">$ minesweeper</span> <span class="text-muted">- Play Minesweeper</span></div>
 <div class="terminal-line"><span class="text-warning">$ clear</span> <span class="text-muted">- Clear terminal output</span></div>
 <div class="terminal-line"><span class="text-warning">$ neofetch</span> <span class="text-muted">- Display system info</span></div>
 <div class="terminal-line"><span class="text-warning">$ surprise</span> <span class="text-muted">- Random Easter egg </span></div>
-<div class="terminal-line"><span class="text-warning">$ whoami</span> <span class="text-muted">- Display user info</span></div>
-<div class="terminal-line"><span class="text-warning">$ skills</span> <span class="text-muted">- List my skills</span></div>
-<div class="terminal-line"><span class="text-warning">$ contact</span> <span class="text-muted">- Show contact info</span></div>
+<div class="terminal-line"><span class="text-warning">$ matrix</span> <span class="text-muted">- Enter the Matrix </span></div>
 <div class="terminal-line"><span class="text-warning">$ exit</span> <span class="text-muted">- Close terminal</span></div>
       `.trim();
     },
@@ -958,7 +1026,7 @@ fetchGitHubStats();
       if (typeof window.launchSnakeGame === "function") {
         terminalOutput.innerHTML = "";
         setTimeout(() => window.launchSnakeGame(), 100);
-        return '<div class="terminal-line"><span class="text-success">🐍 Launching Snake Game...</span></div>';
+        return '<div class="terminal-line"><span class="text-success">Launching Snake Game...</span></div>';
       }
       return '<div class="terminal-line"><span class="text-danger">Error: Game not available</span></div>';
     },
@@ -977,31 +1045,6 @@ fetchGitHubStats();
    
    (This is not the unix cat you're looking for...)
 </span></div>
-      `.trim();
-    },
-
-    whoami: function () {
-      return `
-<div class="terminal-line"><span class="text-success">Raffi Andhika R</span> <span class="text-muted">(Kvory)</span></div>
-<div class="terminal-line"><span class="text-muted">Full Stack Developer</span></div>
-<div class="terminal-line"><span class="text-muted">Informatics Engineering Student</span></div>
-      `.trim();
-    },
-
-    skills: function () {
-      return `
-<div class="terminal-line"><span class="text-success">Languages:</span> <span class="text-muted">JavaScript, PHP, Python, Java</span></div>
-<div class="terminal-line"><span class="text-success">Frontend:</span> <span class="text-muted">HTML, CSS, Bootstrap</span></div>
-<div class="terminal-line"><span class="text-success">Backend:</span> <span class="text-muted">PHP, MySQL</span></div>
-<div class="terminal-line"><span class="text-success">Tools:</span> <span class="text-muted">Git, VS Code, Figma</span></div>
-      `.trim();
-    },
-
-    contact: function () {
-      return `
-<div class="terminal-line"><span class="text-success">GitHub:</span> <span class="text-primary">github.com/kvoryz</span></div>
-<div class="terminal-line"><span class="text-success">Instagram:</span> <span class="text-primary">@_kvory</span></div>
-<div class="terminal-line"><span class="text-success">TikTok:</span> <span class="text-primary">@_kvory</span></div>
       `.trim();
     },
 
@@ -1036,7 +1079,7 @@ fetchGitHubStats();
       <span style="background:#f85149"></span>
       <span style="background:#febc2e"></span>
       <span style="background:#28c840"></span>
-      <span style="background:#20c997"></span>
+      <span style="background:#39d353"></span>
       <span style="background:#58a6ff"></span>
       <span style="background:#8957e5"></span>
       <span style="background:#e6edf3"></span>
@@ -1093,7 +1136,7 @@ fetchGitHubStats();
           content: `
 <div class="terminal-line"><span class="text-success">Wake up, Neo...</span></div>
 <div class="terminal-line"><span class="text-success">The Matrix has you...</span></div>
-<div class="terminal-line"><span class="text-success">Follow the white rabbit. 🐇</span></div>`,
+<div class="terminal-line"><span class="text-success">Follow the white rabbit.</span></div>`,
         },
       ];
 
@@ -1101,45 +1144,524 @@ fetchGitHubStats();
       return random.content.trim();
     },
 
-    typing: function () {
-      // Clear terminal output first
+    reaction: function () {
       terminalOutput.innerHTML = "";
 
-      const phrases = [
-        "const developer = { name: 'Kvory' };",
-        "function code() { return 'awesome'; }",
-        "console.log('Hello, World!');",
-        "let skills = ['JavaScript', 'PHP'];",
-        "npm install creativity --save",
-        "git commit -m 'Initial commit'",
-        "while (coding) { drinkCoffee(); }",
-        "return success === true;",
-        "import { magic } from 'kvory';",
-        "async function fetchDreams() {}",
+      const container = document.createElement("div");
+      container.id = "reaction-container";
+      container.style.cssText = `
+        width: 100%;
+        height: 200px;
+        background: #f85149;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        margin: 10px 0;
+        transition: background 0.3s;
+        font-family: monospace;
+      `;
+
+      const text = document.createElement("div");
+      text.style.cssText = "color: white; font-size: 20px; font-weight: bold;";
+      text.textContent = "Wait for green...";
+      container.appendChild(text);
+
+      const subtext = document.createElement("div");
+      subtext.style.cssText =
+        "color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 10px;";
+      subtext.textContent = "Click when the box turns green!";
+      container.appendChild(subtext);
+
+      terminalOutput.appendChild(container);
+
+      let startTime = 0;
+      let waiting = true;
+      let tooEarly = false;
+      let timeout = null;
+
+      function startWait() {
+        waiting = true;
+        tooEarly = false;
+        container.style.background = "#f85149";
+        text.textContent = "Wait for green...";
+        subtext.textContent = "Click when the box turns green!";
+
+        const delay = 2000 + Math.random() * 3000;
+        timeout = setTimeout(() => {
+          container.style.background = "#39d353";
+          text.textContent = "CLICK NOW!";
+          subtext.textContent = "";
+          startTime = Date.now();
+          waiting = false;
+        }, delay);
+      }
+
+      container.addEventListener("click", () => {
+        if (waiting) {
+          clearTimeout(timeout);
+          container.style.background = "#f0883e";
+          text.textContent = "Too early! ⚠️";
+          subtext.textContent = "Click to try again";
+          tooEarly = true;
+        } else if (tooEarly) {
+          startWait();
+        } else {
+          const reactionTime = Date.now() - startTime;
+          container.style.background = "#58a6ff";
+
+          let rating = "";
+          if (reactionTime < 200) rating = "🏆 Incredible!";
+          else if (reactionTime < 250) rating = "🥇 Excellent!";
+          else if (reactionTime < 300) rating = "🥈 Great!";
+          else if (reactionTime < 400) rating = "🥉 Good";
+          else if (reactionTime < 500) rating = "👍 Average";
+          else rating = "🐢 Slow";
+
+          text.textContent = reactionTime + " ms";
+          subtext.innerHTML =
+            rating +
+            "<br><span style='font-size:12px;margin-top:8px;display:block;'>Click to try again</span>";
+          tooEarly = true;
+        }
+      });
+
+      startWait();
+
+      return '<div class="terminal-line"><span class="text-success">⏱️ Reaction Time Test started! Wait for green, then click!</span></div>';
+    },
+
+    ttt: function () {
+      terminalOutput.innerHTML = "";
+
+      let board = ["", "", "", "", "", "", "", "", ""];
+      let currentPlayer = "X";
+      let gameOver = false;
+      let winner = null;
+
+      const winPatterns = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
       ];
 
-      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+      function checkWinner() {
+        for (const pattern of winPatterns) {
+          const [a, b, c] = pattern;
+          if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            return board[a];
+          }
+        }
+        return board.includes("") ? null : "draw";
+      }
 
-      window.typingActive = true;
-      window.typingPhrase = phrase;
-      window.typingStartTime = null;
+      function aiMove() {
+        if (gameOver) return;
 
-      return `
-<div class="terminal-line"><span class="text-danger">⌨️ Typing Game</span></div>
-<div class="terminal-line"><span class="text-muted">Type the following text exactly:</span></div>
-<div class="terminal-line" style="margin: 15px 0; padding: 10px; background: rgba(244,114,182,0.1); border-radius: 8px; border-left: 3px solid #f472b6;">
-  <span class="text-warning" style="font-size: 1.1rem; letter-spacing: 1px;">${phrase}</span>
-</div>
-<div class="terminal-line"><span class="text-muted">Type it below (without $) and press Enter:</span></div>
-      `.trim();
+        // Simple AI: try to win, block, or pick random
+        let move = -1;
+
+        // Try to win
+        for (const pattern of winPatterns) {
+          const [a, b, c] = pattern;
+          const cells = [board[a], board[b], board[c]];
+          if (
+            cells.filter((c) => c === "O").length === 2 &&
+            cells.includes("")
+          ) {
+            move = pattern[cells.indexOf("")];
+            break;
+          }
+        }
+
+        // Block player
+        if (move === -1) {
+          for (const pattern of winPatterns) {
+            const [a, b, c] = pattern;
+            const cells = [board[a], board[b], board[c]];
+            if (
+              cells.filter((c) => c === "X").length === 2 &&
+              cells.includes("")
+            ) {
+              move = pattern[cells.indexOf("")];
+              break;
+            }
+          }
+        }
+
+        // Take center or random
+        if (move === -1) {
+          if (board[4] === "") move = 4;
+          else {
+            const empty = board
+              .map((c, i) => (c === "" ? i : -1))
+              .filter((i) => i !== -1);
+            move = empty[Math.floor(Math.random() * empty.length)];
+          }
+        }
+
+        if (move !== -1) {
+          board[move] = "O";
+          winner = checkWinner();
+          if (winner) gameOver = true;
+          else currentPlayer = "X";
+          renderBoard();
+        }
+      }
+
+      function renderBoard() {
+        const boardDiv = document.getElementById("ttt-board");
+        if (!boardDiv) return;
+
+        let html = '<div style="font-family: monospace; margin: 10px 0;">';
+        html +=
+          '<div style="color: #8b949e; margin-bottom: 10px;">You are X, AI is O</div>';
+        html += '<table style="border-collapse: collapse; margin: 0 auto;">';
+
+        for (let i = 0; i < 3; i++) {
+          html += "<tr>";
+          for (let j = 0; j < 3; j++) {
+            const idx = i * 3 + j;
+            const cell = board[idx];
+            let color = "#8b949e";
+            if (cell === "X") color = "#58a6ff";
+            else if (cell === "O") color = "#f85149";
+
+            const cursor = !gameOver && cell === "" ? "pointer" : "default";
+            html += `<td style="width:60px;height:60px;text-align:center;font-size:28px;font-weight:bold;border:2px solid #30363d;color:${color};cursor:${cursor};background:#0d1117;" class="ttt-cell" data-idx="${idx}">${cell}</td>`;
+          }
+          html += "</tr>";
+        }
+        html += "</table>";
+
+        if (gameOver) {
+          if (winner === "draw") {
+            html +=
+              '<div style="color:#f0883e;margin-top:15px;font-size:18px;text-align:center;">Draw!</div>';
+          } else if (winner === "X") {
+            html +=
+              '<div style="color:#39d353;margin-top:15px;font-size:18px;text-align:center;">You Win!</div>';
+          } else {
+            html +=
+              '<div style="color:#f85149;margin-top:15px;font-size:18px;text-align:center;">AI Wins!</div>';
+          }
+          html +=
+            '<div style="color:#8b949e;margin-top:5px;font-size:12px;text-align:center;">Type $ ttt to play again</div>';
+        }
+        html += "</div>";
+        boardDiv.innerHTML = html;
+      }
+
+      const boardDiv = document.createElement("div");
+      boardDiv.id = "ttt-board";
+      terminalOutput.appendChild(boardDiv);
+      renderBoard();
+
+      boardDiv.addEventListener("click", (e) => {
+        if (gameOver) return;
+        const cell = e.target.closest(".ttt-cell");
+        if (cell && currentPlayer === "X") {
+          const idx = parseInt(cell.dataset.idx);
+          if (board[idx] === "") {
+            board[idx] = "X";
+            winner = checkWinner();
+            if (winner) {
+              gameOver = true;
+              renderBoard();
+            } else {
+              currentPlayer = "O";
+              renderBoard();
+              setTimeout(aiMove, 500);
+            }
+          }
+        }
+      });
+
+      return '<div class="terminal-line"><span class="text-success">Tic Tac Toe started! You are X. Click a cell to play!</span></div>';
+    },
+
+    minesweeper: function () {
+      terminalOutput.innerHTML = "";
+
+      const size = 8;
+      const mines = 10;
+      let board = [];
+      let revealed = [];
+      let flagged = [];
+      let gameOver = false;
+      let won = false;
+
+      // Initialize board
+      for (let i = 0; i < size; i++) {
+        board[i] = [];
+        revealed[i] = [];
+        flagged[i] = [];
+        for (let j = 0; j < size; j++) {
+          board[i][j] = 0;
+          revealed[i][j] = false;
+          flagged[i][j] = false;
+        }
+      }
+
+      // Place mines
+      let placed = 0;
+      while (placed < mines) {
+        const r = Math.floor(Math.random() * size);
+        const c = Math.floor(Math.random() * size);
+        if (board[r][c] !== -1) {
+          board[r][c] = -1;
+          placed++;
+        }
+      }
+
+      // Calculate numbers
+      for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+          if (board[i][j] === -1) continue;
+          let count = 0;
+          for (let di = -1; di <= 1; di++) {
+            for (let dj = -1; dj <= 1; dj++) {
+              const ni = i + di,
+                nj = j + dj;
+              if (
+                ni >= 0 &&
+                ni < size &&
+                nj >= 0 &&
+                nj < size &&
+                board[ni][nj] === -1
+              )
+                count++;
+            }
+          }
+          board[i][j] = count;
+        }
+      }
+
+      function renderBoard() {
+        let html = '<div style="font-family: monospace; margin: 10px 0;">';
+        html +=
+          '<div style="color: #8b949e; margin-bottom: 5px;">Click: reveal | Right-click/Two finger: flag</div>';
+        html += '<table style="border-collapse: collapse;">';
+        for (let i = 0; i < size; i++) {
+          html += "<tr>";
+          for (let j = 0; j < size; j++) {
+            let cellStyle = `
+              width: 28px; height: 28px; text-align: center; cursor: pointer;
+              border: 1px solid #30363d; font-weight: bold; font-size: 14px;
+            `;
+            let content = "";
+            let bg = "#21262d";
+
+            if (revealed[i][j]) {
+              bg = "#0d1117";
+              if (board[i][j] === -1) {
+                content = "💣";
+                bg = "#f85149";
+              } else if (board[i][j] > 0) {
+                const colors = [
+                  "",
+                  "#58a6ff",
+                  "#39d353",
+                  "#f85149",
+                  "#8957e5",
+                  "#f0883e",
+                  "#39d353",
+                  "#8b949e",
+                  "#e6edf3",
+                ];
+                content = `<span style="color: ${colors[board[i][j]]}">${
+                  board[i][j]
+                }</span>`;
+              }
+            } else if (flagged[i][j]) {
+              content = "🚩";
+            }
+
+            html += `<td style="${cellStyle} background: ${bg};" data-row="${i}" data-col="${j}" class="ms-cell">${content}</td>`;
+          }
+          html += "</tr>";
+        }
+        html += "</table>";
+
+        if (gameOver) {
+          html +=
+            '<div style="color: #f85149; margin-top: 10px; font-size: 16px;"> GAME OVER! You hit a mine.</div>';
+        } else if (won) {
+          html +=
+            '<div style="color: #39d353; margin-top: 10px; font-size: 16px;">YOU WIN! All mines cleared!</div>';
+        }
+        html += "</div>";
+        return html;
+      }
+
+      function reveal(r, c) {
+        if (r < 0 || r >= size || c < 0 || c >= size) return;
+        if (revealed[r][c] || flagged[r][c]) return;
+
+        revealed[r][c] = true;
+
+        if (board[r][c] === -1) {
+          gameOver = true;
+          // Reveal all mines
+          for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+              if (board[i][j] === -1) revealed[i][j] = true;
+            }
+          }
+          return;
+        }
+
+        if (board[r][c] === 0) {
+          for (let di = -1; di <= 1; di++) {
+            for (let dj = -1; dj <= 1; dj++) {
+              reveal(r + di, c + dj);
+            }
+          }
+        }
+
+        // Check win
+        let unrevealedSafe = 0;
+        for (let i = 0; i < size; i++) {
+          for (let j = 0; j < size; j++) {
+            if (!revealed[i][j] && board[i][j] !== -1) unrevealedSafe++;
+          }
+        }
+        if (unrevealedSafe === 0) won = true;
+      }
+
+      const boardDiv = document.createElement("div");
+      boardDiv.id = "minesweeper-board";
+      boardDiv.innerHTML = renderBoard();
+      terminalOutput.appendChild(boardDiv);
+
+      boardDiv.addEventListener("click", (e) => {
+        if (gameOver || won) return;
+        const cell = e.target.closest(".ms-cell");
+        if (cell) {
+          const r = parseInt(cell.dataset.row);
+          const c = parseInt(cell.dataset.col);
+          if (!flagged[r][c]) {
+            reveal(r, c);
+            boardDiv.innerHTML = renderBoard();
+          }
+        }
+      });
+
+      boardDiv.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        if (gameOver || won) return;
+        const cell = e.target.closest(".ms-cell");
+        if (cell) {
+          const r = parseInt(cell.dataset.row);
+          const c = parseInt(cell.dataset.col);
+          if (!revealed[r][c]) {
+            flagged[r][c] = !flagged[r][c];
+            boardDiv.innerHTML = renderBoard();
+          }
+        }
+      });
+
+      return (
+        '<div class="terminal-line"><span class="text-success">Minesweeper started! ' +
+        mines +
+        " mines hidden in " +
+        size +
+        "x" +
+        size +
+        " grid.</span></div>"
+      );
     },
 
     quit: function () {
-      if (window.typingActive) {
-        window.typingActive = false;
-        return '<div class="terminal-line"><span class="text-warning">Game exited. Thanks for playing!</span></div>';
+      return '<div class="terminal-line"><span class="text-warning">Game exited. Thanks for playing!</span></div>';
+    },
+
+    matrix: function () {
+      const terminalBody = document.getElementById("terminal-body");
+      if (!terminalBody) return null;
+
+      // Create matrix container
+      let matrixContainer = document.getElementById("matrix-effect");
+      if (!matrixContainer) {
+        matrixContainer = document.createElement("div");
+        matrixContainer.id = "matrix-effect";
+        matrixContainer.style.cssText = `
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #000;
+          z-index: 100;
+          overflow: hidden;
+          font-family: monospace;
+        `;
+        terminalBody.style.position = "relative";
+        terminalBody.appendChild(matrixContainer);
       }
-      return '<div class="terminal-line"><span class="text-muted">No active game to quit.</span></div>';
+
+      matrixContainer.innerHTML = "";
+
+      const chars =
+        "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF";
+      const columns = Math.floor(matrixContainer.offsetWidth / 14);
+      const drops = [];
+
+      for (let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -50;
+      }
+
+      const canvas = document.createElement("canvas");
+      canvas.width = matrixContainer.offsetWidth;
+      canvas.height = matrixContainer.offsetHeight;
+      matrixContainer.appendChild(canvas);
+      const ctx = canvas.getContext("2d");
+
+      let frameCount = 0;
+      const maxFrames = 300; // ~5 seconds at 60fps
+
+      function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#39d353";
+        ctx.font = "14px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+          const char = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillText(char, i * 14, drops[i] * 14);
+
+          if (drops[i] * 14 > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+
+        frameCount++;
+        if (frameCount < maxFrames) {
+          requestAnimationFrame(drawMatrix);
+        } else {
+          // End matrix effect
+          setTimeout(() => {
+            matrixContainer.remove();
+          }, 500);
+        }
+      }
+
+      drawMatrix();
+
+      return `
+<div class="terminal-line"><span class="text-success">Wake up, Neo...</span></div>
+<div class="terminal-line"><span class="text-success">The Matrix has you...</span></div>
+<div class="terminal-line"><span class="text-success">Follow the white rabbit. 🐇</span></div>
+      `.trim();
     },
 
     exit: function () {
@@ -1151,82 +1673,12 @@ fetchGitHubStats();
     },
   };
 
-  function handleTypingInput(userInput) {
-    if (!window.typingActive) return null;
-
-    if (!window.typingStartTime) {
-      window.typingStartTime = Date.now();
-    }
-
-    const target = window.typingPhrase;
-    const input = userInput;
-
-    let correct = 0;
-    for (let i = 0; i < Math.min(input.length, target.length); i++) {
-      if (input[i] === target[i]) correct++;
-    }
-    const accuracy = Math.round((correct / target.length) * 100);
-
-    const timeElapsed = (Date.now() - window.typingStartTime) / 1000 / 60;
-    const words = target.split(" ").length;
-    const wpm = Math.round(words / Math.max(timeElapsed, 0.01));
-
-    if (input === target) {
-      window.typingActive = false;
-      return `
-<div class="terminal-line"><span class="text-danger">⌨️ Typing Game - Results</span></div>
-<div class="terminal-line"><span class="text-success">Perfect! You typed it correctly!</span></div>
-<div class="terminal-line"><span class="text-primary">Accuracy: ${accuracy}%</span></div>
-<div class="terminal-line"><span class="text-primary">Speed: ${wpm} WPM</span></div>
-<div class="terminal-line"><span class="text-muted">Type $ typing to play again!</span></div>
-      `.trim();
-    } else {
-      let comparison = "";
-      for (let i = 0; i < target.length; i++) {
-        if (i < input.length) {
-          if (input[i] === target[i]) {
-            comparison += `<span class="text-success">${escapeHtml(
-              target[i]
-            )}</span>`;
-          } else {
-            comparison += `<span class="text-danger">${escapeHtml(
-              target[i]
-            )}</span>`;
-          }
-        } else {
-          comparison += `<span class="text-muted">${escapeHtml(
-            target[i]
-          )}</span>`;
-        }
-      }
-
-      return `
-<div class="terminal-line"><span class="text-danger">⌨️ Typing Game</span></div>
-<div class="terminal-line"><span class="text-warning">❌ Not quite! Try again:</span></div>
-<div class="terminal-line" style="margin: 10px 0; letter-spacing: 1px;">${comparison}</div>
-<div class="terminal-line"><span class="text-muted">Accuracy so far: ${accuracy}%</span></div>
-      `.trim();
-    }
-  }
-
   function processCommand(input) {
     const rawInput = input.trim();
 
     if (rawInput === "") return null;
 
     if (!rawInput.startsWith("$")) {
-      if (window.typingActive) {
-        terminalOutput.innerHTML = "";
-        const result = handleTypingInput(rawInput);
-        if (result) {
-          const resultDiv = document.createElement("div");
-          resultDiv.innerHTML = result;
-          terminalOutput.appendChild(resultDiv);
-        }
-        terminalBody.scrollTop = terminalBody.scrollHeight;
-        return null;
-      }
-
       const cmdLine = document.createElement("div");
       cmdLine.className = "terminal-line command";
       cmdLine.innerHTML = `<span class="text-success">kvory</span><span class="text-muted">@</span><span class="text-primary">terminal</span><span class="text-muted"> ~$</span> <span class="cmd">${escapeHtml(
@@ -1243,6 +1695,11 @@ fetchGitHubStats();
     }
 
     const cmd = rawInput.slice(1).trim().toLowerCase();
+
+    // Clear previous output before new command (except for clear command itself)
+    if (cmd !== "clear") {
+      terminalOutput.innerHTML = "";
+    }
 
     commandHistory.unshift(cmd);
     if (commandHistory.length > 50) commandHistory.pop();
