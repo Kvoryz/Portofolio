@@ -1099,7 +1099,7 @@
                 <div class="terminal-title">$ ./send_message.sh</div>
               </div>
               <div class="terminal-body">
-                <form class="contact-form" id="contact-form">
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/meejwear" method="POST">
                   <div class="terminal-line">
                     <span class="prompt">→</span>
                     <span class="label">name:</span>
@@ -1107,6 +1107,7 @@
                       type="text"
                       class="terminal-input"
                       id="contact-name"
+                      name="name"
                       placeholder="Your Name"
                       required
                     />
@@ -1118,6 +1119,7 @@
                       type="email"
                       class="terminal-input"
                       id="contact-email"
+                      name="email"
                       placeholder="your@email.com"
                       required
                     />
@@ -1129,6 +1131,7 @@
                       type="text"
                       class="terminal-input"
                       id="contact-subject"
+                      name="_subject"
                       placeholder="Subject"
                       required
                     />
@@ -1139,6 +1142,7 @@
                     <textarea
                       class="terminal-textarea"
                       id="contact-message"
+                      name="message"
                       placeholder="Type your message here..."
                       rows="4"
                       required
