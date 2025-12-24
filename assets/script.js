@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (targetId === "#contact") {
             offset = 20;
           } else if (targetId === "#about") {
-            offset = 130; // Extra offset for About to show heading on mobile
+            offset = window.innerWidth <= 991 ? 130 : 80; // Mobile vs Desktop
           }
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - offset;
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const codeLines2 = [
     { text: "function ", class: "keyword" },
-    { text: "hire", class: "variable" },
+    { text: "explore", class: "variable" },
     { text: "(developer) ", class: "punctuation" },
     { text: "{\n", class: "punctuation" },
     { text: "  if ", class: "keyword" },
@@ -266,17 +266,17 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "available", class: "property" },
     { text: ") {\n", class: "punctuation" },
     { text: "    return ", class: "keyword" },
-    { text: '"Let’s build something great."', class: "string" },
+    { text: '"Hello, welcome to my space."', class: "string" },
     { text: ";\n", class: "punctuation" },
     { text: "  } ", class: "punctuation" },
     { text: "else", class: "keyword" },
     { text: " {\n", class: "punctuation" },
     { text: "    return ", class: "keyword" },
-    { text: '"Currently working on another project."', class: "string" },
+    { text: '"Please check back later."', class: "string" },
     { text: ";\n", class: "punctuation" },
     { text: "  }\n", class: "punctuation" },
     { text: "}\n\n", class: "punctuation" },
-    { text: "hire", class: "variable" },
+    { text: "explore", class: "variable" },
     { text: "(developer); ", class: "punctuation" },
   ];
 
