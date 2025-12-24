@@ -3901,7 +3901,7 @@ section,
   .terminal-column {
     width: 100%;
     max-width: none;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     order: 2;
   }
 

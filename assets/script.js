@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
           let offset = 70;
           if (targetId === "#contact") {
             offset = 20;
+          } else if (targetId === "#about") {
+            offset = 130; // Extra offset for About to show heading on mobile
           }
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - offset;
