@@ -91,38 +91,40 @@
     <!-- Main Content (hidden on mobile) -->
     <div class="main-content">
       <div id="home" class="container">
-        <!-- Rubik-Inspired Navbar -->
-        <nav class="rubik-navbar">
-          <a href="#home" class="rubik-nav-cube active" data-label="Home">
-            <div class="cube-inner">
-              <div class="cube-side front"><i class="fas fa-home"></i></div>
-              <div class="cube-side back"><i class="fas fa-home"></i></div>
-            </div>
-          </a>
-          <a href="#about" class="rubik-nav-cube" data-label="About">
-            <div class="cube-inner">
-              <div class="cube-side front"><i class="fas fa-user"></i></div>
-              <div class="cube-side back"><i class="fas fa-user"></i></div>
-            </div>
-          </a>
-          <a href="#showcase" class="rubik-nav-cube" data-label="Showcase">
-            <div class="cube-inner">
-              <div class="cube-side front"><i class="fas fa-code"></i></div>
-              <div class="cube-side back"><i class="fas fa-code"></i></div>
-            </div>
-          </a>
-          <a href="#tools" class="rubik-nav-cube" data-label="Tech">
-            <div class="cube-inner">
-              <div class="cube-side front"><i class="fas fa-tools"></i></div>
-              <div class="cube-side back"><i class="fas fa-tools"></i></div>
-            </div>
-          </a>
-          <a href="#contact" class="rubik-nav-cube" data-label="Contact">
-            <div class="cube-inner">
-              <div class="cube-side front"><i class="fas fa-envelope"></i></div>
-              <div class="cube-side back"><i class="fas fa-envelope"></i></div>
-            </div>
-          </a>
+        <!-- macOS Dock-Style Navbar -->
+        <nav class="dock-navbar">
+          <div class="dock-container">
+            <a href="#home" class="dock-item active" data-tooltip="Home">
+              <div class="dock-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              <div class="dock-indicator"></div>
+            </a>
+            <a href="#about" class="dock-item" data-tooltip="About">
+              <div class="dock-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="dock-indicator"></div>
+            </a>
+            <a href="#showcase" class="dock-item" data-tooltip="Showcase">
+              <div class="dock-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="dock-indicator"></div>
+            </a>
+            <a href="#tools" class="dock-item" data-tooltip="Tech">
+              <div class="dock-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="dock-indicator"></div>
+            </a>
+            <a href="#contact" class="dock-item" data-tooltip="Contact">
+              <div class="dock-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="dock-indicator"></div>
+            </a>
+          </div>
         </nav>
       </div>
 
@@ -143,8 +145,8 @@
                 </div>
                 <div class="terminal-body">
                   <div class="terminal-code-wrapper">
-                    <div id="line-numbers" class="line-numbers">1</div>
-                    <div id="code-typewriter"></div>
+                  <div class="line-numbers" id="line-numbers">1</div>
+                  <div id="code-typewriter"></div>
                   </div>
                 </div>
               </div>
@@ -867,7 +869,7 @@
                   <div class="control yellow"></div>
                   <div class="control green"></div>
                 </div>
-                <div class="terminal-title">$ npm list --skills --depth=2</div>
+                <div class="terminal-title">$ npm list skills</div>
               </div>
               <div class="terminal-body skills-terminal-body">
                 <!-- Command Output -->

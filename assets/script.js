@@ -1,11 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let isScrolling = false;
+  let clickLockedTarget = null; // Target yang dikunci saat klik
+  let currentActiveSection = "#home"; // Track current active to prevent unnecessary updates
+  let isScrolling = false; // Throttle flag
+  let isSmoothScrolling = false; // Flag untuk mencegah reset lock saat smooth scroll
 
-  function setActiveNav(targetId) {
-    document.querySelectorAll(".rubik-nav-cube").forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === targetId) {
+  function setActiveNav(targetId, fromClick = false) {
+    // Jika ada target yang dikunci dan ini bukan dari klik, abaikan
+    if (clickLockedTarget && !fromClick && targetId !== clickLockedTarget) {
+      return;
+    }
+
+    // Skip if already active (prevents flickering)
+    if (!fromClick && targetId === currentActiveSection) {
+      return;
+    }
+
+    currentActiveSection = targetId;
+
+    document.querySelectorAll(".dock-item").forEach((link) => {
+      const willBeActive = link.getAttribute("href") === targetId;
+
+      if (willBeActive) {
         link.classList.add("active");
+      } else {
+        link.classList.remove("active");
       }
     });
   }
@@ -16,8 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetId = this.getAttribute("href");
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        isScrolling = true;
-        setActiveNav(targetId);
+        // Kunci target ini dan aktifkan smooth scroll flag
+        clickLockedTarget = targetId;
+        isSmoothScrolling = true;
+        setActiveNav(targetId, true);
 
         if (targetId === "#home") {
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -31,50 +51,91 @@ document.addEventListener("DOMContentLoaded", function () {
           window.scrollTo({ top: offsetPosition, behavior: "smooth" });
         }
 
+        // Lepas kunci dan flag setelah scroll selesai
+        // Lepas kunci dan flag setelah scroll selesai (hanya jika target masih sama)
         setTimeout(() => {
-          isScrolling = false;
-        }, 300);
+          if (clickLockedTarget === targetId) {
+            clickLockedTarget = null;
+            isSmoothScrolling = false;
+          }
+        }, 1000);
       }
     });
   });
 
-  // Reset isScrolling when user manually scrolls (wheel or touch)
+  // Reset lock HANYA saat user scroll manual (bukan smooth scroll programmatic)
   window.addEventListener("wheel", function () {
-    isScrolling = false;
+    if (!isSmoothScrolling) {
+      clickLockedTarget = null;
+    }
   });
 
+  // Track touched nav item
+  let touchedNavItem = null;
+
+  // Handle touch start - mark which item was touched
+  document.querySelectorAll(".dock-item").forEach((item) => {
+    item.addEventListener("touchstart", function () {
+      touchedNavItem = this;
+    });
+  });
+
+  // On touchmove (scrolling), clear the touched state and update nav
   window.addEventListener("touchmove", function () {
-    isScrolling = false;
+    if (!isSmoothScrolling) {
+      clickLockedTarget = null;
+      touchedNavItem = null;
+      // Force update active state based on scroll position
+      currentActiveSection = null; // Reset to force update
+    }
   });
 
-  window.addEventListener("scroll", function () {
-    // On desktop, respect isScrolling to prevent flickering during smooth scroll
-    // On mobile, always update (wheel/touchmove resets isScrolling anyway)
-    const isMobile = window.innerWidth <= 991;
-    if (!isMobile && isScrolling) return;
+  // On touchend anywhere, clear touched state
+  document.addEventListener("touchend", function () {
+    setTimeout(() => {
+      touchedNavItem = null;
+    }, 100);
+  });
 
-    const scrollPos = window.scrollY + 150;
+  // Throttled scroll handler to prevent flickering
+  function handleScroll() {
+    // Jika ada target yang dikunci, jangan ubah active state
+    if (clickLockedTarget) return;
+
+    const scrollPos = window.scrollY + 200;
 
     const about = document.getElementById("about");
     const showcase = document.getElementById("showcase");
     const tools = document.getElementById("tools");
     const contact = document.getElementById("contact");
 
+    let newSection = "#home";
+
     // Check from bottom to top for more reliable detection
-    if (contact && scrollPos >= contact.offsetTop - 200) {
-      setActiveNav("#contact");
+    if (contact && scrollPos >= contact.offsetTop - 100) {
+      newSection = "#contact";
     } else if (tools && scrollPos >= tools.offsetTop - 100) {
-      setActiveNav("#tools");
+      newSection = "#tools";
     } else if (showcase && scrollPos >= showcase.offsetTop - 100) {
-      setActiveNav("#showcase");
+      newSection = "#showcase";
     } else if (about && scrollPos >= about.offsetTop - 100) {
-      setActiveNav("#about");
-    } else {
-      setActiveNav("#home");
+      newSection = "#about";
+    }
+
+    setActiveNav(newSection);
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!isScrolling) {
+      isScrolling = true;
+      requestAnimationFrame(() => {
+        handleScroll();
+        isScrolling = false;
+      });
     }
   });
 
-  setActiveNav("#home");
+  setActiveNav("#home", true);
 
   const aboutImgWrapper = document.querySelector(".about-img-wrapper");
   const aboutVideo = document.querySelector(".about-video");
@@ -119,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let skillsTypingDone = false;
 
   if (toolsSection && skillsTypedCommand) {
-    const commandText = "npm list --skills --depth=2";
+    const commandText = "npm list skills";
 
     const toolsObserver = new IntersectionObserver(
       (entries) => {
