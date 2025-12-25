@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
+      // Skip quicklook-live button to allow external link navigation
+      if (this.id === "quicklook-live") return;
       e.preventDefault();
       const targetId = this.getAttribute("href");
       const targetElement = document.querySelector(targetId);
@@ -535,11 +537,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const gamesGrid = document.getElementById("games-grid");
   const finderTitle = document.getElementById("finder-current-folder");
   const finderIcons = document.querySelectorAll(".finder-icon");
-  const quicklook = document.getElementById("quicklook");
-  const quicklookClose = document.getElementById("quicklook-close");
-  const quicklookImage = document.getElementById("quicklook-image");
-  const quicklookName = document.getElementById("quicklook-name");
-  const quicklookTitle = document.getElementById("quicklook-title");
 
   sidebarItems.forEach((item) => {
     item.addEventListener("click", function () {
@@ -602,18 +599,50 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
+  // Quicklook elements
+  const quicklook = document.getElementById("quicklook");
+  const quicklookClose = document.getElementById("quicklook-close");
+  const quicklookImage = document.getElementById("quicklook-image");
+  const quicklookName = document.getElementById("quicklook-name");
+  const quicklookTitle = document.getElementById("quicklook-title");
+  const quicklookType = document.getElementById("quicklook-type");
+  const quicklookTech = document.getElementById("quicklook-tech");
+  const quicklookDesc = document.getElementById("quicklook-desc");
+  const quicklookLive = document.getElementById("quicklook-live");
 
   finderIcons.forEach((icon) => {
     icon.addEventListener("click", function () {
       const img = this.querySelector(".finder-icon-img");
       const name = this.querySelector(".finder-icon-name").textContent;
 
-      quicklookImage.src = img.src;
-      quicklookName.textContent = name;
-      quicklookTitle.textContent = name;
+      // Get data attributes
+      const desc = this.dataset.desc || "No description available.";
+      const type = this.dataset.type || "Project";
+      const tech = this.dataset.tech || "N/A";
+      const liveUrl = this.dataset.live || "";
 
-      quicklook.classList.add("active");
-      document.body.style.overflow = "hidden";
+      // Populate quicklook
+      if (quicklookImage) quicklookImage.src = img.src;
+      if (quicklookName) quicklookName.textContent = name;
+      if (quicklookTitle) quicklookTitle.textContent = name;
+      if (quicklookType) quicklookType.textContent = type;
+      if (quicklookTech) quicklookTech.textContent = tech;
+      if (quicklookDesc) quicklookDesc.textContent = desc;
+
+      // Handle live preview button
+      if (quicklookLive) {
+        if (liveUrl) {
+          quicklookLive.href = liveUrl;
+          quicklookLive.style.display = "inline-flex";
+        } else {
+          quicklookLive.style.display = "none";
+        }
+      }
+
+      if (quicklook) {
+        quicklook.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
     });
   });
 
@@ -621,6 +650,13 @@ document.addEventListener("DOMContentLoaded", function () {
     quicklookClose.addEventListener("click", function () {
       quicklook.classList.remove("active");
       document.body.style.overflow = "";
+    });
+  }
+
+  // Prevent View Live button click from closing modal
+  if (quicklookLive) {
+    quicklookLive.addEventListener("click", function (e) {
+      e.stopPropagation();
     });
   }
 

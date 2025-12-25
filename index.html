@@ -127,8 +127,8 @@
                 </div>
                 <div class="terminal-body">
                   <div class="terminal-code-wrapper">
-                  <div class="line-numbers" id="line-numbers">1</div>
-                  <div id="code-typewriter"></div>
+                    <div class="line-numbers" id="line-numbers">1</div>
+                    <div id="code-typewriter"></div>
                   </div>
                 </div>
               </div>
@@ -434,1207 +434,1212 @@
 
       <!-- Interactive Terminal Section (Hidden by default) -->
       <div class="container my-4" id="terminal-section" style="display: none">
-          <div class="row justify-content-center">
-            <div class="col-lg-10" data-aos="fade-up" data-aos-once="true">
-              <div class="interactive-terminal" id="interactive-terminal">
-                <div class="terminal-header">
-                  <div class="terminal-controls">
-                    <div
-                      class="control red"
-                      id="terminal-close"
-                      style="cursor: pointer"
-                      title="Close Terminal"
-                    ></div>
-                    <div class="control yellow"></div>
-                    <div class="control green"></div>
-                  </div>
-                  <div class="terminal-title">kvory@terminal ~</div>
-                </div>
-                <div class="terminal-body" id="terminal-body">
-                  <div class="terminal-output" id="terminal-output">
-                    <div class="terminal-line welcome">
-                      <span class="text-danger" id="welcome-text"></span
-                      ><span class="terminal-cursor" id="welcome-cursor"></span>
-                    </div>
-                    <div class="terminal-line">
-                      <span class="text-muted"
-                        >Type <span class="text-muted">$ help</span> to see
-                        available commands.</span
-                      >
-                    </div>
-                  </div>
-                  <!-- Snake Game Inside Terminal -->
-                  <div
-                    class="terminal-game-container"
-                    id="terminal-game-container"
-                  >
-                    <canvas id="snake-canvas"></canvas>
-                    <div
-                      class="terminal-game-overlay"
-                      id="terminal-game-overlay"
-                    >
-                      <div class="snake-start-screen" id="snake-start-screen">
-                        <i class="fas fa-gamepad"></i>
-                        <h3>Snake Game</h3>
-                        <p>Use WASD to move</p>
-                        <button id="snake-start-btn">Start Game</button>
-                      </div>
-                      <div
-                        class="snake-game-over"
-                        id="snake-game-over"
-                        style="display: none"
-                      >
-                        <i class="fas fa-skull"></i>
-                        <h3>Game Over!</h3>
-                        <p>Score: <span id="snake-final-score">0</span></p>
-                        <div class="snake-buttons">
-                          <button id="snake-restart-btn">Play Again</button>
-                          <button id="snake-exit-btn">Exit</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="terminal-game-hud">
-                      <span class="snake-score"
-                        >Score: <span id="snake-score">0</span></span
-                      >
-                      <button class="snake-close-btn" id="snake-close-btn">
-                        <i class="fas fa-times"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="terminal-input-line" id="terminal-input-line">
-                    <span class="terminal-prompt">
-                      <span class="text-muted">kvory</span
-                      ><span class="text-muted">@</span
-                      ><span class="text-muted">terminal</span
-                      ><span class="text-muted"> ~</span>
-                    </span>
-                    <input
-                      type="text"
-                      class="terminal-input"
-                      id="terminal-input"
-                      autocomplete="off"
-                      spellcheck="false"
-                      placeholder="$ help"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Stats Section -->
-        <div class="container my-5 py-4">
-          <div class="row justify-content-center">
-            <div class="col-lg-10">
-              <div class="row g-4">
-                <div
-                  class="col-lg-4 col-md-4"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  data-aos-once="true"
-                >
-                  <div class="stat-card">
-                    <div class="stat-icon">
-                      <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="stat-info">
-                      <h2 class="stat-number">1+</h2>
-                      <p class="stat-label">Years Experience</p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-lg-4 col-md-4"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  data-aos-once="true"
-                >
-                  <div class="stat-card">
-                    <div class="stat-icon">
-                      <i class="fas fa-code"></i>
-                    </div>
-                    <div class="stat-info">
-                      <h2 class="stat-number">4+</h2>
-                      <p class="stat-label">Projects Created</p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col-lg-4 col-md-4"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                  data-aos-once="true"
-                >
-                  <div class="stat-card">
-                    <div class="stat-icon">
-                      <i class="fas fa-award"></i>
-                    </div>
-                    <div class="stat-info">
-                      <h2 class="stat-number">2+</h2>
-                      <p class="stat-label">Certificates</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Portfolio Showcase Section -->
-      <div class="container my-5 py-5" id="showcase">
         <div class="row justify-content-center">
-          <div
-            class="col-lg-8 text-center"
-            data-aos="fade-up"
-            data-aos-once="true"
-          >
-            <h2 class="display-5 fw-bold text-light">Showcase</h2>
-            <div
-              class="divider mx-auto bg-success mb-4"
-              style="height: 3px; width: 60px"
-            ></div>
-          </div>
-        </div>
-
-        <!-- Finder-Style Portfolio Window -->
-        <div
-          class="row justify-content-center"
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-aos-once="true"
-        >
-          <div class="col-lg-10">
-            <div class="finder-window">
-              <!-- Finder Header -->
-              <div class="finder-header">
-                <div class="traffic-lights">
-                  <div class="traffic-light red"></div>
-                  <div class="traffic-light yellow"></div>
-                  <div class="traffic-light green"></div>
-                </div>
-                <div class="finder-toolbar">
-                  <button class="active" id="view-icon">
-                    <i class="fas fa-th"></i>
-                  </button>
-                  <button id="view-list"><i class="fas fa-list"></i></button>
-                </div>
-              </div>
-
-              <!-- Finder Body -->
-              <div class="finder-body">
-                <!-- Sidebar -->
-                <div class="finder-sidebar">
-                  <div class="sidebar-section">Favorites</div>
-                  <div class="sidebar-item active" data-folder="projects">
-                    <i class="fas fa-code"></i> Projects
-                  </div>
-                  <div class="sidebar-item" data-folder="certificates">
-                    <i class="fas fa-award"></i> Certificates
-                  </div>
-                  <div class="sidebar-item" data-folder="games">
-                    <i class="fas fa-gamepad"></i> Games
-                  </div>
-
-                  <div class="sidebar-section">Tags</div>
-                  <div class="sidebar-item" data-tag="web">
-                    <i
-                      class="fas fa-circle"
-                      style="color: #ff5f57; font-size: 0.6rem"
-                    ></i>
-                    Web
-                  </div>
-                  <div class="sidebar-item" data-tag="desktop">
-                    <i
-                      class="fas fa-circle"
-                      style="color: #28c840; font-size: 0.6rem"
-                    ></i>
-                    Desktop
-                  </div>
-                </div>
-
-                <!-- Content Area -->
-                <div class="finder-content">
-                  <!-- Projects Grid -->
-                  <div class="finder-grid" id="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="finder-icon" data-project="1" data-tags="web">
-                      <img
-                        src="assets/image/project_example.webp"
-                        class="finder-icon-img"
-                        alt="Project 1"
-                      />
-                      <div class="finder-icon-name">Website Example</div>
-                      <div class="finder-icon-meta">HTML, CSS, JS</div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="finder-icon" data-project="2" data-tags="web">
-                      <img
-                        src="assets/image/project_example.webp"
-                        class="finder-icon-img"
-                        alt="Project 2"
-                      />
-                      <div class="finder-icon-name">PHP Project</div>
-                      <div class="finder-icon-meta">PHP, MySQL</div>
-                    </div>
-                    <!-- Project 3 -->
-                    <div
-                      class="finder-icon"
-                      data-project="3"
-                      data-tags="desktop"
-                    >
-                      <img
-                        src="assets/image/project_example.webp"
-                        class="finder-icon-img"
-                        alt="Project 3"
-                      />
-                      <div class="finder-icon-name">Java App</div>
-                      <div class="finder-icon-meta">Java, Swing</div>
-                    </div>
-                    <!-- Project 4 -->
-                    <div class="finder-icon" data-project="4" data-tags="web">
-                      <img
-                        src="assets/image/project_example.webp"
-                        class="finder-icon-img"
-                        alt="Project 4"
-                      />
-                      <div class="finder-icon-name">React Web</div>
-                      <div class="finder-icon-meta">React, Node.js</div>
-                    </div>
-                  </div>
-
-                  <!-- Certificates Grid (Hidden by default) -->
-                  <div
-                    class="finder-grid"
-                    id="certificates-grid"
-                    style="display: none"
-                  >
-                    <!-- Certificate 1 -->
-                    <div class="finder-icon" data-cert="1">
-                      <img
-                        src="assets/image/certificate_example.png"
-                        class="finder-icon-img"
-                        alt="Certificate 1"
-                      />
-                      <div class="finder-icon-name">Web Dev Cert</div>
-                      <div class="finder-icon-meta">Udemy - 2023</div>
-                    </div>
-                    <!-- Certificate 2 -->
-                    <div class="finder-icon" data-cert="2">
-                      <img
-                        src="assets/image/certificate_example.png"
-                        class="finder-icon-img"
-                        alt="Certificate 2"
-                      />
-                      <div class="finder-icon-name">JS Algorithms</div>
-                      <div class="finder-icon-meta">freeCodeCamp</div>
-                    </div>
-                  </div>
-
-                  <!-- Games Grid (Hidden by default) -->
-                  <div
-                    class="finder-grid"
-                    id="games-grid"
-                    style="display: none"
-                  >
-                    <!-- Game 1 -->
-                    <div class="finder-icon" data-game="1">
-                      <img
-                        src="assets/image/project_example.webp"
-                        class="finder-icon-img"
-                        alt="Game 1"
-                      />
-                      <div class="finder-icon-name">Snake Game</div>
-                      <div class="finder-icon-meta">JavaScript, Canvas</div>
-                    </div>
-                    <!-- Game 2 -->
-                    <div class="finder-icon" data-game="2">
-                      <img
-                        src="assets/image/project_example.webp"
-                        class="finder-icon-img"
-                        alt="Game 2"
-                      />
-                      <div class="finder-icon-name">Puzzle Game</div>
-                      <div class="finder-icon-meta">HTML5, CSS3</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick Look Overlay -->
-      <div class="quicklook-overlay" id="quicklook">
-        <div class="quicklook-window">
-          <div class="quicklook-header">
-            <div class="traffic-lights">
-              <div class="traffic-light red" id="quicklook-close"></div>
-              <div class="traffic-light yellow"></div>
-              <div class="traffic-light green"></div>
-            </div>
-            <div class="quicklook-title-bar" id="quicklook-title">Preview</div>
-          </div>
-          <div class="quicklook-body">
-            <img
-              src=""
-              class="quicklook-image"
-              id="quicklook-image"
-              alt="Preview"
-            />
-            <h3 class="quicklook-name" id="quicklook-name">Project Name</h3>
-            <div class="quicklook-meta">
-              <div class="quicklook-meta-item">
-                <span class="quicklook-meta-label">Type</span>
-                <span class="quicklook-meta-value" id="quicklook-type"
-                  >Web</span
-                >
-              </div>
-              <div class="quicklook-meta-item">
-                <span class="quicklook-meta-label">Tech Stack</span>
-                <span class="quicklook-meta-value" id="quicklook-tech"
-                  >HTML, CSS, JS</span
-                >
-              </div>
-            </div>
-            <p class="quicklook-desc" id="quicklook-desc">
-              Project description will appear here.
-            </p>
-            <div class="quicklook-actions">
-              <a
-                href="#"
-                target="_blank"
-                class="live-preview-btn"
-                id="quicklook-live"
-              >
-                <i class="fas fa-external-link-alt"></i> View Live
-              </a>
-              <button class="details-btn" id="quicklook-details">
-                <i class="fas fa-info-circle"></i> Details
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Technologies Section -->
-      <div class="container my-5 py-5" id="tools">
-        <div class="row justify-content-center">
-          <div
-            class="col-lg-8 text-center"
-            data-aos="fade-up"
-            data-aos-once="true"
-          >
-            <h2 class="display-5 fw-bold text-light">Technologies</h2>
-            <div
-              class="divider mx-auto bg-success mb-5"
-              style="height: 3px; width: 60px"
-            ></div>
-          </div>
-        </div>
-
-        <!-- Terminal Command Style Skills -->
-        <div
-          class="row justify-content-center"
-          data-aos="fade-up"
-          data-aos-delay="100"
-          data-aos-once="true"
-        >
-          <div class="col-lg-10">
-            <div class="skills-terminal">
+          <div class="col-lg-10" data-aos="fade-up" data-aos-once="true">
+            <div class="interactive-terminal" id="interactive-terminal">
               <div class="terminal-header">
                 <div class="terminal-controls">
-                  <div class="control red"></div>
+                  <div
+                    class="control red"
+                    id="terminal-close"
+                    style="cursor: pointer"
+                    title="Close Terminal"
+                  ></div>
                   <div class="control yellow"></div>
                   <div class="control green"></div>
                 </div>
-                <div class="terminal-title">$ npm list skills</div>
+                <div class="terminal-title">kvory@terminal ~</div>
               </div>
-              <div class="terminal-body skills-terminal-body">
-                <!-- Command Output -->
-                <div class="terminal-output-line">
-                  <span class="prompt-user">kvory</span
-                  ><span class="prompt-at">@</span
-                  ><span class="prompt-host">portfolio</span
-                  ><span class="prompt-path">~</span
-                  ><span class="prompt-symbol">$</span>
-                  <span class="typed-command" id="skills-typed-command"></span
-                  ><span class="typing-cursor" id="skills-cursor">|</span>
+              <div class="terminal-body" id="terminal-body">
+                <div class="terminal-output" id="terminal-output">
+                  <div class="terminal-line welcome">
+                    <span class="text-danger" id="welcome-text"></span
+                    ><span class="terminal-cursor" id="welcome-cursor"></span>
+                  </div>
+                  <div class="terminal-line">
+                    <span class="text-muted"
+                      >Type <span class="text-muted">$ help</span> to see
+                      available commands.</span
+                    >
+                  </div>
                 </div>
-
-                <!-- Package Info -->
+                <!-- Snake Game Inside Terminal -->
                 <div
-                  class="package-info"
-                  id="skills-package-info"
-                  style="display: none"
+                  class="terminal-game-container"
+                  id="terminal-game-container"
                 >
-                  <span class="package-name">kvory-skills@2.0.0</span>
-                  <span class="package-path">/home/kvory/tech-stack</span>
-                </div>
-
-                <!-- Skills Tree -->
-                <div
-                  class="skills-tree"
-                  id="skills-tree-content"
-                  style="display: none"
-                >
-                  <!-- Languages Category -->
-                  <div class="tree-category">
-                    <div class="tree-branch">
-                      <span class="tree-icon">├──</span>
-                      <span class="category-name">languages/</span>
+                  <canvas id="snake-canvas"></canvas>
+                  <div class="terminal-game-overlay" id="terminal-game-overlay">
+                    <div class="snake-start-screen" id="snake-start-screen">
+                      <i class="fas fa-gamepad"></i>
+                      <h3>Snake Game</h3>
+                      <p>Use WASD to move</p>
+                      <button id="snake-start-btn">Start Game</button>
                     </div>
-                    <div class="tree-items">
-                      <div class="skill-item" style="--skill-color: #f7df1e">
-                        <span class="tree-icon">│ ├──</span>
-                        <i class="fab fa-js-square skill-icon"></i>
-                        <span class="skill-name">JavaScript</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 50%"
-                          ></div>
-                          <span class="skill-percent">50%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #777bb4">
-                        <span class="tree-icon">│ ├──</span>
-                        <i class="fab fa-php skill-icon"></i>
-                        <span class="skill-name">PHP</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 80%"
-                          ></div>
-                          <span class="skill-percent">80%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #3776ab">
-                        <span class="tree-icon">│ ├──</span>
-                        <i class="fab fa-python skill-icon"></i>
-                        <span class="skill-name">Python</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 35%"
-                          ></div>
-                          <span class="skill-percent">35%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #ed8b00">
-                        <span class="tree-icon">│ └──</span>
-                        <i class="fab fa-java skill-icon"></i>
-                        <span class="skill-name">Java</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 20%"
-                          ></div>
-                          <span class="skill-percent">20%</span>
-                        </div>
+                    <div
+                      class="snake-game-over"
+                      id="snake-game-over"
+                      style="display: none"
+                    >
+                      <i class="fas fa-skull"></i>
+                      <h3>Game Over!</h3>
+                      <p>Score: <span id="snake-final-score">0</span></p>
+                      <div class="snake-buttons">
+                        <button id="snake-restart-btn">Play Again</button>
+                        <button id="snake-exit-btn">Exit</button>
                       </div>
                     </div>
                   </div>
-
-                  <!-- Frontend Category -->
-                  <div class="tree-category">
-                    <div class="tree-branch">
-                      <span class="tree-icon">├──</span>
-                      <span class="category-name">frontend/</span>
-                    </div>
-                    <div class="tree-items">
-                      <div class="skill-item" style="--skill-color: #e34f26">
-                        <span class="tree-icon">│ ├──</span>
-                        <i class="fab fa-html5 skill-icon"></i>
-                        <span class="skill-name">HTML5</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 90%"
-                          ></div>
-                          <span class="skill-percent">90%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #1572b6">
-                        <span class="tree-icon">│ ├──</span>
-                        <i class="fab fa-css3-alt skill-icon"></i>
-                        <span class="skill-name">CSS3</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 85%"
-                          ></div>
-                          <span class="skill-percent">85%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #7952b3">
-                        <span class="tree-icon">│ └──</span>
-                        <i class="fab fa-bootstrap skill-icon"></i>
-                        <span class="skill-name">Bootstrap</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 80%"
-                          ></div>
-                          <span class="skill-percent">80%</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Tools Category -->
-                  <div class="tree-category">
-                    <div class="tree-branch">
-                      <span class="tree-icon">└──</span>
-                      <span class="category-name">tools/</span>
-                    </div>
-                    <div class="tree-items last-category">
-                      <div class="skill-item" style="--skill-color: #f05032">
-                        <span class="tree-icon"> ├──</span>
-                        <i class="fab fa-git-alt skill-icon"></i>
-                        <span class="skill-name">Git</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 30%"
-                          ></div>
-                          <span class="skill-percent">30%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #ffffff">
-                        <span class="tree-icon"> ├──</span>
-                        <i class="fab fa-github skill-icon"></i>
-                        <span class="skill-name">GitHub</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 50%"
-                          ></div>
-                          <span class="skill-percent">50%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #007acc">
-                        <span class="tree-icon"> ├──</span>
-                        <i class="fas fa-code skill-icon"></i>
-                        <span class="skill-name">VS Code</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 75%"
-                          ></div>
-                          <span class="skill-percent">75%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #4479a1">
-                        <span class="tree-icon"> ├──</span>
-                        <i class="fas fa-database skill-icon"></i>
-                        <span class="skill-name">MySQL</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 70%"
-                          ></div>
-                          <span class="skill-percent">70%</span>
-                        </div>
-                      </div>
-                      <div class="skill-item" style="--skill-color: #f24e1e">
-                        <span class="tree-icon"> └──</span>
-                        <i class="fab fa-figma skill-icon"></i>
-                        <span class="skill-name">Figma</span>
-                        <div class="skill-bar-container">
-                          <div
-                            class="skill-bar"
-                            style="--skill-level: 20%"
-                          ></div>
-                          <span class="skill-percent">20%</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact -->
-      <div
-        class="container mt-5 pt-5 pb-5"
-        style="margin-top: 150px !important; padding-top: 100px !important"
-        id="contact"
-      >
-        <div class="row justify-content-center">
-          <div
-            class="col-lg-8 text-center"
-            data-aos="fade-up"
-            data-aos-once="true"
-          >
-            <h2 class="display-5 fw-bold text-light">Contact Me</h2>
-            <div
-              class="divider mx-auto bg-success mb-5"
-              style="height: 3px; width: 60px"
-            ></div>
-          </div>
-        </div>
-
-        <div class="row justify-content-center">
-          <div
-            class="col-lg-8"
-            data-aos="fade-up"
-            data-aos-delay="100"
-            data-aos-once="true"
-          >
-            <!-- Terminal Window -->
-            <div class="contact-terminal">
-              <div class="terminal-header">
-                <div class="terminal-controls">
-                  <div class="control red"></div>
-                  <div class="control yellow"></div>
-                  <div class="control green"></div>
-                </div>
-                <div class="terminal-title">$ ./send_message.sh</div>
-              </div>
-              <div class="terminal-body">
-                <form class="contact-form" id="contact-form" action="https://formspree.io/f/meejwear" method="POST">
-                  <div class="terminal-line">
-                    <span class="prompt">→</span>
-                    <span class="label">name:</span>
-                    <input
-                      type="text"
-                      class="terminal-input"
-                      id="contact-name"
-                      name="name"
-                      placeholder="Your Name"
-                      required
-                    />
-                  </div>
-                  <div class="terminal-line">
-                    <span class="prompt">→</span>
-                    <span class="label">email:</span>
-                    <input
-                      type="email"
-                      class="terminal-input"
-                      id="contact-email"
-                      name="email"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-                  <div class="terminal-line">
-                    <span class="prompt">→</span>
-                    <span class="label">subject:</span>
-                    <input
-                      type="text"
-                      class="terminal-input"
-                      id="contact-subject"
-                      name="_subject"
-                      placeholder="Subject"
-                      required
-                    />
-                  </div>
-                  <div class="terminal-line terminal-line-message">
-                    <span class="prompt">→</span>
-                    <span class="label">message:</span>
-                    <textarea
-                      class="terminal-textarea"
-                      id="contact-message"
-                      name="message"
-                      placeholder="Type your message here..."
-                      rows="4"
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="terminal-line terminal-submit">
-                    <span class="prompt">$</span>
-                    <button type="submit" class="terminal-submit-btn">
-                      <span class="command">./submit.sh</span>
-                      <span class="cursor-blink"></span>
+                  <div class="terminal-game-hud">
+                    <span class="snake-score"
+                      >Score: <span id="snake-score">0</span></span
+                    >
+                    <button class="snake-close-btn" id="snake-close-btn">
+                      <i class="fas fa-times"></i>
                     </button>
                   </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="modal fade"
-        id="projectModal1"
-        tabindex="-1"
-        aria-labelledby="projectModalLabel1"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content bg-dark text-light">
-            <div class="modal-header border-bottom border-secondary">
-              <h5 class="modal-title" id="projectModalLabel1">
-                Example Website
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="row g-4">
-                <div class="col-md-5">
-                  <img
-                    src="assets/image/project_example.webp"
-                    alt="Project 1"
-                    class="img-fluid rounded"
-                    style="width: 100%; height: 100%; object-fit: cover"
+                </div>
+                <div class="terminal-input-line" id="terminal-input-line">
+                  <span class="terminal-prompt">
+                    <span class="text-muted">kvory</span
+                    ><span class="text-muted">@</span
+                    ><span class="text-muted">terminal</span
+                    ><span class="text-muted"> ~</span>
+                  </span>
+                  <input
+                    type="text"
+                    class="terminal-input"
+                    id="terminal-input"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="$ help"
                   />
                 </div>
-                <div class="col-md-7">
-                  <h5 class="text-success mb-3">Project Description</h5>
-                  <p class="text-muted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis quod dicta ab eum ad fuga, facilis optio earum.
-                  </p>
-                  <div class="mb-3">
-                    <h6 class="text-light mb-2">Features:</h6>
-                    <ul class="text-muted small">
-                      <li>Lorem ipsum dolor sit amet</li>
-                      <li>Consectetur adipisicing elit</li>
-                      <li>Facilis optio earum consequatur</li>
-                    </ul>
-                  </div>
-                  <div class="mb-4">
-                    <h6 class="text-light mb-2">Technologies:</h6>
-                    <span class="tech-badge">HTML</span>
-                    <span class="tech-badge">CSS</span>
-                    <span class="tech-badge">JavaScript</span>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-success">
-                      <i class="fas fa-external-link-alt me-2"></i>Live Demo
-                    </a>
-                    <a href="#" class="btn btn-outline-light">
-                      <i class="fab fa-github me-2"></i>Source Code
-                    </a>
-                  </div>
-                </div>
               </div>
-            </div>
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="modal fade"
-        id="projectModal2"
-        tabindex="-1"
-        aria-labelledby="projectModalLabel2"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content bg-dark text-light">
-            <div class="modal-header border-bottom border-secondary">
-              <h5 class="modal-title" id="projectModalLabel2">
-                Example Website
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="row g-4">
-                <div class="col-md-5">
-                  <img
-                    src="assets/image/project_example.webp"
-                    alt="Project 2"
-                    class="img-fluid rounded"
-                    style="width: 100%; height: 100%; object-fit: cover"
-                  />
-                </div>
-                <div class="col-md-7">
-                  <h5 class="text-success mb-3">Project Description</h5>
-                  <p class="text-muted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Magni incidunt quis, alias praesentium quam eius natus.
-                  </p>
-                  <div class="mb-3">
-                    <h6 class="text-light mb-2">Features:</h6>
-                    <ul class="text-muted small">
-                      <li>Lorem ipsum dolor sit amet</li>
-                      <li>Consectetur adipisicing elit</li>
-                      <li>Facilis optio earum consequatur</li>
-                    </ul>
+      <!-- Stats Section -->
+      <div class="container my-5 py-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="row g-4">
+              <div
+                class="col-lg-4 col-md-4"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-once="true"
+              >
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-briefcase"></i>
                   </div>
-                  <div class="mb-4">
-                    <h6 class="text-light mb-2">Technologies:</h6>
-                    <span class="tech-badge">HTML</span>
-                    <span class="tech-badge">CSS</span>
-                    <span class="tech-badge">JavaScript</span>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-success">
-                      <i class="fas fa-external-link-alt me-2"></i>Live Demo
-                    </a>
-                    <a href="#" class="btn btn-outline-light">
-                      <i class="fab fa-github me-2"></i>Source Code
-                    </a>
+                  <div class="stat-info">
+                    <h2 class="stat-number">1+</h2>
+                    <p class="stat-label">Years Experience</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                data-bs-dismiss="modal"
+              <div
+                class="col-lg-4 col-md-4"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-once="true"
               >
-                Close
-              </button>
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h2 class="stat-number">4+</h2>
+                    <p class="stat-label">Projects Created</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-lg-4 col-md-4"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-once="true"
+              >
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-award"></i>
+                  </div>
+                  <div class="stat-info">
+                    <h2 class="stat-number">2+</h2>
+                    <p class="stat-label">Certificates</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div
-        class="modal fade"
-        id="projectModal3"
-        tabindex="-1"
-        aria-labelledby="projectModalLabel3"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content bg-dark text-light">
-            <div class="modal-header border-bottom border-secondary">
-              <h5 class="modal-title" id="projectModalLabel3">
-                Example Website
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="row g-4">
-                <div class="col-md-5">
-                  <img
-                    src="assets/image/project_example.webp"
-                    alt="Project 3"
-                    class="img-fluid rounded"
-                    style="width: 100%; height: 100%; object-fit: cover"
-                  />
-                </div>
-                <div class="col-md-7">
-                  <h5 class="text-success mb-3">Project Description</h5>
-                  <p class="text-muted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dolorum accusantium, dolorem possimus provident hic.
-                  </p>
-                  <div class="mb-3">
-                    <h6 class="text-light mb-2">Features:</h6>
-                    <ul class="text-muted small">
-                      <li>Lorem ipsum dolor sit amet</li>
-                      <li>Consectetur adipisicing elit</li>
-                      <li>Facilis optio earum consequatur</li>
-                    </ul>
-                  </div>
-                  <div class="mb-4">
-                    <h6 class="text-light mb-2">Technologies:</h6>
-                    <span class="tech-badge">HTML</span>
-                    <span class="tech-badge">CSS</span>
-                    <span class="tech-badge">JavaScript</span>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-success">
-                      <i class="fas fa-external-link-alt me-2"></i>Live Demo
-                    </a>
-                    <a href="#" class="btn btn-outline-light">
-                      <i class="fab fa-github me-2"></i>Source Code
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certificate Modal 1 -->
-      <div
-        class="modal fade"
-        id="certModal1"
-        tabindex="-1"
-        aria-labelledby="certModalLabel1"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content bg-dark text-light">
-            <div class="modal-header border-bottom border-secondary">
-              <h5 class="modal-title" id="certModalLabel1">
-                Example Certificate
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <img
-                    src="assets/image/certificate_example.png"
-                    alt="Certificate 1"
-                    class="img-fluid rounded"
-                    style="width: 100%"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <h5 class="text-success mb-3">Certificate Details</h5>
-                  <div class="mb-3">
-                    <h6 class="text-light">Issuer</h6>
-                    <p class="text-muted">Udemy</p>
-                  </div>
-                  <div class="mb-3">
-                    <h6 class="text-light">Date Issued</h6>
-                    <p class="text-muted">2023</p>
-                  </div>
-                  <div class="mb-3">
-                    <h6 class="text-light">Description</h6>
-                    <p class="text-muted">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Aspernatur quidem rem exercitationem obcaecati totam.
-                    </p>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-success">
-                      <i class="fas fa-external-link-alt me-2"></i>View
-                      Credential
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certificate Modal 2 -->
-      <div
-        class="modal fade"
-        id="certModal2"
-        tabindex="-1"
-        aria-labelledby="certModalLabel2"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content bg-dark text-light">
-            <div class="modal-header border-bottom border-secondary">
-              <h5 class="modal-title" id="certModalLabel2">
-                Example Certificate
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <img
-                    src="assets/image/certificate_example.png"
-                    alt="Certificate 2"
-                    class="img-fluid rounded"
-                    style="width: 100%"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <h5 class="text-success mb-3">Certificate Details</h5>
-                  <div class="mb-3">
-                    <h6 class="text-light">Issuer</h6>
-                    <p class="text-muted">freeCodeCamp</p>
-                  </div>
-                  <div class="mb-3">
-                    <h6 class="text-light">Date Issued</h6>
-                    <p class="text-muted">2022</p>
-                  </div>
-                  <div class="mb-3">
-                    <h6 class="text-light">Description</h6>
-                    <p class="text-muted">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Molestias asperiores voluptatibus doloremque maxime.
-                    </p>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-success">
-                      <i class="fas fa-external-link-alt me-2"></i>View
-                      Credential
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certificate Modal 3 -->
-      <div
-        class="modal fade"
-        id="certModal3"
-        tabindex="-1"
-        aria-labelledby="certModalLabel3"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content bg-dark text-light">
-            <div class="modal-header border-bottom border-secondary">
-              <h5 class="modal-title" id="certModalLabel3">
-                Example Certificate
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <img
-                    src="assets/image/certificate_example.png"
-                    alt="Certificate 3"
-                    class="img-fluid rounded"
-                    style="width: 100%"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <h5 class="text-success mb-3">Certificate Details</h5>
-                  <div class="mb-3">
-                    <h6 class="text-light">Issuer</h6>
-                    <p class="text-muted">Coursera</p>
-                  </div>
-                  <div class="mb-3">
-                    <h6 class="text-light">Date Issued</h6>
-                    <p class="text-muted">2023</p>
-                  </div>
-                  <div class="mb-3">
-                    <h6 class="text-light">Description</h6>
-                    <p class="text-muted">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Sequi commodi nisi debitis illo sunt veniam.
-                    </p>
-                  </div>
-                  <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-success">
-                      <i class="fas fa-external-link-alt me-2"></i>View
-                      Credential
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-outline-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <footer class="text-light py-4 mt-5">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-              <img
-                src="assets/image/clover.png"
-                alt="Clover Logo"
-                width="40"
-                height="40"
-                class="mb-3"
-              />
-              <div class="d-flex justify-content-center gap-3 mb-4">
-                <a
-                  href="https://github.com/kvoryz"
-                  target="_blank"
-                  class="social-btn"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://instagram.com/_kvory"
-                  target="_blank"
-                  class="social-btn"
-                >
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a
-                  href="https://www.tiktok.com/@_kvory"
-                  target="_blank"
-                  class="social-btn"
-                >
-                  <i class="fab fa-tiktok"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
-    <!-- End main-content -->
+
+    <!-- Portfolio Showcase Section -->
+    <div class="container my-5 py-5" id="showcase">
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-8 text-center"
+          data-aos="fade-up"
+          data-aos-once="true"
+        >
+          <h2 class="display-5 fw-bold text-light">Showcase</h2>
+          <div
+            class="divider mx-auto bg-success mb-4"
+            style="height: 3px; width: 60px"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Finder-Style Portfolio Window -->
+      <div
+        class="row justify-content-center"
+        data-aos="fade-up"
+        data-aos-delay="100"
+        data-aos-once="true"
+      >
+        <div class="col-lg-10">
+          <div class="finder-window">
+            <!-- Finder Header -->
+            <div class="finder-header">
+              <div class="traffic-lights">
+                <div class="traffic-light red"></div>
+                <div class="traffic-light yellow"></div>
+                <div class="traffic-light green"></div>
+              </div>
+              <div class="finder-toolbar">
+                <button class="active" id="view-icon">
+                  <i class="fas fa-th"></i>
+                </button>
+                <button id="view-list"><i class="fas fa-list"></i></button>
+              </div>
+            </div>
+
+            <!-- Finder Body -->
+            <div class="finder-body">
+              <!-- Sidebar -->
+              <div class="finder-sidebar">
+                <div class="sidebar-section">Favorites</div>
+                <div class="sidebar-item active" data-folder="projects">
+                  <i class="fas fa-code"></i> Projects
+                </div>
+                <div class="sidebar-item" data-folder="certificates">
+                  <i class="fas fa-award"></i> Certificates
+                </div>
+                <div class="sidebar-item" data-folder="games">
+                  <i class="fas fa-gamepad"></i> Games
+                </div>
+
+                <div class="sidebar-section">Tags</div>
+                <div class="sidebar-item" data-tag="web">
+                  <i
+                    class="fas fa-circle"
+                    style="color: #ff5f57; font-size: 0.6rem"
+                  ></i>
+                  Web
+                </div>
+                <div class="sidebar-item" data-tag="desktop">
+                  <i
+                    class="fas fa-circle"
+                    style="color: #28c840; font-size: 0.6rem"
+                  ></i>
+                  Desktop
+                </div>
+              </div>
+
+              <!-- Content Area -->
+              <div class="finder-content">
+                <!-- Projects Grid -->
+                <div class="finder-grid" id="projects-grid">
+                  <!-- Project 1 -->
+                  <div
+                    class="finder-icon"
+                    data-project="1"
+                    data-tags="web"
+                    data-desc="A responsive portfolio website built with modern HTML5, CSS3, and vanilla JavaScript. This website is designed to showcase personal projects, skills, and experiences in a clean and visually appealing way. It features a fully responsive layout that adapts seamlessly across desktops, tablets, and mobile devices, ensuring an optimal user experience on any screen size."
+                    data-type="Web"
+                    data-tech="HTML, CSS, JavaScript"
+                    data-live="https://kvory.vercel.app/"
+                  >
+                    <img
+                      src="assets/image/portfolio.png"
+                      class="finder-icon-img"
+                      alt="Project 1"
+                    />
+                    <div class="finder-icon-name">Portfolio</div>
+                    <div class="finder-icon-meta">HTML, CSS, JS</div>
+                  </div>
+                  <!-- Project 2 -->
+                  <div
+                    class="finder-icon"
+                    data-project="2"
+                    data-tags="web"
+                    data-desc="A modern web-based music player interface inspired by contemporary streaming platforms. This project features a sleek and immersive music player UI that emphasizes visual clarity and user experience. The design showcases a now-playing section with album artwork, song title, artist information, animated audio visualizer bars, and intuitive playback controls such as play/pause, skip, shuffle, and repeat."
+                    data-type="Web"
+                    data-tech="HTML, CSS, JavaScript"
+                    data-live="https://harmont.vercel.app"
+                  >
+                    <img
+                      src="assets/image/web-music.png"
+                      class="finder-icon-img"
+                      alt="Project 2"
+                    />
+                    <div class="finder-icon-name">Music Player</div>
+                    <div class="finder-icon-meta">HTML, CSS, JS</div>
+                  </div>
+                  <!-- Project 3 -->
+                  <div
+                    class="finder-icon"
+                    data-project="3"
+                    data-tags="desktop"
+                    data-desc="Desktop application built with Java Swing for inventory management system."
+                    data-type="Desktop"
+                    data-tech="Java, Swing, SQLite"
+                    data-live=""
+                  >
+                    <img
+                      src="assets/image/project_example.webp"
+                      class="finder-icon-img"
+                      alt="Project 3"
+                    />
+                    <div class="finder-icon-name">Java App</div>
+                    <div class="finder-icon-meta">Java, Swing</div>
+                  </div>
+                  <!-- Project 4 -->
+                  <div
+                    class="finder-icon"
+                    data-project="4"
+                    data-tags="web"
+                    data-desc="Modern React web application with Node.js backend and REST API integration."
+                    data-type="Web"
+                    data-tech="React, Node.js, Express"
+                    data-live="https://example.com/project4"
+                  >
+                    <img
+                      src="assets/image/project_example.webp"
+                      class="finder-icon-img"
+                      alt="Project 4"
+                    />
+                    <div class="finder-icon-name">React Web</div>
+                    <div class="finder-icon-meta">React, Node.js</div>
+                  </div>
+                </div>
+
+                <!-- Certificates Grid (Hidden by default) -->
+                <div
+                  class="finder-grid"
+                  id="certificates-grid"
+                  style="display: none"
+                >
+                  <!-- Certificate 1 -->
+                  <div
+                    class="finder-icon"
+                    data-cert="1"
+                    data-desc="Completed comprehensive web development course covering HTML, CSS, JavaScript, and responsive design."
+                    data-type="Certificate"
+                    data-tech="Web Development"
+                    data-live=""
+                  >
+                    <img
+                      src="assets/image/certificate_example.png"
+                      class="finder-icon-img"
+                      alt="Certificate 1"
+                    />
+                    <div class="finder-icon-name">Web Dev Cert</div>
+                    <div class="finder-icon-meta">Udemy - 2023</div>
+                  </div>
+                  <!-- Certificate 2 -->
+                  <div
+                    class="finder-icon"
+                    data-cert="2"
+                    data-desc="JavaScript Algorithms and Data Structures certification from freeCodeCamp."
+                    data-type="Certificate"
+                    data-tech="JavaScript, Algorithms"
+                    data-live="https://freecodecamp.org/certification"
+                  >
+                    <img
+                      src="assets/image/certificate_example.png"
+                      class="finder-icon-img"
+                      alt="Certificate 2"
+                    />
+                    <div class="finder-icon-name">JS Algorithms</div>
+                    <div class="finder-icon-meta">freeCodeCamp</div>
+                  </div>
+                </div>
+
+                <!-- Games Grid (Hidden by default) -->
+                <div class="finder-grid" id="games-grid" style="display: none">
+                  <!-- Game 1 -->
+                  <div
+                    class="finder-icon"
+                    data-game="1"
+                    data-desc="Classic Snake game built with JavaScript and HTML5 Canvas. Eat food, avoid obstacles, beat your high score!"
+                    data-type="Game"
+                    data-tech="JavaScript, Canvas API"
+                    data-live=""
+                  >
+                    <img
+                      src="assets/image/project_example.webp"
+                      class="finder-icon-img"
+                      alt="Game 1"
+                    />
+                    <div class="finder-icon-name">Snake Game</div>
+                    <div class="finder-icon-meta">JavaScript, Canvas</div>
+                  </div>
+                  <!-- Game 2 -->
+                  <div
+                    class="finder-icon"
+                    data-game="2"
+                    data-desc="Interactive puzzle game with multiple difficulty levels and score tracking."
+                    data-type="Game"
+                    data-tech="HTML5, CSS3, JavaScript"
+                    data-live="https://example.com/puzzle"
+                  >
+                    <img
+                      src="assets/image/project_example.webp"
+                      class="finder-icon-img"
+                      alt="Game 2"
+                    />
+                    <div class="finder-icon-name">Puzzle Game</div>
+                    <div class="finder-icon-meta">HTML5, CSS3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Look Overlay -->
+    <div class="quicklook-overlay" id="quicklook">
+      <div class="quicklook-window">
+        <div class="quicklook-header">
+          <div class="traffic-lights">
+            <div class="traffic-light red" id="quicklook-close"></div>
+            <div class="traffic-light yellow"></div>
+            <div class="traffic-light green"></div>
+          </div>
+          <div class="quicklook-title-bar" id="quicklook-title">Preview</div>
+        </div>
+        <div class="quicklook-body">
+          <img
+            src=""
+            class="quicklook-image"
+            id="quicklook-image"
+            alt="Preview"
+          />
+          <h3 class="quicklook-name" id="quicklook-name">Project Name</h3>
+          <div class="quicklook-meta">
+            <div class="quicklook-meta-item">
+              <span class="quicklook-meta-label">Type</span>
+              <span class="quicklook-meta-value" id="quicklook-type">Web</span>
+            </div>
+            <div class="quicklook-meta-item">
+              <span class="quicklook-meta-label">Tech Stack</span>
+              <span class="quicklook-meta-value" id="quicklook-tech"
+                >HTML, CSS, JS</span
+              >
+            </div>
+          </div>
+          <p class="quicklook-desc" id="quicklook-desc">
+            Project description will appear here.
+          </p>
+          <div class="quicklook-actions">
+            <a
+              href="#"
+              target="_blank"
+              class="live-preview-btn"
+              id="quicklook-live"
+            >
+              <i class="fas fa-external-link-alt"></i> View Live
+            </a>
+            <button class="details-btn" id="quicklook-details">
+              <i class="fas fa-info-circle"></i> Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technologies Section -->
+    <div class="container my-5 py-5" id="tools">
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-8 text-center"
+          data-aos="fade-up"
+          data-aos-once="true"
+        >
+          <h2 class="display-5 fw-bold text-light">Technologies</h2>
+          <div
+            class="divider mx-auto bg-success mb-5"
+            style="height: 3px; width: 60px"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Terminal Command Style Skills -->
+      <div
+        class="row justify-content-center"
+        data-aos="fade-up"
+        data-aos-delay="100"
+        data-aos-once="true"
+      >
+        <div class="col-lg-10">
+          <div class="skills-terminal">
+            <div class="terminal-header">
+              <div class="terminal-controls">
+                <div class="control red"></div>
+                <div class="control yellow"></div>
+                <div class="control green"></div>
+              </div>
+              <div class="terminal-title">$ npm list skills</div>
+            </div>
+            <div class="terminal-body skills-terminal-body">
+              <!-- Command Output -->
+              <div class="terminal-output-line">
+                <span class="prompt-user">kvory</span
+                ><span class="prompt-at">@</span
+                ><span class="prompt-host">portfolio</span
+                ><span class="prompt-path">~</span
+                ><span class="prompt-symbol">$</span>
+                <span class="typed-command" id="skills-typed-command"></span
+                ><span class="typing-cursor" id="skills-cursor">|</span>
+              </div>
+
+              <!-- Package Info -->
+              <div
+                class="package-info"
+                id="skills-package-info"
+                style="display: none"
+              >
+                <span class="package-name">kvory-skills@2.0.0</span>
+                <span class="package-path">/home/kvory/tech-stack</span>
+              </div>
+
+              <!-- Skills Tree -->
+              <div
+                class="skills-tree"
+                id="skills-tree-content"
+                style="display: none"
+              >
+                <!-- Languages Category -->
+                <div class="tree-category">
+                  <div class="tree-branch">
+                    <span class="tree-icon">├──</span>
+                    <span class="category-name">languages/</span>
+                  </div>
+                  <div class="tree-items">
+                    <div class="skill-item" style="--skill-color: #f7df1e">
+                      <span class="tree-icon">│ ├──</span>
+                      <i class="fab fa-js-square skill-icon"></i>
+                      <span class="skill-name">JavaScript</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 50%"></div>
+                        <span class="skill-percent">50%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #777bb4">
+                      <span class="tree-icon">│ ├──</span>
+                      <i class="fab fa-php skill-icon"></i>
+                      <span class="skill-name">PHP</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 80%"></div>
+                        <span class="skill-percent">80%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #3776ab">
+                      <span class="tree-icon">│ ├──</span>
+                      <i class="fab fa-python skill-icon"></i>
+                      <span class="skill-name">Python</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 35%"></div>
+                        <span class="skill-percent">35%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #ed8b00">
+                      <span class="tree-icon">│ └──</span>
+                      <i class="fab fa-java skill-icon"></i>
+                      <span class="skill-name">Java</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 20%"></div>
+                        <span class="skill-percent">20%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Frontend Category -->
+                <div class="tree-category">
+                  <div class="tree-branch">
+                    <span class="tree-icon">├──</span>
+                    <span class="category-name">frontend/</span>
+                  </div>
+                  <div class="tree-items">
+                    <div class="skill-item" style="--skill-color: #e34f26">
+                      <span class="tree-icon">│ ├──</span>
+                      <i class="fab fa-html5 skill-icon"></i>
+                      <span class="skill-name">HTML5</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 90%"></div>
+                        <span class="skill-percent">90%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #1572b6">
+                      <span class="tree-icon">│ ├──</span>
+                      <i class="fab fa-css3-alt skill-icon"></i>
+                      <span class="skill-name">CSS3</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 85%"></div>
+                        <span class="skill-percent">85%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #7952b3">
+                      <span class="tree-icon">│ └──</span>
+                      <i class="fab fa-bootstrap skill-icon"></i>
+                      <span class="skill-name">Bootstrap</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 80%"></div>
+                        <span class="skill-percent">80%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tools Category -->
+                <div class="tree-category">
+                  <div class="tree-branch">
+                    <span class="tree-icon">└──</span>
+                    <span class="category-name">tools/</span>
+                  </div>
+                  <div class="tree-items last-category">
+                    <div class="skill-item" style="--skill-color: #f05032">
+                      <span class="tree-icon"> ├──</span>
+                      <i class="fab fa-git-alt skill-icon"></i>
+                      <span class="skill-name">Git</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 30%"></div>
+                        <span class="skill-percent">30%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #ffffff">
+                      <span class="tree-icon"> ├──</span>
+                      <i class="fab fa-github skill-icon"></i>
+                      <span class="skill-name">GitHub</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 50%"></div>
+                        <span class="skill-percent">50%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #007acc">
+                      <span class="tree-icon"> ├──</span>
+                      <i class="fas fa-code skill-icon"></i>
+                      <span class="skill-name">VS Code</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 75%"></div>
+                        <span class="skill-percent">75%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #4479a1">
+                      <span class="tree-icon"> ├──</span>
+                      <i class="fas fa-database skill-icon"></i>
+                      <span class="skill-name">MySQL</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 70%"></div>
+                        <span class="skill-percent">70%</span>
+                      </div>
+                    </div>
+                    <div class="skill-item" style="--skill-color: #f24e1e">
+                      <span class="tree-icon"> └──</span>
+                      <i class="fab fa-figma skill-icon"></i>
+                      <span class="skill-name">Figma</span>
+                      <div class="skill-bar-container">
+                        <div class="skill-bar" style="--skill-level: 20%"></div>
+                        <span class="skill-percent">20%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div
+      class="container mt-5 pt-5 pb-5"
+      style="margin-top: 150px !important; padding-top: 100px !important"
+      id="contact"
+    >
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-8 text-center"
+          data-aos="fade-up"
+          data-aos-once="true"
+        >
+          <h2 class="display-5 fw-bold text-light">Contact Me</h2>
+          <div
+            class="divider mx-auto bg-success mb-5"
+            style="height: 3px; width: 60px"
+          ></div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-8"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-once="true"
+        >
+          <!-- Terminal Window -->
+          <div class="contact-terminal">
+            <div class="terminal-header">
+              <div class="terminal-controls">
+                <div class="control red"></div>
+                <div class="control yellow"></div>
+                <div class="control green"></div>
+              </div>
+              <div class="terminal-title">$ ./send_message.sh</div>
+            </div>
+            <div class="terminal-body">
+              <form
+                class="contact-form"
+                id="contact-form"
+                action="https://formspree.io/f/meejwear"
+                method="POST"
+              >
+                <div class="terminal-line">
+                  <span class="prompt">→</span>
+                  <span class="label">name:</span>
+                  <input
+                    type="text"
+                    class="terminal-input"
+                    id="contact-name"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="terminal-line">
+                  <span class="prompt">→</span>
+                  <span class="label">email:</span>
+                  <input
+                    type="email"
+                    class="terminal-input"
+                    id="contact-email"
+                    name="email"
+                    placeholder="your@email.com"
+                    required
+                  />
+                </div>
+                <div class="terminal-line">
+                  <span class="prompt">→</span>
+                  <span class="label">subject:</span>
+                  <input
+                    type="text"
+                    class="terminal-input"
+                    id="contact-subject"
+                    name="_subject"
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+                <div class="terminal-line terminal-line-message">
+                  <span class="prompt">→</span>
+                  <span class="label">message:</span>
+                  <textarea
+                    class="terminal-textarea"
+                    id="contact-message"
+                    name="message"
+                    placeholder="Type your message here..."
+                    rows="4"
+                    required
+                  ></textarea>
+                </div>
+                <div class="terminal-line terminal-submit">
+                  <span class="prompt">$</span>
+                  <button type="submit" class="terminal-submit-btn">
+                    <span class="command">./submit.sh</span>
+                    <span class="cursor-blink"></span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="projectModal1"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="projectModalLabel1">Example Website</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-4">
+              <div class="col-md-5">
+                <img
+                  src="assets/image/project_example.webp"
+                  alt="Project 1"
+                  class="img-fluid rounded"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="col-md-7">
+                <h5 class="text-success mb-3">Project Description</h5>
+                <p class="text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Reiciendis quod dicta ab eum ad fuga, facilis optio earum.
+                </p>
+                <div class="mb-3">
+                  <h6 class="text-light mb-2">Features:</h6>
+                  <ul class="text-muted small">
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Consectetur adipisicing elit</li>
+                    <li>Facilis optio earum consequatur</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h6 class="text-light mb-2">Technologies:</h6>
+                  <span class="tech-badge">HTML</span>
+                  <span class="tech-badge">CSS</span>
+                  <span class="tech-badge">JavaScript</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-success">
+                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                  </a>
+                  <a href="#" class="btn btn-outline-light">
+                    <i class="fab fa-github me-2"></i>Source Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="projectModal2"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="projectModalLabel2">Example Website</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-4">
+              <div class="col-md-5">
+                <img
+                  src="assets/image/project_example.webp"
+                  alt="Project 2"
+                  class="img-fluid rounded"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="col-md-7">
+                <h5 class="text-success mb-3">Project Description</h5>
+                <p class="text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+                  incidunt quis, alias praesentium quam eius natus.
+                </p>
+                <div class="mb-3">
+                  <h6 class="text-light mb-2">Features:</h6>
+                  <ul class="text-muted small">
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Consectetur adipisicing elit</li>
+                    <li>Facilis optio earum consequatur</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h6 class="text-light mb-2">Technologies:</h6>
+                  <span class="tech-badge">HTML</span>
+                  <span class="tech-badge">CSS</span>
+                  <span class="tech-badge">JavaScript</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-success">
+                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                  </a>
+                  <a href="#" class="btn btn-outline-light">
+                    <i class="fab fa-github me-2"></i>Source Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="projectModal3"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel3"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="projectModalLabel3">Example Website</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-4">
+              <div class="col-md-5">
+                <img
+                  src="assets/image/project_example.webp"
+                  alt="Project 3"
+                  class="img-fluid rounded"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                />
+              </div>
+              <div class="col-md-7">
+                <h5 class="text-success mb-3">Project Description</h5>
+                <p class="text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolorum accusantium, dolorem possimus provident hic.
+                </p>
+                <div class="mb-3">
+                  <h6 class="text-light mb-2">Features:</h6>
+                  <ul class="text-muted small">
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Consectetur adipisicing elit</li>
+                    <li>Facilis optio earum consequatur</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h6 class="text-light mb-2">Technologies:</h6>
+                  <span class="tech-badge">HTML</span>
+                  <span class="tech-badge">CSS</span>
+                  <span class="tech-badge">JavaScript</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-success">
+                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                  </a>
+                  <a href="#" class="btn btn-outline-light">
+                    <i class="fab fa-github me-2"></i>Source Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificate Modal 1 -->
+    <div
+      class="modal fade"
+      id="certModal1"
+      tabindex="-1"
+      aria-labelledby="certModalLabel1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="certModalLabel1">
+              Example Certificate
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <img
+                  src="assets/image/certificate_example.png"
+                  alt="Certificate 1"
+                  class="img-fluid rounded"
+                  style="width: 100%"
+                />
+              </div>
+              <div class="col-md-6">
+                <h5 class="text-success mb-3">Certificate Details</h5>
+                <div class="mb-3">
+                  <h6 class="text-light">Issuer</h6>
+                  <p class="text-muted">Udemy</p>
+                </div>
+                <div class="mb-3">
+                  <h6 class="text-light">Date Issued</h6>
+                  <p class="text-muted">2023</p>
+                </div>
+                <div class="mb-3">
+                  <h6 class="text-light">Description</h6>
+                  <p class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Aspernatur quidem rem exercitationem obcaecati totam.
+                  </p>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-success">
+                    <i class="fas fa-external-link-alt me-2"></i>View Credential
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificate Modal 2 -->
+    <div
+      class="modal fade"
+      id="certModal2"
+      tabindex="-1"
+      aria-labelledby="certModalLabel2"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="certModalLabel2">
+              Example Certificate
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <img
+                  src="assets/image/certificate_example.png"
+                  alt="Certificate 2"
+                  class="img-fluid rounded"
+                  style="width: 100%"
+                />
+              </div>
+              <div class="col-md-6">
+                <h5 class="text-success mb-3">Certificate Details</h5>
+                <div class="mb-3">
+                  <h6 class="text-light">Issuer</h6>
+                  <p class="text-muted">freeCodeCamp</p>
+                </div>
+                <div class="mb-3">
+                  <h6 class="text-light">Date Issued</h6>
+                  <p class="text-muted">2022</p>
+                </div>
+                <div class="mb-3">
+                  <h6 class="text-light">Description</h6>
+                  <p class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Molestias asperiores voluptatibus doloremque maxime.
+                  </p>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-success">
+                    <i class="fas fa-external-link-alt me-2"></i>View Credential
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificate Modal 3 -->
+    <div
+      class="modal fade"
+      id="certModal3"
+      tabindex="-1"
+      aria-labelledby="certModalLabel3"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-dark text-light">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="certModalLabel3">
+              Example Certificate
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <img
+                  src="assets/image/certificate_example.png"
+                  alt="Certificate 3"
+                  class="img-fluid rounded"
+                  style="width: 100%"
+                />
+              </div>
+              <div class="col-md-6">
+                <h5 class="text-success mb-3">Certificate Details</h5>
+                <div class="mb-3">
+                  <h6 class="text-light">Issuer</h6>
+                  <p class="text-muted">Coursera</p>
+                </div>
+                <div class="mb-3">
+                  <h6 class="text-light">Date Issued</h6>
+                  <p class="text-muted">2023</p>
+                </div>
+                <div class="mb-3">
+                  <h6 class="text-light">Description</h6>
+                  <p class="text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sequi commodi nisi debitis illo sunt veniam.
+                  </p>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="#" class="btn btn-success">
+                    <i class="fas fa-external-link-alt me-2"></i>View Credential
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-light py-4 mt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <img
+              src="assets/image/clover.png"
+              alt="Clover Logo"
+              width="40"
+              height="40"
+              class="mb-3"
+            />
+            <div class="d-flex justify-content-center gap-3 mb-4">
+              <a
+                href="https://github.com/kvoryz"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://instagram.com/_kvory"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.tiktok.com/@_kvory"
+                target="_blank"
+                class="social-btn"
+              >
+                <i class="fab fa-tiktok"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="assets/js/script.js"></script>
