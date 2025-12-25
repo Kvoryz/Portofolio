@@ -144,13 +144,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const aboutImgWrapper = document.querySelector(".about-img-wrapper");
   const aboutVideo = document.querySelector(".about-video");
   if (aboutImgWrapper && aboutVideo) {
-    aboutImgWrapper.addEventListener("mouseenter", () => {
+    const isMobileDevice = window.innerWidth <= 991;
+
+    if (isMobileDevice) {
+      // Mobile: Auto-play video directly
       aboutVideo.play();
-    });
-    aboutImgWrapper.addEventListener("mouseleave", () => {
-      aboutVideo.pause();
-      aboutVideo.currentTime = 0;
-    });
+    } else {
+      // Desktop: Play on hover
+      aboutImgWrapper.addEventListener("mouseenter", () => {
+        aboutVideo.play();
+      });
+      aboutImgWrapper.addEventListener("mouseleave", () => {
+        aboutVideo.pause();
+        aboutVideo.currentTime = 0;
+      });
+    }
   }
 
   const tabEls = document.querySelectorAll('button[data-bs-toggle="tab"]');

@@ -3311,6 +3311,26 @@ section,
     max-width: 100% !important;
     width: 100% !important;
   }
+
+  /* Mobile: Show video directly without hover */
+  .about-img-wrapper .about-profile-img {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .about-img-wrapper .about-video {
+    opacity: 1;
+    z-index: 3;
+  }
+
+  /* Disable hover effects on mobile */
+  .about-img-wrapper:hover .about-profile-img {
+    opacity: 0;
+  }
+
+  .about-img-wrapper:hover .about-video {
+    opacity: 1;
+  }
 }
 
 .img-container-9-16 {
@@ -4144,6 +4164,27 @@ section,
 
 .terminal-input::placeholder {
   color: rgba(255, 255, 255, 0.3);
+}
+
+/* Override browser autofill styles */
+.terminal-input:-webkit-autofill,
+.terminal-input:-webkit-autofill:hover,
+.terminal-input:-webkit-autofill:focus,
+.terminal-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(40, 40, 50, 1) inset !important;
+  -webkit-text-fill-color: #f1fa8c !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #f1fa8c;
+}
+
+.terminal-textarea:-webkit-autofill,
+.terminal-textarea:-webkit-autofill:hover,
+.terminal-textarea:-webkit-autofill:focus,
+.terminal-textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(40, 40, 50, 1) inset !important;
+  -webkit-text-fill-color: #f1fa8c !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #f1fa8c;
 }
 
 .terminal-line-message {
